@@ -5,4 +5,7 @@ public class Main {
         System.out.println("Hello nemo packers!")
 
     }
+    public static void dumb() {
+        System.out.println("HI!");
+    }
 }
