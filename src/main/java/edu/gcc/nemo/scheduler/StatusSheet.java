@@ -3,9 +3,14 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class StatusSheet extends CourseList {
-    List<String> major;
-    List<String> minor;
-    int gradYear;
+    private List<String> major;
+    private List<String> minor;
+    private int gradYear;
+
+    //Methods
+    public String serialize() {
+        return null;
+    }
 
     //Getters and Setters
     public int getGradYear() {
@@ -14,10 +19,5 @@ public class StatusSheet extends CourseList {
 
     public void setGradYear(int gradYear) {
         this.gradYear = gradYear;
-    }
-
-    //Methods
-    public String serialize() {
-        return null;
     }
 }

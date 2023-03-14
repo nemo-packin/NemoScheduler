@@ -1,11 +1,12 @@
 package edu.gcc.nemo.scheduler;
 
 public class Account {
-    StatusSheet statusSheet;
-    Schedule schedule;
-    String login;
-    String password;
+    private StatusSheet statusSheet;
+    private Schedule schedule;
+    private String login;
+    private String password;
 
+    // METHODS
     public void serialize() {
 
     }

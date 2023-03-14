@@ -3,8 +3,8 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class User {
-    Account account;
-    String name;
+    protected Account account;
+    protected String name;
 
     //Methods
     public void login() {
