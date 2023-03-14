@@ -1,15 +1,28 @@
 package edu.gcc.nemo.scheduler;
 
 public class Course {
-    String courseCode;
-    String department;
-    String semester;
-    String time;
-    String day;
-    String prof;
-    String name;
-    int creditHours;
-    int capacity;
+    private String courseCode;
+    private String department;
+    private String semester;
+    private String time;
+    private String day;
+    private String prof;
+    private String name;
+    private int creditHours;
+    private int capacity;
+
+    public Course(String courseCode, String department, String semester, String time, String day,
+                  String prof, String name, int creditHours, int capacity) {
+        this.courseCode = courseCode;
+        this.department = department;
+        this.semester = semester;
+        this.time = time;
+        this.day = day;
+        this.prof = prof;
+        this.name = name;
+        this.creditHours = creditHours;
+        this.capacity = capacity;
+    }
 
     //Getters and Setters
     public String getCourseCode() {
