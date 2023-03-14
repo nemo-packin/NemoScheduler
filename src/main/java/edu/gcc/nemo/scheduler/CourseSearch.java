@@ -3,7 +3,7 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class CourseSearch {
-    List<Course> courses;
+    private List<Course> courses;
 
     //Methods
     public List<Course> getResults() {

@@ -3,8 +3,8 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class Student extends User{
-    int id;
-    int gradYear;
-    List<String> major;
-    List<String> minor;
+    private int id;
+    private int gradYear;
+    private List<String> major;
+    private List<String> minor;
 }
