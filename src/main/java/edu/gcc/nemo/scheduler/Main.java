@@ -15,23 +15,51 @@ public class Main {
 
         System.out.println("Hello nemo packers!");
 
-        while(true) {
+        System.out.println("Would you like to sign in or create account? \n" +
+                "(Type: 'Sign in' or 'Create account' or 'Exit')");
+        String input = sc.nextLine().toLowerCase().trim();
 
-            System.out.println("Would you like to sign in or create account? \n" +
-                    "(Type: 'Sign in' or 'Create account' or 'Exit')");
-            String input = sc.nextLine().toLowerCase().trim();
-            if(input.equals("exit"))
-                break;
-            while (!input.equals("sign in") && !input.equals("create account")) {
+        while(true) {
+            while (!input.equals("sign in") && !input.equals("create account") && !input.equals("exit")) {
                 System.out.println("I'm sorry, I did not understand what you are trying to do. \n" +
-                        "Would you like to sign in or create account? (Type: 'Sign in' or 'Create account')");
+                        "Would you like to sign in or create account? (Type: 'Sign in' or 'Create account' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
             }
+            if(input.equals("exit"))
+                break;
             if (input.equals("create account")) {
                 createAccount();
             }else if(input.equals("sign in")) {
                 login();
             }
+            while(stuSignedIn != null || adminSignedIn != null){
+                System.out.println("Would you like to sign out or add course to schedule? \n" +
+                        "(Type: 'Log out' or 'Add Course' or 'Exit)");
+                input = sc.nextLine().toLowerCase().trim();
+                // ADD LOG OUT OR ADD COURSE
+                if (input.equals("log out") || input.equals("exit")) {
+                    stuSignedIn = null;
+                    adminSignedIn = null;
+                    break;
+                } else { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
+                    displayAllCourses();
+                    System.out.println("Enter the course code you would like to add (or type 'Exit' or 'Log out'): *Please type out exactly!");
+                    input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
+                    if (input.equals("Log out") || input.equals("Exit")) {
+                        stuSignedIn = null;
+                        adminSignedIn = null;
+                        break;
+                    }
+                    addCourse(input);
+                }
+            }
+            if(input.equals("exit"))
+                break;
+            System.out.println("Would you like to sign in or create account? \n" +
+                    "(Type: 'Sign in' or 'Create account' or 'Exit')");
+            sc.nextLine().toLowerCase().trim();
+            input = sc.nextLine().toLowerCase().trim();
+
         }
         System.out.println("Goodbye nemo-er!");
 //        Schedule s = new Schedule("Spring");
@@ -42,7 +70,7 @@ public class Main {
     public static void createAccount(){
         System.out.println("Did you want to create a student or admin account? (Type 'exit' to go back)");
         String choice = sc.nextLine().toLowerCase().trim();
-        while(!choice.equals("student") || !choice.equals("admin")){
+        while(!choice.equals("student") && !choice.equals("admin") && !choice.equals("exit")){
             System.out.println("I'm sorry, I did not understand what you are trying to do. \n" +
                     "Did you want to create a student or admin account?");
             choice = sc.nextLine().toLowerCase().trim();
@@ -50,7 +78,7 @@ public class Main {
         if(choice.equals("exit"))
             return;
 
-        System.out.println("Please enter the username you would like to use:  (Type 'exit' to go back)");
+        System.out.println("Please enter the login you would like to use:  (Type 'exit' to go back)");
         String login = sc.nextLine().trim();
         while(doesLoginExist(login)) {
             System.out.println("I'm sorry, but that username already exists, please pick a different one");
@@ -87,8 +115,10 @@ public class Main {
 
     }
     public static void login(){
-        System.out.println("To login in please enter your username (Type 'exit' to go back to home)");
-        String login = sc.nextLine().trim();
+        System.out.println("To login in please enter your login (Type 'exit' to go back to home)");
+        String login = sc.nextLine().toLowerCase().trim();
+        if(login.equals("exit"))
+            return;
         while(!doesLoginExist(login)){
             System.out.println("That login does not exists");
             System.out.println("To login in please enter your username");
@@ -104,6 +134,7 @@ public class Main {
                 password = sc.nextLine().trim();
             }
             stuSignedIn = tempStu;
+            stuSignedIn.printInfo();
         }else{
             Admin tempAdmin = adminList.get(login);
 
@@ -114,6 +145,7 @@ public class Main {
                 password = sc.nextLine().trim();
             }
             adminSignedIn = tempAdmin;
+            adminSignedIn.printInfo();
         }
         System.out.println("You successfully logged in!");
     }
@@ -122,6 +154,38 @@ public class Main {
         if(studentList.get(login) == null && adminList.get(login) == null)
             return false;
         return true;
+    }
+
+    public static void displayAllCourses(){
+        if(stuSignedIn != null){
+            System.out.println("The following is a list of all the classes: \n");
+            for(Course c : stuSignedIn.account.schedule.allCourseList){
+                System.out.println(c.toString());
+            }
+        }else if(adminSignedIn != null){
+            System.out.println("The following is a list of all the classes: \n");
+            for(Course c : adminSignedIn.account.schedule.allCourseList){
+                System.out.println(c.toString());
+            }
+        }
+        else{
+            System.out.println("You are not signed in!");
+        }
+    }
+
+    public static void addCourse(String courseCode){
+        if(stuSignedIn != null){
+            stuSignedIn.account.schedule.addCourse(courseCode);
+            System.out.println("Course successfully added!");
+            System.out.println(stuSignedIn.account.schedule.toString());
+        }else if(adminSignedIn != null){
+            adminSignedIn.account.schedule.addCourse(courseCode);
+            System.out.println("Course successfully added!");
+            System.out.println(adminSignedIn.account.schedule.toString());
+        }
+        else{
+            System.out.println("You are not signed in!");
+        }
     }
 
 }

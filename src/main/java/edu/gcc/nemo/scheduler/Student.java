@@ -17,6 +17,19 @@ public class Student extends User{
         minors = new ArrayList<>();
     }
 
+    @Override
+    public void printInfo() {
+        System.out.println(
+                "You are a student! Here is your info: " + "\n" +
+                "Login: " + account.login + "\n" +
+                "Name: " + name + "\n" +
+                "Password: " + account.password + "\n" +
+                "id: " + id + "\n" +
+                "Grad year:" + gradYear + "\n" +
+                "Majors: " + majors + "\n" +
+                "Minors: " + minors + "\n");
+    }
+
     public int getId() {
         return id;
     }
@@ -48,4 +61,5 @@ public class Student extends User{
     public void addMinor(String minor) {
         minors.add(minor);
     }
+
 }
