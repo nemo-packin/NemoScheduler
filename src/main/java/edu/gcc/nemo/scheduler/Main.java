@@ -114,16 +114,17 @@ public class Main {
         System.out.println("You have successfully created an account!");
 
     }
+
     public static void login(){
-        System.out.println("To login in please enter your login (Type 'exit' to go back to home)");
-        String login = sc.nextLine().toLowerCase().trim();
-        if(login.equals("exit"))
-            return;
-        while(!doesLoginExist(login)){
+        System.out.println("To login in please enter your username (Type 'Exit' to go back to home)");
+        String login = sc.nextLine().trim();
+        while(!doesLoginExist(login) && !login.toLowerCase().equals("exit")){
             System.out.println("That login does not exists");
             System.out.println("To login in please enter your username");
             login = sc.nextLine().trim();
         }
+        if(login.toLowerCase().equals("exit"))
+            return;
         if(studentList.get(login) != null){
             Student tempStu = studentList.get(login);
 
