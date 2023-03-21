@@ -6,7 +6,7 @@ public class tempAllCourseList {
 
     // Constructor
     public tempAllCourseList(){
-        allCourseList = new Course[5];
+        allCourseList = new Course[6];
         allCourseList[0] = new Course("COMM 245 B", "Communication","Semester",
                 "2:42am","MWF","Tim Hawkins", "Digital Photography", 3, 25);
         allCourseList[1] = new Course("COMP 342 A", "Computer Science","Spring",
@@ -17,6 +17,8 @@ public class tempAllCourseList {
                 "12:00pm","MWF","Hutchins", "Intro to Machine Learning", 3, 18);
         allCourseList[4] = new Course("PSYC A", "Psychology","Spring",
                 "6:30pm","T","Who knows?", "Psyc transfer class", 1, 30);
+        allCourseList[5] = new Course("PSYC B", "Psychology","Spring",
+                "9:00am","MWF","Who knows?", "Psyc transfer class", 1, 30);
     }
 
 }
