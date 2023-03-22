@@ -4,8 +4,24 @@ import java.util.List;
 
 public class Admin extends User {
 
+    public Admin(String login, String password, String name){
+        super(login, password, name);
+
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(
+                "You are an admin! Here is your info: " + "\n" +
+                "Login: " + account.login + "\n" +
+                "Name: " + name + "\n" +
+                "Password: " + account.password + "\n");
+    }
+
     //Methods
     public List<Student> searchStudent() {
         return null;
     }
+
+
 }
