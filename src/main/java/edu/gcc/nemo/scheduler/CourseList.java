@@ -13,13 +13,14 @@ public abstract class CourseList extends tempAllCourseList{
 
     //Methods
     public void addCourse(String courseCode) {
-        for(Course c: allCourseList){
-            if (c.getCourseCode().equals(courseCode)){
-                courses.add(c);
-                System.out.println("Course was successfully added!");
-                break;
-            }
-        }
+        courses.add(getCourse(courseCode));
+//        for(Course c: allCourseList){
+//            if (c.getCourseCode().equals(courseCode)){
+//                courses.add(c);
+//                System.out.println("Course was successfully added!");
+//                break;
+//            }
+//        }
     }
 
     public void removeCourse(String courseCode) {
