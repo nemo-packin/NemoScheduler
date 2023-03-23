@@ -42,7 +42,7 @@ public class Main {
     public static void createAccount(){
         System.out.println("Did you want to create a student or admin account? (Type 'exit' to go back)");
         String choice = sc.nextLine().toLowerCase().trim();
-        while(!choice.equals("student") || !choice.equals("admin")){
+        while(!choice.equals("student") && !choice.equals("admin")){
             System.out.println("I'm sorry, I did not understand what you are trying to do. \n" +
                     "Did you want to create a student or admin account?");
             choice = sc.nextLine().toLowerCase().trim();
@@ -50,7 +50,7 @@ public class Main {
         if(choice.equals("exit"))
             return;
 
-        System.out.println("Please enter the username you would like to use:  (Type 'exit' to go back)");
+        System.out.println("Please enter the login you would like to use:  (Type 'exit' to go back)");
         String login = sc.nextLine().trim();
         while(doesLoginExist(login)) {
             System.out.println("I'm sorry, but that username already exists, please pick a different one");
@@ -86,14 +86,17 @@ public class Main {
         System.out.println("You have successfully created an account!");
 
     }
+
     public static void login(){
-        System.out.println("To login in please enter your username (Type 'exit' to go back to home)");
+        System.out.println("To login in please enter your username (Type 'Exit' to go back to home)");
         String login = sc.nextLine().trim();
-        while(!doesLoginExist(login)){
+        while(!doesLoginExist(login) && !login.toLowerCase().equals("exit")){
             System.out.println("That login does not exists");
             System.out.println("To login in please enter your username");
             login = sc.nextLine().trim();
         }
+        if(login.toLowerCase().equals("exit"))
+            return;
         if(studentList.get(login) != null){
             Student tempStu = studentList.get(login);
 

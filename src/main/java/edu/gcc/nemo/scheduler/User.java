@@ -17,6 +17,9 @@ public class User {
 
     }
 
+    //NEW METHOD FOR SAVING ACCOUNT TO DATABASE
+
+
     public void saveSchedule() {
 
     }
