@@ -1,9 +1,29 @@
 package edu.gcc.nemo.scheduler;
 
-public class Session {
-    User user;
+import java.sql.*;
 
-    void authenticate() {}
+public class Session {
+    private User user;
+    private boolean authenticated = false;
+
+    public Session() {
+
+    }
+
+    void authenticate() {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement stuStmt = conn.prepareStatement("Select * from Students");
+
+            ResultSet rs = stuStmt.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean getAuthen(){
+        return authenticated;
+    }
 
     void saveSchedule() {}
 
