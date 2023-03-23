@@ -9,6 +9,15 @@ public class Admin extends User {
 
     }
 
+    @Override
+    public void printInfo() {
+        System.out.println(
+                "You are an admin! Here is your info: " + "\n" +
+                "Login: " + account.login + "\n" +
+                "Name: " + name + "\n" +
+                "Password: " + account.password + "\n");
+    }
+
     //Methods
     public List<Student> searchStudent() {
         return null;

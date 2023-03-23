@@ -2,7 +2,7 @@ package edu.gcc.nemo.scheduler;
 
 import java.util.List;
 
-public class User {
+public abstract class User {
     protected Account account;
     protected String name;
 
@@ -38,5 +38,7 @@ public class User {
             return true;
         return false;
     }
+
+    public abstract void printInfo();
 
 }
