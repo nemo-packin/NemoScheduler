@@ -62,4 +62,9 @@ public class Student extends User{
         minors.add(minor);
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
 }

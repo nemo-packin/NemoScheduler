@@ -59,22 +59,29 @@ public class Session {
     /**
      * @param stuNameSearchVal is the name the user is searching for
      * @return returns an arraylist of all names that contains the search value
+     * !!!! SHOULD BE LATER CHANGED TO RETURN ARRAYLIST OF STUDENTS
      */
-    public ArrayList<String> searchStudents(String stuNameSearchVal) {
+    public Student[] searchStudents(String stuNameSearchVal) {
         if(authenticated && typeOfUser.equals("admin")){
             ArrayList<String> listOfStuNames = refStudents.getListOfAllStudentUsernames();
-            ArrayList<String> resultMatches = new ArrayList<>();
+            ArrayList<String> resultNameMatches = new ArrayList<>();
             for(String names : listOfStuNames){
                 if(names.contains(stuNameSearchVal))
-                    resultMatches.add(names);
+                    resultNameMatches.add(names);
             }
-            return resultMatches;
+            Student[] stuArr = new Student[resultNameMatches.size()];
+            for(int i = 0; i < stuArr.length; i++){
+                stuArr[i] = refStudents.getStudent(refStudents.getLogin(resultNameMatches.get(i)));
+            }
+            return stuArr;
         }
         System.out.println("You do not have proper credentials to search for " + stuNameSearchVal + "!");
         return null;
     }
 
-    String searchCourses() {return null;}
+    public Courses[] searchCourses() {
+        return null;
+    }
 
     public String getSchedule() {
         return null;

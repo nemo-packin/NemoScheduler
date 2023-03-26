@@ -21,13 +21,13 @@ public class main3 {
         System.out.println("Login is: " + admin1.account.login);
         session.authenticate(admin1.account.login, admin1.account.password);
         System.out.println(session.isAuthen());
-        ArrayList<String> listOfSearchResults = session.searchStudents("jon");
+        Student[] listOfSearchResults = session.searchStudents("jon");
         System.out.println("List of Students is:");
-        for(String stu : listOfSearchResults){
+        for(Student stu : listOfSearchResults){
             System.out.println(stu);
         }
 
-        Student stu = session.getStudent(listOfSearchResults.get(0));
+        Student stu = session.getStudent(listOfSearchResults[0].name);
         System.out.println("The following is the selected student: ");
         stu.printInfo();
 
@@ -38,7 +38,7 @@ public class main3 {
         Student student1 = new Student("kool1","123","jonathan", 32,2024);
         session2.authenticate(student1.account.login, student1.account.password);
         System.out.println(session2.isAuthen());
-        ArrayList<String> listOfSearchResults2 = session2.searchStudents("jon");
+        Student[] listOfSearchResults2 = session2.searchStudents("jon");
 
 
 
