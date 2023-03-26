@@ -19,7 +19,7 @@ public class Admins {
     /**
      * Singleton for students
      */
-    public static Admins getAdmins(){
+    public static Admins getAdminsInstance(){
         if(admins == null){
             return new Admins();
         }
@@ -33,6 +33,7 @@ public class Admins {
             stmt = conn.createStatement();
             loginStatement = conn.prepareStatement("select  * from Admins where login = ?");
             allAdmins = new HashMap<>();
+            loadAllAdmins();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -52,14 +53,14 @@ public class Admins {
      * Populates a map with all admins from the db.
      * The key is the login, and the value is the admin
      */
-    public void loadAllAdmins(){
+    private void loadAllAdmins(){
         try{
             ResultSet rs = stmt.executeQuery("select * from Admins");
             while(rs.next()){
                 allAdmins.put(rs.getString("login"),
                         new Admin(rs.getString("login"),
                                 rs.getString("password"),
-                                rs.getString("name")));
+                                rs.getString("username")));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);

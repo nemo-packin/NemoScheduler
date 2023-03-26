@@ -30,6 +30,7 @@ public class Courses {
             statement = conn.createStatement();
             courseCodeStatement = conn.prepareStatement("select  * from Courses where course_code = ?");
             allCourses = new HashMap<>();
+            getAllCourses();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -69,7 +70,7 @@ public class Courses {
      * getAllCourses
      * populates a map<courseCode, Course> all the courses in the database
      */
-    public void getAllCourses() {
+    private void getAllCourses() {
         try {
             ResultSet rs = statement.executeQuery("select * from Courses");
             while(rs.next()) {
@@ -93,7 +94,7 @@ public class Courses {
     /*
     Get instance of the Courses singleton.
      */
-    public static Courses getInstance() {
+    public static Courses getCoursesInstance() {
         if(instance == null) {
             instance = new Courses();
         }
