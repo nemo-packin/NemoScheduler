@@ -13,6 +13,7 @@ public class Students {
     private Statement stmt;
     private PreparedStatement loginStatement;
     private Map<String, Student> allStudents;
+    private String[] studentUsernames;
 
     /**
      * Singleton for students
@@ -45,11 +46,11 @@ public class Students {
     }
 
     /**
-     * getAllStudents
+     * loadAllStudents
      * Populates a map with all students from the db.
      * The key is the login, and the value is the student
      */
-    public void getAllStudents(){
+    public void loadAllStudents(){
         try{
             ResultSet rs = stmt.executeQuery("select * from Students");
             while(rs.next()){
@@ -63,6 +64,10 @@ public class Students {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public void getAllStudentUsers(){
+
     }
 
 }

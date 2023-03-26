@@ -43,16 +43,16 @@ public class Admins {
      * @param login the login the person uses to access their account
      * @returns returns the admin from the map if the login exists
      */
-    public Admin getStudent(String login){
+    public Admin getAdmin(String login){
         return allAdmins.get(login);
     }
 
     /**
-     * getAllAdmins
+     * loadAllAdmins
      * Populates a map with all admins from the db.
      * The key is the login, and the value is the admin
      */
-    public void getAllAdmins(){
+    public void loadAllAdmins(){
         try{
             ResultSet rs = stmt.executeQuery("select * from Admins");
             while(rs.next()){
