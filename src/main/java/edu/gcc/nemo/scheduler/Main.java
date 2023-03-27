@@ -22,9 +22,9 @@ public class Main {
             ResultSet rs = stuStmt.executeQuery();
 
             while(rs.next()){
-                studentList.put(rs.getString("name"), new Student("john", "123", rs.getString("name"),
+                studentList.put(rs.getString("username"), new Student("john", "123", rs.getString("username"),
                         rs.getInt("id"), rs.getInt("grad_year")));
-                System.out.println("Successfully added " + rs.getString("name") + " to the list of students!");
+                System.out.println("Successfully added " + rs.getString("username") + " to the list of students!");
             }
             System.out.println("\n\n");
         } catch (SQLException e) {
@@ -241,6 +241,7 @@ public class Main {
         else{
             System.out.println("You are not signed in!");
         }
+        System.out.println(stuSignedIn.account.schedule.calendarView());
     }
 
     public static void removeCourse(String courseCode){
@@ -254,5 +255,6 @@ public class Main {
         else{
             System.out.println("You are not signed in!");
         }
+        System.out.println(stuSignedIn.account.schedule.calendarView());
     }
 }
