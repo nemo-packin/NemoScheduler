@@ -4,7 +4,9 @@ import edu.gcc.nemo.scheduler.Course;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Courses {
     /***
@@ -17,15 +19,31 @@ public class Courses {
     private Connection conn;
     private Statement statement;
     private PreparedStatement courseCodeStatement;
+    private Map<String, Course> allCourses;
+    private ArrayList<String> courseCodes;
 
-    /***
-     *
+
+    /**
+    Get instance of the Courses singleton.
+    */
+    public static Courses getCoursesInstance() {
+        if(instance == null) {
+            instance = new Courses();
+        }
+        return instance;
+    }
+
+    /**
+     * Constructor
      */
     private Courses() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             statement = conn.createStatement();
             courseCodeStatement = conn.prepareStatement("select  * from Courses where course_code = ?");
+            allCourses = new HashMap<>();
+            courseCodes = new ArrayList<>();
+            getAllCourses();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -38,38 +56,38 @@ public class Courses {
      * @return the course object corresponding to the course code
      */
     public Course getCourse(String courseCode) {
-        try {
-            courseCodeStatement.setString(1, courseCode);
-            ResultSet rs = courseCodeStatement.executeQuery();
-            if(rs.next()) {
-                return new Course(
-                        rs.getString("course_code"),
-                        rs.getString("department"),
-                        rs.getString("semester"),
-                        rs.getString("time"),
-                        rs.getString("day"),
-                        rs.getString("prof"),
-                        rs.getString("name"),
-                        rs.getInt("credit_hours"),
-                        rs.getInt("capacity")
-                );
-            }
-            throw new IllegalArgumentException("Course not found for course code.");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return allCourses.get(courseCode);
+//        try {
+//            courseCodeStatement.setString(1, courseCode);
+//            ResultSet rs = courseCodeStatement.executeQuery();
+//            if(rs.next()) {
+//                return new Course(
+//                        rs.getString("course_code"),
+//                        rs.getString("department"),
+//                        rs.getString("semester"),
+//                        rs.getString("time"),
+//                        rs.getString("day"),
+//                        rs.getString("prof"),
+//                        rs.getString("name"),
+//                        rs.getInt("credit_hours"),
+//                        rs.getInt("capacity")
+//                );
+//            }
+//            throw new IllegalArgumentException("Course not found for course code.");
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     /***
      * getAllCourses
-     * @return a list of all the courses in the database
+     * populates a map<courseCode, Course> all the courses in the database
      */
-    public List<Course> getAllCourses() {
-        List<Course> result = new ArrayList<>();
+    private void getAllCourses() {
         try {
             ResultSet rs = statement.executeQuery("select * from Courses");
             while(rs.next()) {
-                result.add(new Course(
+                allCourses.put(rs.getString("course_code"),new Course(
                         rs.getString("course_code"),
                         rs.getString("department"),
                         rs.getString("semester"),
@@ -78,22 +96,15 @@ public class Courses {
                         rs.getString("prof"),
                         rs.getString("name"),
                         rs.getInt("credit_hours"),
-                        rs.getInt("capacity")
-                ));
+                        rs.getInt("capacity")));
+                courseCodes.add(rs.getString("course_code"));
             }
-            return result;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    /*
-    Get instance of the Courses singleton.
-     */
-    public static Courses getInstance() {
-        if(instance == null) {
-            instance = new Courses();
-        }
-        return instance;
+    public ArrayList<String> getAllCourseCodes(){
+        return courseCodes;
     }
 }
