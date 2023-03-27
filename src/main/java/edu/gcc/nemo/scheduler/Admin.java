@@ -23,5 +23,10 @@ public class Admin extends User {
         return null;
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
 
 }

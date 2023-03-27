@@ -52,23 +52,41 @@ public class Main {
             }
             while(stuSignedIn != null || adminSignedIn != null){
                 System.out.println("Would you like to sign out or add course to schedule? \n" +
-                        "(Type: 'Log out' or 'Add Course' or 'Exit)");
+                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
+                System.out.println(input);
                 // ADD LOG OUT OR ADD COURSE
                 if (input.equals("log out") || input.equals("exit")) {
                     stuSignedIn = null;
                     adminSignedIn = null;
                     break;
-                } else { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
+                } else if (input.equals("add course")) { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
                     displayAllCourses();
                     System.out.println("Enter the course code you would like to add (or type 'Exit' or 'Log out'): *Please type out exactly!");
                     input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
-                    if (input.equals("Log out") || input.equals("Exit")) {
+                    if (input.equals("log out") || input.equals("exit")) {
                         stuSignedIn = null;
                         adminSignedIn = null;
                         break;
                     }
-                    addCourse(input);
+                    try {
+                        addCourse(input);
+                    }
+                    catch (Exception e) {
+                        System.out.println("I'm sorry, I didn't understand that...");
+                    }
+                } else if(input.equals("remove course")) {
+                    displayAllCourses();
+                    System.out.println("Enter the course code you would like to remove (or type 'Exit' or 'Log out'): *Please type out exactly!");
+                    input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
+                    if (input.equals("log out") || input.equals("exit")) {
+                        stuSignedIn = null;
+                        adminSignedIn = null;
+                        break;
+                    }
+                    removeCourse(input);
+                } else if(input.equals("search student")){
+
                 }
             }
             if(input.equals("exit"))
@@ -126,7 +144,17 @@ public class Main {
             adminList.put(login, new Admin(login, password, username));
         }else{
             System.out.println("What is your graduation year?");
-            int gradYear = sc.nextInt(); // DOUBLE CHECK FOR ERRORS HERE: FOR EXAMPLE IF THEY ENTER STRING
+
+            //Error Checking
+            while(true) {
+                if(sc.hasNextInt()) {
+                    break;
+                } else {
+                    sc.next();
+                    System.out.println("That's not a number! What is your graduation year?");
+                }
+            }
+            int gradYear = sc.nextInt();
             studentList.put(login, new Student(login, password, username, studentList.size() + 1, gradYear));
 
 //            //WRITING TO DATABASE
@@ -205,11 +233,9 @@ public class Main {
     public static void addCourse(String courseCode){
         if(stuSignedIn != null){
             stuSignedIn.account.schedule.addCourse(courseCode);
-            System.out.println("Course successfully added!");
             System.out.println(stuSignedIn.account.schedule.toString());
         }else if(adminSignedIn != null){
             adminSignedIn.account.schedule.addCourse(courseCode);
-            System.out.println("Course successfully added!");
             System.out.println(adminSignedIn.account.schedule.toString());
         }
         else{
@@ -217,4 +243,16 @@ public class Main {
         }
     }
 
+    public static void removeCourse(String courseCode){
+        if(stuSignedIn != null){
+            stuSignedIn.account.schedule.removeCourse(courseCode);
+            System.out.println(stuSignedIn.account.schedule.toString());
+        }else if(adminSignedIn != null){
+            adminSignedIn.account.schedule.removeCourse(courseCode);
+            System.out.println(adminSignedIn.account.schedule.toString());
+        }
+        else{
+            System.out.println("You are not signed in!");
+        }
+    }
 }
