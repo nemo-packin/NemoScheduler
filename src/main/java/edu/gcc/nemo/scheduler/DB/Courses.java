@@ -20,9 +20,21 @@ public class Courses {
     private Statement statement;
     private PreparedStatement courseCodeStatement;
     private Map<String, Course> allCourses;
+    private ArrayList<String> courseCodes;
 
-    /***
-     *
+
+    /**
+    Get instance of the Courses singleton.
+    */
+    public static Courses getCoursesInstance() {
+        if(instance == null) {
+            instance = new Courses();
+        }
+        return instance;
+    }
+
+    /**
+     * Constructor
      */
     private Courses() {
         try {
@@ -30,6 +42,7 @@ public class Courses {
             statement = conn.createStatement();
             courseCodeStatement = conn.prepareStatement("select  * from Courses where course_code = ?");
             allCourses = new HashMap<>();
+            courseCodes = new ArrayList<>();
             getAllCourses();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -83,21 +96,15 @@ public class Courses {
                         rs.getString("prof"),
                         rs.getString("name"),
                         rs.getInt("credit_hours"),
-                        rs.getInt("capacity")
-                ));
+                        rs.getInt("capacity")));
+                courseCodes.add(rs.getString("course_code"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    /*
-    Get instance of the Courses singleton.
-     */
-    public static Courses getCoursesInstance() {
-        if(instance == null) {
-            instance = new Courses();
-        }
-        return instance;
+    public ArrayList<String> getAllCourseCodes(){
+        return courseCodes;
     }
 }

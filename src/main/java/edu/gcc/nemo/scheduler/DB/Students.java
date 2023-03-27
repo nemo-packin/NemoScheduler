@@ -36,7 +36,7 @@ public class Students {
             studentUsernames = new ArrayList<>();
             nameToLoginMap = new HashMap<>();
             loadAllStudents();
-            getAllStudentUsers();
+//            getAllStudentUsers();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -61,8 +61,9 @@ public class Students {
 
     /**
      * loadAllStudents
-     * Populates a map with all students from the db.
-     * The key is the login, and the value is the student
+     * -Populates a map with all students from the db. The key is the login, and the value is the student
+     * -It also populates a map of username to logins
+     * -An array list of usernames is also filled
      */
     private void loadAllStudents(){
         try{
@@ -76,19 +77,6 @@ public class Students {
                                 rs.getInt("grad_year")));
                 nameToLoginMap.put(rs.getString("username"),
                                 rs.getString("login"));
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * gets all student usernames from the database
-     */
-    private void getAllStudentUsers(){
-        try{
-            ResultSet rs = stmt.executeQuery("select * from Students");
-            while(rs.next()){
                 studentUsernames.add(rs.getString("username"));
             }
         }catch (SQLException e){

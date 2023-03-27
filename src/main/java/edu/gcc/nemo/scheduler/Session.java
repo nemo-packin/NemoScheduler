@@ -3,8 +3,8 @@ package edu.gcc.nemo.scheduler;
 import edu.gcc.nemo.scheduler.DB.Students;
 import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
+import org.eclipse.jetty.util.StringUtil;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 public class Session {
@@ -14,9 +14,9 @@ public class Session {
     private String typeOfUser;
     private boolean authenticated = false;
 
-    private Admins refAdmins;
-    private Students refStudents;
-    private Courses refCourses;
+    private final Admins refAdmins;
+    private final Students refStudents;
+    private final Courses refCourses;
 
     public Session(Admins admins, Students students, Courses courses) {
         refAdmins = admins;
@@ -54,7 +54,9 @@ public class Session {
 
     }
 
-    void editSchedule() {}
+    void editSchedule() {
+
+    }
 
     /**
      * @param stuNameSearchVal is the name the user is searching for
@@ -79,8 +81,24 @@ public class Session {
         return null;
     }
 
-    public Courses[] searchCourses() {
-        return null;
+    /**
+     *
+     * @param courseCodeSearchVal is the name of the course the user is searching for
+     * @return an array of courses with course codes that contains the search value
+     */
+    public Course[] searchCourses(String courseCodeSearchVal) {
+        String courseCodeSearchVal2 = courseCodeSearchVal.replace(" ","");
+        ArrayList<String> listOfCourseCodes = refCourses.getAllCourseCodes();
+        ArrayList<String> resultCourseCodeMatches = new ArrayList<>();
+        for(String cc: listOfCourseCodes){
+            if(cc.contains(courseCodeSearchVal2))
+                resultCourseCodeMatches.add(cc);
+        }
+        Course[] courseArr = new Course[resultCourseCodeMatches.size()];
+        for(int i = 0; i < courseArr.length; i++){
+            courseArr[i] = refCourses.getCourse(resultCourseCodeMatches.get(i));
+        }
+        return courseArr;
     }
 
     public String getSchedule() {
@@ -100,7 +118,12 @@ public class Session {
         return null;
     }
 
-    String getStatusSheet() {return null;}
+    public String getStatusSheet() {
+        if(typeOfUser.equals("student"))
+            return stu.account.statusSheet.toString();
+        System.out.println("You do not have a status sheet");
+        return null;
+    }
 
     /**
      * @returns the type of user on this session

@@ -31,6 +31,8 @@ public class main3 {
         System.out.println("The following is the selected student: ");
         stu.printInfo();
 
+
+
         System.out.println("\n------------------------------------------------------\n");
         //TESTING SESSION FOR STUDENT
         Session session2 = new Session(admins, students, courses);
@@ -41,6 +43,13 @@ public class main3 {
         Student[] listOfSearchResults2 = session2.searchStudents("jon");
 
 
+
+        System.out.println("\n------------------------------------------------------\n");
+        //TESTING SESSION FOR COURSE SEARCH!!!
+        Course[] listCourseS1 = session2.searchCourses("COMP 4");
+        for(Course c: listCourseS1){
+            System.out.println(c);
+        }
 
     }
 }
