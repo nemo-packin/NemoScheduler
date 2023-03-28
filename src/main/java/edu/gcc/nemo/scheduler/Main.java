@@ -52,7 +52,7 @@ public class Main {
             }
             while(stuSignedIn != null || adminSignedIn != null){
                 System.out.println("Would you like to sign out or add course to schedule? \n" +
-                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Exit)");
+                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
                 System.out.println(input);
                 // ADD LOG OUT OR ADD COURSE
@@ -85,6 +85,8 @@ public class Main {
                         break;
                     }
                     removeCourse(input);
+                } else if(input.equals("search student")){
+
                 }
             }
             if(input.equals("exit"))
