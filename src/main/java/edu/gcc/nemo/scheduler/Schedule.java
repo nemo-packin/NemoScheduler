@@ -1,7 +1,6 @@
 package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -134,16 +133,13 @@ public class Schedule extends CourseList {
         }
     }
 
-    public void deleteSchedule(Schedule schedule){
-
-    }
 
     //Getters and Setters
-    public Boolean getApproved() {
+    public int getApproved() {
         return isApproved;
     }
 
-    public void setApproved(Boolean approved) {
+    public void setApproved(int approved) {
         isApproved = approved;
     }
 

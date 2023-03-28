@@ -22,7 +22,8 @@ public class Students {
      */
     public static Students getStudentsInstance(){
         if(students == null){
-            return new Students();
+            students = new Students();
+            return students;
         }
         return students;
     }

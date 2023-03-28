@@ -16,15 +16,22 @@ public class Main {
         studentList = new HashMap<>();
         adminList = new HashMap<>();
 
+        /**
+         * reading in from database
+         * Schedule s = new Schedule(semester from database)
+         * Schedule s2 = new Schedule(semester from database)
+         */
+
+
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement stuStmt = conn.prepareStatement("Select * from Students");
             ResultSet rs = stuStmt.executeQuery();
 
             while(rs.next()){
-                studentList.put(rs.getString("name"), new Student("john", "123", rs.getString("name"),
+                studentList.put(rs.getString("username"), new Student("john", "123", rs.getString("username"),
                         rs.getInt("id"), rs.getInt("grad_year")));
-                System.out.println("Successfully added " + rs.getString("name") + " to the list of students!");
+                System.out.println("Successfully added " + rs.getString("username") + " to the list of students!");
             }
             System.out.println("\n\n");
         } catch (SQLException e) {

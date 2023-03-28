@@ -5,9 +5,7 @@ import java.util.List;
 
 public abstract class CourseList extends tempAllCourseList{
     protected List<Course> courses;
-
     private final Courses refCourses;
-
     // Constructor
     public CourseList(Courses c) {
         courses = new ArrayList<Course>();
@@ -15,7 +13,7 @@ public abstract class CourseList extends tempAllCourseList{
 
     //Methods
     public void addCourse(String courseCode) {
-        refCourses.getCourse(sourseCode)
+        refCourses.getCourse(courseCode);
         //Check to see if the course is already in the schedule
         for(Course c: courses){
             if (c.getCourseCode().equals(courseCode)){
