@@ -1,20 +1,46 @@
 package edu.gcc.nemo.scheduler;
 
+import edu.gcc.nemo.scheduler.DB.Courses;
+
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 
 public class Schedule extends CourseList {
-    List<Course> courses = new ArrayList<>();
-    private Boolean isApproved;
+    List<Course> courseList = new ArrayList<>();
+    String coursesString = "";
+    private int isApproved;
     private String semester;
+    private Connection conn;
+    private Statement stmt;
+    private String name;
+    private final Courses refCourses;
 
     // Constructor
-    public Schedule(String semester){
-        isApproved = false;
+    public Schedule (String name, String semester, int isApproved, String courses, Student student, Courses refCourses){
+        int id = student.getId();
+        this.name = id + name;
         this.semester = semester;
+        this.isApproved = 0;
+        this.coursesString = courses;
+        this.refCourses = refCourses;
+    }
+
+    /**
+     *
+     * @param courses the string of courses from the database
+     * populates the courseList with the courses from the database
+     */
+    public void courseListBuilder(String courses){
+        List<String> temp = Arrays.asList(courses.split(","));
+        for (int i = 0; i < temp.size(); i++){
+            Course tempCourse = refCourses.getCourse(temp.get(i));
+            courseList.add(tempCourse);
+        }
     }
 
     //Methods
@@ -23,7 +49,7 @@ public class Schedule extends CourseList {
     }
 
     public void approve() {
-        isApproved = true;
+        isApproved = 1;
         System.out.println("You're class was approved!");
     }
 
@@ -41,6 +67,22 @@ public class Schedule extends CourseList {
             if (allCourseList[i].getCourseCode().equals(courseCode)){
                 courses.add(allCourseList[i]);
             }
+        }
+    }
+
+    private void loadSchedule(String name){
+        try{
+            PreparedStatement loadS = conn.prepareStatement("select * from Schedules where name = ?");
+            loadS.setString(1, name);
+            ResultSet rs = stmt.executeQuery("select * from Schedules where name = " + name);
+            while(rs.next()){
+                this.name = rs.getString("Name");
+                this.semester = rs.getString("Semester");
+                this.isApproved = rs.getInt("isApproved");
+                this.coursesString = rs.getString("Courses");
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
         }
     }
 
@@ -90,6 +132,10 @@ public class Schedule extends CourseList {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public void deleteSchedule(Schedule schedule){
+
     }
 
     //Getters and Setters
