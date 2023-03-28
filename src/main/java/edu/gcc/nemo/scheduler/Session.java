@@ -129,4 +129,11 @@ public class Session {
         return typeOfUser;
     }
 
+    public Student getStu(){
+        return stu;
+    }
+
+    public Admin getAdmin(){
+        return admin;
+    }
 }
