@@ -8,7 +8,6 @@ import org.eclipse.jetty.util.StringUtil;
 import java.util.ArrayList;
 
 public class Session {
-//    private User user;
     private Student stu;
     private Admin admin;
     private String typeOfUser;
@@ -61,7 +60,6 @@ public class Session {
     /**
      * @param stuNameSearchVal is the name the user is searching for
      * @return returns an arraylist of all names that contains the search value
-     * !!!! SHOULD BE LATER CHANGED TO RETURN ARRAYLIST OF STUDENTS
      */
     public Student[] searchStudents(String stuNameSearchVal) {
         if(authenticated && typeOfUser.equals("admin")){
@@ -82,7 +80,6 @@ public class Session {
     }
 
     /**
-     *
      * @param courseCodeSearchVal is the name of the course the user is searching for
      * @return an array of courses with course codes that contains the search value
      */

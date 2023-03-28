@@ -3,7 +3,7 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class Schedule extends CourseList {
-//    List<Course> courses;
+//    List<Course> courses2;
     private Boolean isApproved;
     private String semester;
 
