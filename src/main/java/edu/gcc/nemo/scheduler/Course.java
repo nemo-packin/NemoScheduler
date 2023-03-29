@@ -26,7 +26,7 @@ public class Course {
     }
 
     // toString method for testing
-    public String toString(){
+    public String courseInfo(){
         return "Course Code: " + courseCode + "\n" +
                 "Name: " + name + "\n" +
                 "Department: " + department + "\n" +
@@ -76,5 +76,9 @@ public class Course {
         return capacity;
     }
 
+    @Override
+    public String toString(){
+        return courseCode;
+    }
 
 }
