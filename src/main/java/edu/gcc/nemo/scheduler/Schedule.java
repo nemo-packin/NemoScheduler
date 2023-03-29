@@ -55,7 +55,7 @@ public class Schedule{
     // TEMPORARY toString method to check classes added to schedule
     public String toString(){
         String listOfCoursesInSchedule = "Courses in you're schedule include: \n";
-        for(Course c: courses){
+        for(Course c: courseList){
             listOfCoursesInSchedule += c.toString();
         }
         return listOfCoursesInSchedule;

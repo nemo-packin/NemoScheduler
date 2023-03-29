@@ -1,14 +1,17 @@
 package edu.gcc.nemo.scheduler;
 
+import edu.gcc.nemo.scheduler.DB.Courses;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CourseList extends tempAllCourseList{
+public abstract class CourseList{
     protected List<Course> courses;
     private final Courses refCourses;
     // Constructor
-    public CourseList(Courses c) {
+    public CourseList(Courses refCourses) {
         courses = new ArrayList<Course>();
+        this.refCourses = refCourses;
     }
 
     //Methods
@@ -21,17 +24,10 @@ public abstract class CourseList extends tempAllCourseList{
                 return;
             }
         }
-
         //If the course was not already in the schedule
-        courses.add(getCourse(courseCode));
+        courses.add(refCourses.getCourse(courseCode));
         System.out.println("Course successfully added!\n");
-//        for(Course c: allCourseList){
-//            if (c.getCourseCode().equals(courseCode)){
-//                courses.add(c);
-//                System.out.println("Course was successfully added!");
-//                break;
-//            }
-//        }
+
     }
 
     public void removeCourse(String courseCode) {
@@ -44,7 +40,6 @@ public abstract class CourseList extends tempAllCourseList{
                 break;
             }
         }
-
         // Handle removal and not found cases
         if(removed) {
             System.out.println("Course was successfully removed!\n");
