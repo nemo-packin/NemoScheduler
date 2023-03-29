@@ -11,9 +11,12 @@ public abstract class User {
         account = new Account(login, password);
     }
 
-
     //Methods
     public void login() {
+
+    }
+
+    public void updateLoadAccountDBInfo(){
 
     }
 

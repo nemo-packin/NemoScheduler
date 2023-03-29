@@ -223,14 +223,16 @@ public class Main {
     public static void displayAllCourses(){
         if(stuSignedIn != null){
             System.out.println("The following is a list of all the classes: \n");
-            for(Course c : stuSignedIn.account.schedule.allCourseList){
-                System.out.println(c.toString());
-            }
+            System.out.println(stuSignedIn.account.schedule.toString());
+//            for(Course c : stuSignedIn.account.schedule){
+//                System.out.println(c.toString());
+//            }
         }else if(adminSignedIn != null){
             System.out.println("The following is a list of all the classes: \n");
-            for(Course c : adminSignedIn.account.schedule.allCourseList){
-                System.out.println(c.toString());
-            }
+            System.out.println(adminSignedIn.account.schedule.toString());
+//            for(Course c : adminSignedIn.account.schedule.allCourseList){
+//                System.out.println(c.toString());
+//            }
         }
         else{
             System.out.println("You are not signed in!");
@@ -239,10 +241,10 @@ public class Main {
 
     public static void addCourse(String courseCode){
         if(stuSignedIn != null){
-            stuSignedIn.account.schedule.addCourse(courseCode);
+            stuSignedIn.account.schedule.addCourseToSchedule(courseCode);
             System.out.println(stuSignedIn.account.schedule.toString());
         }else if(adminSignedIn != null){
-            adminSignedIn.account.schedule.addCourse(courseCode);
+            adminSignedIn.account.schedule.addCourseToSchedule(courseCode);
             System.out.println(adminSignedIn.account.schedule.toString());
         }
         else{
@@ -252,10 +254,10 @@ public class Main {
 
     public static void removeCourse(String courseCode){
         if(stuSignedIn != null){
-            stuSignedIn.account.schedule.removeCourse(courseCode);
+            stuSignedIn.account.schedule.removeCourseFromSchedule(courseCode);
             System.out.println(stuSignedIn.account.schedule.toString());
         }else if(adminSignedIn != null){
-            adminSignedIn.account.schedule.removeCourse(courseCode);
+            adminSignedIn.account.schedule.removeCourseFromSchedule(courseCode);
             System.out.println(adminSignedIn.account.schedule.toString());
         }
         else{
