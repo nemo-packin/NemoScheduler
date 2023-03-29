@@ -7,6 +7,8 @@ public class StatusSheet extends CourseList {
     private List<String> minor;
     private int gradYear;
 
+    public StatusSheet() {}
+
     //Methods
     public String serialize() {
         return null;

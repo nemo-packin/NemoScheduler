@@ -109,7 +109,7 @@ public class Schedule extends CourseList {
                 finalString += "\n";
             }
         }
-        finalString += ("============================================\n");;
+        finalString += ("============================================\n");
         return finalString;
     }
 
