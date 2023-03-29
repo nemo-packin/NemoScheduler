@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 
-public class Schedule extends CourseList {
+public class Schedule{
     List<Course> courseList = new ArrayList<>();
     String coursesString = "";
     private int isApproved;
