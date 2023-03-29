@@ -13,7 +13,7 @@ public abstract class CourseList extends tempAllCourseList{
 
     //Methods
     public void addCourse(String courseCode) {
-        refCourses.getCourse(courseCode)';'
+        refCourses.getCourse(courseCode);
         //Check to see if the course is already in the schedule
         for(Course c: courses){
             if (c.getCourseCode().equals(courseCode)){
