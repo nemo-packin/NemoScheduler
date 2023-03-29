@@ -13,7 +13,7 @@ public class tempAllCourseList {
         allCourseList = new Course[5];
         codeIndex = new HashMap();
         allCourseList[0] = new Course("COMM 245 B", "Communication","Semester",
-                "2:42am","MWF","Tim Hawkins", "Digital Photography", 3, 25);
+                "2:00pm","MWF","Tim Hawkins", "Digital Photography", 3, 25);
         codeIndex.put("COMM 245 B", 0);
         allCourseList[1] = new Course("COMP 342 A", "Computer Science","Spring",
                 "9:00am","MWF","Zhang", "Data Communication and Networking", 3, 102);
