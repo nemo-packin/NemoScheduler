@@ -1,16 +1,23 @@
 package edu.gcc.nemo.scheduler;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class User {
-    protected Account account;
     protected String name;
+    protected StatusSheet statusSheet;
+    protected List<Schedule> scheduleList;
+    protected String login;
+    protected String password;
     protected int id;
 
     public User(String login, String password, String name, int id){
+        statusSheet = new StatusSheet();
+        scheduleList = new ArrayList<>();
+        this.login = login;
+        this.password = password;
         this.name = name;
         this.id = id;
-        account = new Account(login, password, id);
     }
 
     //Methods
@@ -19,6 +26,14 @@ public abstract class User {
     }
 
     public void updateLoadAccountDBInfo(){
+
+    }
+
+    public void serialize() {
+
+    }
+
+    public void editAccount() {
 
     }
 
@@ -39,7 +54,7 @@ public abstract class User {
 
     //NEW
     public boolean checkPassword(String pass){
-        if(pass.equals(account.getPassword()))
+        if(pass.equals(password))
             return true;
         return false;
     }
@@ -48,6 +63,12 @@ public abstract class User {
         return id;
     }
 
+    public String getPassword(){
+        return password;
+    }
+
     public abstract void printInfo();
+
+
 
 }
