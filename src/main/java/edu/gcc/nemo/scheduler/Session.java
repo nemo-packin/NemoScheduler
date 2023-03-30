@@ -26,13 +26,13 @@ public class Session {
         typeOfUser = "";
     }
 
-    public boolean authenticate(String login, String password) {
-        if(refStudents.getStudent(login) != null) {
-            stu = refStudents.getStudent(login);
+    public boolean authenticate(String username, String password) {
+        if(refStudents.getStudent(username) != null) {
+            stu = refStudents.getStudent(username);
             typeOfUser = "student";
         }
-        else if(refAdmins.getAdmin(login) != null) {
-            admin = refAdmins.getAdmin(login);
+        else if(refAdmins.getAdmin(username) != null) {
+            admin = refAdmins.getAdmin(username);
             typeOfUser = "admin";
         }else{
             System.out.println("Failed to authenticate!");
@@ -58,7 +58,7 @@ public class Session {
     }
 
     /**
-     * @param stuNameSearchVal is the name the user is searching for
+     * @param stuNameSearchVal is the username the admin is searching for
      * @return returns an arraylist of all names that contains the search value
      */
     public Student[] searchStudents(String stuNameSearchVal) {
@@ -71,7 +71,7 @@ public class Session {
             }
             Student[] stuArr = new Student[resultNameMatches.size()];
             for(int i = 0; i < stuArr.length; i++){
-                stuArr[i] = refStudents.getStudent(refStudents.getLogin(resultNameMatches.get(i)));
+                stuArr[i] = refStudents.getStudent(resultNameMatches.get(i));
             }
             return stuArr;
         }
@@ -109,7 +109,7 @@ public class Session {
      */
     public Student getStudent(String username){
         if(authenticated && typeOfUser.equals("admin")){
-            return refStudents.getStudent(refStudents.getLogin(username));
+            return refStudents.getStudent(username);
         }
         System.out.println("You do not have proper credentials!");
         return null;

@@ -13,7 +13,7 @@ public class Admins {
     private static Admins admins = null;
     private Connection conn;
     private Statement stmt;
-    private PreparedStatement loginStatement;
+//    private PreparedStatement loginStatement;
     private Map<String, Admin> allAdmins;
 
     /**
@@ -31,7 +31,7 @@ public class Admins {
         try{
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             stmt = conn.createStatement();
-            loginStatement = conn.prepareStatement("select  * from Admins where login = ?");
+//            loginStatement = conn.prepareStatement("select  * from Admins where login = ?");
             allAdmins = new HashMap<>();
             loadAllAdmins();
         }catch (SQLException e){
@@ -41,11 +41,11 @@ public class Admins {
 
     /**
      * getAdmin
-     * @param login the login the person uses to access their account
+     * @param username the username the person uses to access their account
      * @returns returns the admin from the map if the login exists
      */
-    public Admin getAdmin(String login){
-        return allAdmins.get(login);
+    public Admin getAdmin(String username){
+        return allAdmins.get(username);
     }
 
     /**
@@ -57,8 +57,8 @@ public class Admins {
         try{
             ResultSet rs = stmt.executeQuery("select * from Admins");
             while(rs.next()){
-                allAdmins.put(rs.getString("login"),
-                        new Admin(rs.getString("login"),
+                allAdmins.put(rs.getString("username"),
+                        new Admin(rs.getString("username"),
                                 rs.getString("password"),
                                 rs.getString("name"),
                                 rs.getInt("id")));

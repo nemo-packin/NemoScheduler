@@ -13,7 +13,7 @@ public class Admin extends User {
     public void printInfo() {
         System.out.println(
                 "You are an admin! Here is your info: " + "\n" +
-                "Login: " + login + "\n" +
+                "Username: " + username + "\n" +
                 "Name: " + name + "\n" +
                 "Password: " + password + "\n");
     }

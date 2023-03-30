@@ -18,8 +18,8 @@ public class main3 {
         System.out.println("Session successfully created!");
 
         Admin admin1 = new Admin("master1", "123", "masterDude", 1);
-        System.out.println("Login is: " + admin1.login);
-        session.authenticate(admin1.login, admin1.password);
+        System.out.println("Login is: " + admin1.username);
+        session.authenticate(admin1.username, admin1.password);
         System.out.println(session.isAuthen());
         Student[] listOfSearchResults = session.searchStudents("jon");
         System.out.println("List of Students is:");
@@ -27,7 +27,7 @@ public class main3 {
             System.out.println(stu);
         }
 
-        Student stu = session.getStudent(listOfSearchResults[0].name);
+        Student stu = session.getStudent(listOfSearchResults[0].username);
         System.out.println("The following is the selected student: ");
         stu.printInfo();
 
@@ -38,7 +38,7 @@ public class main3 {
         Session session2 = new Session(admins, students, courses);
         System.out.println("Session successfully created!");
         Student student1 = new Student("kool1","123","jonathan", 32,2024);
-        session2.authenticate(student1.login, student1.password);
+        session2.authenticate(student1.username, student1.password);
         System.out.println(session2.isAuthen());
         Student[] listOfSearchResults2 = session2.searchStudents("jon");
 

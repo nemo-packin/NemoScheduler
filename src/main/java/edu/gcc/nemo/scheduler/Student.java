@@ -8,8 +8,8 @@ public class Student extends User{
     private List<String> majors;
     private List<String> minors;
 
-    public Student(String login, String password, String name, int id, int gradYear) {
-        super(login, password, name, id);
+    public Student(String username, String password, String name, int id, int gradYear) {
+        super(username, password, name, id);
         this.gradYear = gradYear;
         majors = new ArrayList<>();
         minors = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Student extends User{
     public void printInfo() {
         System.out.println(
                 "You are a student! Here is your info: " + "\n" +
-                "Login: " + login + "\n" +
+                "Username: " + username + "\n" +
                 "Name: " + name + "\n" +
                 "Password: " + password + "\n" +
                 "id: " + id + "\n" +

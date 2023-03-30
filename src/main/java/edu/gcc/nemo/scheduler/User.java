@@ -7,22 +7,22 @@ public abstract class User {
 
     protected StatusSheet statusSheet;
     protected List<Schedule> scheduleList;
-    protected String login;
+    protected String username;
     protected String name;
     protected String password;
     protected int id;
 
-    public User(String login, String password, String name, int id){
+    public User(String username, String password, String name, int id){
         statusSheet = new StatusSheet();
         scheduleList = new ArrayList<>();
-        this.login = login;
+        this.username = username;
         this.password = password;
         this.name = name;
         this.id = id;
     }
 
     //Methods
-    public void login() {
+    public void username() {
 
     }
 
