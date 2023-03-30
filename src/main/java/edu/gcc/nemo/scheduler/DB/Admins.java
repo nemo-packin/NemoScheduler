@@ -60,7 +60,8 @@ public class Admins {
                 allAdmins.put(rs.getString("login"),
                         new Admin(rs.getString("login"),
                                 rs.getString("password"),
-                                rs.getString("username")));
+                                rs.getString("name"),
+                                rs.getInt("id")));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);

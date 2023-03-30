@@ -15,20 +15,20 @@ public class Schedule{
     private Statement stmt;
     private String name;
     private final Courses refCourses;
+    private int id;
 
     // Constructor
-
     /**
      *
      * @param name is the identifier in the database -> it is a comination of
      * @param semester
      * @param isApproved
      * @param courses
-     * @param student
+     * @param id
      * @param refCourses
      */
-    public Schedule (String name, String semester, int isApproved, String courses, Student student, Courses refCourses){
-        int id = student.getId();
+    public Schedule (String name, String semester, int isApproved, String courses, Courses refCourses, int id){
+        this.id = id;
         this.name = id + name;
         this.semester = semester;
         if(isApproved == 1)

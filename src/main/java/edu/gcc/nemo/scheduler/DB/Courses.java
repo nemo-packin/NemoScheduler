@@ -57,26 +57,6 @@ public class Courses {
      */
     public Course getCourse(String courseCode) {
         return allCourses.get(courseCode);
-//        try {
-//            courseCodeStatement.setString(1, courseCode);
-//            ResultSet rs = courseCodeStatement.executeQuery();
-//            if(rs.next()) {
-//                return new Course(
-//                        rs.getString("course_code"),
-//                        rs.getString("department"),
-//                        rs.getString("semester"),
-//                        rs.getString("time"),
-//                        rs.getString("day"),
-//                        rs.getString("prof"),
-//                        rs.getString("name"),
-//                        rs.getInt("credit_hours"),
-//                        rs.getInt("capacity")
-//                );
-//            }
-//            throw new IllegalArgumentException("Course not found for course code.");
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     /***

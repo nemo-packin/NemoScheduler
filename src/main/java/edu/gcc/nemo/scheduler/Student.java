@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User{
-    private int id;
     private int gradYear;
     private List<String> majors;
     private List<String> minors;
 
     public Student(String login, String password, String name, int id, int gradYear) {
-        super(login, password, name);
-        this.id = id;
+        super(login, password, name, id);
         this.gradYear = gradYear;
         majors = new ArrayList<>();
         minors = new ArrayList<>();
