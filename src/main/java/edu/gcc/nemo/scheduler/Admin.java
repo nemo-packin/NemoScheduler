@@ -13,9 +13,9 @@ public class Admin extends User {
     public void printInfo() {
         System.out.println(
                 "You are an admin! Here is your info: " + "\n" +
-                "Login: " + account.login + "\n" +
+                "Login: " + login + "\n" +
                 "Name: " + name + "\n" +
-                "Password: " + account.password + "\n");
+                "Password: " + password + "\n");
     }
 
     //Methods

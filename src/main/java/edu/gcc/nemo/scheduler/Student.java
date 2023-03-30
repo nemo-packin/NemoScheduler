@@ -19,9 +19,9 @@ public class Student extends User{
     public void printInfo() {
         System.out.println(
                 "You are a student! Here is your info: " + "\n" +
-                "Login: " + account.login + "\n" +
+                "Login: " + login + "\n" +
                 "Name: " + name + "\n" +
-                "Password: " + account.password + "\n" +
+                "Password: " + password + "\n" +
                 "id: " + id + "\n" +
                 "Grad year:" + gradYear + "\n" +
                 "Majors: " + majors + "\n" +

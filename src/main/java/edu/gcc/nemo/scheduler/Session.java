@@ -37,9 +37,9 @@ public class Session {
         }else{
             System.out.println("Failed to authenticate!");
         }
-        if(admin != null && admin.account.password.equals(password)) {
+        if(admin != null && admin.password.equals(password)) {
             authenticated = true;
-        }else if(stu != null && stu.account.password.equals(password)){
+        }else if(stu != null && stu.password.equals(password)){
             authenticated = true;
         }
         return authenticated;
@@ -117,7 +117,7 @@ public class Session {
 
     public String getStatusSheet() {
         if(typeOfUser.equals("student"))
-            return stu.account.statusSheet.toString();
+            return stu.statusSheet.toString();
         System.out.println("You do not have a status sheet");
         return null;
     }
