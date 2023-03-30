@@ -77,7 +77,7 @@ public class Students {
                                 rs.getString("password"),
                                 rs.getString("name"),
                                 rs.getInt("id"),
-                                rs.getInt("grad_year"),
+                                rs.getInt("gradYear"),
                                 rs.getString("majors"),
                                 rs.getString("minors")));
                 studentUsernames.add(rs.getString("username"));

@@ -142,7 +142,12 @@ public class Main4 {
 
 
         System.out.println("Please enter the password you would like to use:  (Type 'exit' to go back to home)");
+        sc.nextLine();
         String password = sc.nextLine().trim();
+        while(password.trim().equals("")){
+            System.out.println("Password cannot equal the empty string!");
+            password = sc.nextLine().trim();
+        }
         if (password.equals("exit"))
             return;
 
@@ -189,6 +194,7 @@ public class Main4 {
         addStudentToDB(username, password, name, id, gradYear, major, minor);
 //        studentList.put(login, new Student(login, password, username, studentList.size() + 1, gradYear, major, minor));
         System.out.println("You have successfully created an account!");
+        students.reloadStudents();
     }
 
     public static void login() {
