@@ -26,7 +26,7 @@ public class MainTwo {
         });
 
         post("/authenticate/", (request, response) -> {
-            getSession(request).authenticate(request.);
+//            getSession(request).authenticate();
             return 200;
         });
     }

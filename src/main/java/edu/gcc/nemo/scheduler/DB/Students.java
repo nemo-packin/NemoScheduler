@@ -73,12 +73,12 @@ public class Students {
                 allStudents.put(rs.getString("login"),
                         new Student(rs.getString("login"),
                                 rs.getString("password"),
-                                rs.getString("username"),
+                                rs.getString("name"),
                                 rs.getInt("id"),
                                 rs.getInt("grad_year")));
-                nameToLoginMap.put(rs.getString("username"),
+                nameToLoginMap.put(rs.getString("name"),
                                 rs.getString("login"));
-                studentUsernames.add(rs.getString("username"));
+                studentUsernames.add(rs.getString("name"));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);

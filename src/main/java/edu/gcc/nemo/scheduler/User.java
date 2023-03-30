@@ -5,15 +5,20 @@ import java.util.List;
 public abstract class User {
     protected Account account;
     protected String name;
+    protected int id;
 
-    public User(String login, String password, String name){
+    public User(String login, String password, String name, int id){
         this.name = name;
-        account = new Account(login, password);
+        this.id = id;
+        account = new Account(login, password, id);
     }
-
 
     //Methods
     public void login() {
+
+    }
+
+    public void updateLoadAccountDBInfo(){
 
     }
 
@@ -37,6 +42,10 @@ public abstract class User {
         if(pass.equals(account.getPassword()))
             return true;
         return false;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public abstract void printInfo();

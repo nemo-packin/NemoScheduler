@@ -17,7 +17,7 @@ public class main3 {
         Session session = new Session(admins, students, courses);
         System.out.println("Session successfully created!");
 
-        Admin admin1 = new Admin("master1", "123", "masterDude");
+        Admin admin1 = new Admin("master1", "123", "masterDude", 1);
         System.out.println("Login is: " + admin1.account.login);
         session.authenticate(admin1.account.login, admin1.account.password);
         System.out.println(session.isAuthen());
