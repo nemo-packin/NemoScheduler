@@ -47,16 +47,17 @@ public class Main4 {
 
             while (stuSignedIn != null || adminSignedIn != null) {
                 System.out.println("Would you like to sign out or add course to schedule? \n" +
-                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or 'Exit')");
+                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or" +
+                        "'Show Schedule' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
                 System.out.println(input);
-                // ADD LOG OUT OR ADD COURSE
+                // ADD LOG, OUT, OR ADD COURSE
                 if (input.equals("log out") || input.equals("exit")) {
                     stuSignedIn = null;
                     adminSignedIn = null;
                     break;
                 } else if (input.equals("add course")) { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
-                    displayAllCourses();
+                    displayAllSchedule();
                     System.out.println("Enter the course code you would like to add (or type 'Exit' or 'Log out'):");
                     input = sc.nextLine().trim().toUpperCase();
                     if (input.equals("log out") || input.equals("exit")) {
@@ -70,7 +71,7 @@ public class Main4 {
                         System.out.println("I'm sorry, I didn't understand that...");
                     }
                 } else if (input.equals("remove course")) {
-                    displayAllCourses();
+                    displayAllSchedule();
                     System.out.println("Enter the course code you would like to remove (or type 'Exit' or 'Log out'): *Please type out exactly!");
                     input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
                     if (input.equals("log out") || input.equals("exit")) {
@@ -79,6 +80,8 @@ public class Main4 {
                         break;
                     }
                     removeCourse(input);
+                } else if (input.equals("show schedule")) {
+                    displayAllSchedule();
                 } else if (input.equals("search student")) {
 
                 }
@@ -168,7 +171,6 @@ public class Main4 {
         addStudentToDB(username, password, name, id, gradYear, major, minor);
 //        studentList.put(login, new Student(login, password, username, studentList.size() + 1, gradYear, major, minor));
         System.out.println("You have successfully created an account!");
-
     }
 
     public static void login() {
@@ -183,10 +185,12 @@ public class Main4 {
         if (session.authenticate(username, password)){
             if (session.getTypeOfUser().equals("student")){
                 stuSignedIn = students.getStudent(username);
+                System.out.println("STUDENT");
             } else{
                 adminSignedIn = admins.getAdmin(username);
+                System.out.println("ADMIN");
             }
-            System.out.println("You successfully logged in!");
+            System.out.println("You successfully logged in as a " + session.getTypeOfUser() + "!");
         } else
             return;
 
@@ -268,7 +272,7 @@ public class Main4 {
         }
     }
 
-    public static void displayAllCourses() {
+    public static void displayAllSchedule() {
         if (stuSignedIn != null) {
             System.out.println("The following is a list of all the classes: \n");
             System.out.println(stuSignedIn.schedule.toString());
