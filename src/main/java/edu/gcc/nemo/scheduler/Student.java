@@ -8,18 +8,21 @@ import java.util.List;
 
 public class Student extends User{
     private int gradYear;
-    private List<String> majors;
-    private List<String> minors;
+//    private List<String> majors;
+//    private List<String> minors;
+    private String major;
+    private String minor;
     protected StatusSheet statusSheet;
 //    protected List<Schedule> scheduleList;
     protected Schedule schedule;
     private Connection conn;
-
-    public Student(String username, String password, String name, int id, int gradYear) {
+    public Student(String username, String password, String name, int id, int gradYear, String major, String minor) {
         super(username, password, name, id);
         this.gradYear = gradYear;
-        majors = new ArrayList<>();
-        minors = new ArrayList<>();
+        this.major = major;
+        this.minor = minor;
+//        majors = new ArrayList<>();
+//        minors = new ArrayList<>();
         statusSheet = new StatusSheet();
 //        scheduleList = new ArrayList<>();
 
@@ -75,8 +78,8 @@ public class Student extends User{
                 "Password: " + password + "\n" +
                 "id: " + id + "\n" +
                 "Grad year:" + gradYear + "\n" +
-                "Majors: " + majors + "\n" +
-                "Minors: " + minors + "\n");
+                "Majors: " + major + "\n" +
+                "Minors: " + minor + "\n");
     }
 
     public int getId() {
@@ -95,21 +98,21 @@ public class Student extends User{
         this.gradYear = gradYear;
     }
 
-    public List<String> getMajor() {
-        return majors;
-    }
+//    public List<String> getMajor() {
+//        return majors;
+//    }
 
-    public void addMajor(String major) {
-        majors.add(major);
-    }
+//    public void addMajor(String major) {
+//        majors.add(major);
+//    }
 
-    public List<String> getMinor() {
-        return minors;
-    }
+//    public List<String> getMinor() {
+//        return minors;
+//    }
 
-    public void addMinor(String minor) {
-        minors.add(minor);
-    }
+//    public void addMinor(String minor) {
+//        minors.add(minor);
+//    }
 
     @Override
     public String toString(){
