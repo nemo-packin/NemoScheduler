@@ -47,7 +47,7 @@ public class Main4 {
             while (stuSignedIn != null || adminSignedIn != null) {
                 System.out.println("Would you like to sign out or add course to schedule? \n" +
                         "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or" +
-                        "'Show Schedule' or 'Exit')");
+                        "'Show Schedule' or 'Create Schedule' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
                 System.out.println(input);
                 // ADD LOG, OUT, OR ADD COURSE
@@ -55,30 +55,44 @@ public class Main4 {
                     stuSignedIn = null;
                     adminSignedIn = null;
                     break;
-                } else if (input.equals("add course")) { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
-                    displayAllSchedule();
-                    System.out.println("Enter the course code you would like to add (or type 'Exit' or 'Log out'):");
-                    input = sc.nextLine().trim().toUpperCase();
-                    if (input.equals("log out") || input.equals("exit")) {
-                        stuSignedIn = null;
-                        adminSignedIn = null;
-                        break;
-                    }
-                    try {
-                        addCourse(input);
-                    } catch (Exception e) {
-                        System.out.println("I'm sorry, I didn't understand that...");
+                } else if(input.equals("create schedule")){
+                    stuCreateSchedule();
+                }else if (input.equals("add course")) { //ADDING A COURSE (TYPING NEEDS TO BE EXACT HERE!!!)
+                    if(stuSignedIn == null) {
+                        System.out.println("You cannot 'Add Course' as an admin!");
+                    }else if(stuSignedIn.schedule == null){
+                        System.out.println("You must first create a schedule to add courses to!");
+                    }else{
+                        displayAllSchedule();
+                        System.out.println("Enter the course code you would like to add (or type 'Exit' or 'Log out'):");
+                        input = sc.nextLine().trim().toUpperCase();
+                        if (input.equals("log out") || input.equals("exit")) {
+                            stuSignedIn = null;
+                            adminSignedIn = null;
+                            break;
+                        }
+                        try {
+                            addCourse(input);
+                        } catch (Exception e) {
+                            System.out.println("I'm sorry, I didn't understand that...");
+                        }
                     }
                 } else if (input.equals("remove course")) {
-                    displayAllSchedule();
-                    System.out.println("Enter the course code you would like to remove (or type 'Exit' or 'Log out'): *Please type out exactly!");
-                    input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
-                    if (input.equals("log out") || input.equals("exit")) {
-                        stuSignedIn = null;
-                        adminSignedIn = null;
-                        break;
+                    if(stuSignedIn == null) {
+                        System.out.println("You cannot 'Add Course' as an admin!");
+                    }else if(stuSignedIn.schedule == null){
+                        System.out.println("You must first create a schedule to add courses to!");
+                    }else{
+                        displayAllSchedule();
+                        System.out.println("Enter the course code you would like to remove (or type 'Exit' or 'Log out'): *Please type out exactly!");
+                        input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
+                        if (input.equals("log out") || input.equals("exit")) {
+                            stuSignedIn = null;
+                            adminSignedIn = null;
+                            break;
+                        }
+                        removeCourse(input);
                     }
-                    removeCourse(input);
                 } else if (input.equals("show schedule")) {
                     displayAllSchedule();
                 } else if (input.equals("search student")) {
@@ -89,8 +103,8 @@ public class Main4 {
                 break;
             System.out.println("Would you like to sign in or create account? \n" +
                     "(Type: 'Sign in' or 'Create account' or 'Exit')");
-            sc.nextLine().toLowerCase().trim();
-            input = sc.nextLine().toLowerCase().trim();
+            sc.nextLine();
+//            input = sc.nextLine().toLowerCase().trim();
 
         }
         System.out.println("Goodbye nemo-er!");
@@ -191,37 +205,6 @@ public class Main4 {
             System.out.println("You successfully logged in as a " + session.getTypeOfUser() + "!");
         } else
             return;
-
-//        while (!doesUsernameExist(username) && !username.toLowerCase().equals("exit")) {
-//            System.out.println("That username does not exist");
-//            System.out.println("To login in please enter your username (Type 'Exit' to go back to home)");
-//            username = sc.nextLine().trim();
-//        }
-//        if (username.toLowerCase().equals("exit"))
-//            return;
-//        if (students.getStudent(username) != null) {
-//            Student tempStu = students.getStudent(username);
-//
-//            System.out.println("To login in please enter your password");
-//            String password = sc.nextLine().trim();
-//            while (!tempStu.checkPassword(password)) {
-//                System.out.println("Password was incorrect, please try again.");
-//                password = sc.nextLine().trim();
-//            }
-//            stuSignedIn = tempStu;
-//            stuSignedIn.printInfo();
-//        } else {
-//            Admin tempAdmin = admins.getAdmin(username);
-//
-//            System.out.println("To login in please enter your password");
-//            String password = sc.nextLine().trim();
-//            while (!tempAdmin.checkPassword(password)) {
-//                System.out.println("Password was incorrect, please try again.");
-//                password = sc.nextLine().trim();
-//            }
-//            adminSignedIn = tempAdmin;
-//            adminSignedIn.printInfo();
-//        }
     }
 
     /**
@@ -266,6 +249,31 @@ public class Main4 {
             pstmt.setString(7, password);
         }catch (SQLException e){
             throw new RuntimeException(e);
+        }
+    }
+
+    private static void stuCreateSchedule(){
+        if(session.isAuthen()){
+            if(session.getTypeOfUser().equals("student")){
+                System.out.println("What would you like the name of your schedule to be?");
+                String name = sc.nextLine();
+                while(name.trim().equals("")){
+                    System.out.println("The name of your schedule cannot be empty!");
+                    name = sc.nextLine();
+                }
+                System.out.println("What semester is this for? ('Fall' or 'Spring')");
+                String semester = sc.nextLine().trim();
+                while(!semester.toLowerCase().equals("fall") && !semester.toLowerCase().equals("spring")){
+                    System.out.println("That semester is not aviable!");
+                    semester = sc.nextLine();
+                }
+                stuSignedIn.createNewSchedule(name, semester, courses);
+                System.out.println("You successfully created a schedule!");
+            }else{
+                System.out.println("You're not signed in as a student!");
+            }
+        }else{
+            System.out.println("You're not signed in!");
         }
     }
 
