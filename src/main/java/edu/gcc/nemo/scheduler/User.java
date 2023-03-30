@@ -5,16 +5,12 @@ import java.util.ArrayList;
 
 public abstract class User {
 
-    protected StatusSheet statusSheet;
-    protected List<Schedule> scheduleList;
     protected String username;
     protected String name;
     protected String password;
     protected int id;
 
     public User(String username, String password, String name, int id){
-        statusSheet = new StatusSheet();
-        scheduleList = new ArrayList<>();
         this.username = username;
         this.password = password;
         this.name = name;
@@ -30,10 +26,6 @@ public abstract class User {
 
     }
 
-    public void serialize() {
-
-    }
-
     public void editAccount() {
 
     }
@@ -46,10 +38,6 @@ public abstract class User {
 
     public void editSchedule() {
 
-    }
-
-    public List<Course> searchClasses() {
-        return null;
     }
 
     //NEW

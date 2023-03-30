@@ -39,6 +39,26 @@ public class Schedule{
         courseList = new CourseList(refCourses);
     }
 
+    //Methods
+    public void saveSchedule(){
+        String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
+        try{
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, name + "_" + id);
+            pstmt.setString(3, semester);
+            pstmt.setString(4,courseList.coursesAsString());
+            if(isApproved)
+                pstmt.setInt(5,1);
+            else
+                pstmt.setInt(5,0);
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      *
      * @param courses the string of courses from the database
@@ -51,11 +71,6 @@ public class Schedule{
         }
     }
 
-    //Methods
-    public String serialize() {
-        return null;
-    }
-
     // TEMPORARY toString method to check classes added to schedule
     public String toString(){
         String listOfCoursesInSchedule = "Courses in you're schedule include: \n";
@@ -66,13 +81,13 @@ public class Schedule{
     }
 
     public void addCourseToSchedule(String courseCode){
-        isApproved = false;
-        courseList.addCourse(courseCode);
+        if (courseList.addCourse(courseCode))
+            isApproved = false;
     }
 
     public void removeCourseFromSchedule(String courseCode){
-        isApproved = false;
-        courseList.removeCourse(courseCode);
+        if(courseList.removeCourse(courseCode))
+            isApproved = false;
     }
 
     public void approve() {
@@ -92,39 +107,4 @@ public class Schedule{
         this.semester = semester;
     }
 
-//    private void loadSchedule(String name){
-//        try{
-//            PreparedStatement loadS = conn.prepareStatement("select * from Schedules where name = ?");
-//            loadS.setString(1, name);
-//            ResultSet rs = stmt.executeQuery("select * from Schedules where name = " + name);
-//            while(rs.next()){
-//                this.name = rs.getString("Name");
-//                this.semester = rs.getString("Semester");
-//                this.isApproved = rs.getInt("isApproved");
-//                this.coursesString = rs.getString("Courses");
-//            }
-//        }catch (SQLException e){
-//            throw new RuntimeException(e);
-//        }
-//    }
-
-
-//    public void saveSchedule(Schedule schedule){
-//        try {
-//            File savedSchedule = new File("saved_schedule.txt");
-//            savedSchedule.createNewFile();
-//            FileWriter myWriter = new FileWriter("saved_schedule.txt");
-//            StringBuilder scheduleString = new StringBuilder("");
-//            System.out.println(schedule.courses.size());
-//            for (int i = 0; i < schedule.courses.size(); i++){
-//                scheduleString.append(schedule.courses.toString());
-//            }
-//            myWriter.write(String.valueOf(scheduleString));
-//            myWriter.close();
-//            System.out.println("Successfully wrote to the file.");
-//        } catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-//    }
 }

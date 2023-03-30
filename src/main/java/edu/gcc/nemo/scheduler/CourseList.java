@@ -15,17 +15,18 @@ public class CourseList{
     }
 
     //Methods
-    public void addCourse(String courseCode) {
+    public boolean addCourse(String courseCode) {
         Course c = refCourses.getCourse(courseCode);
         //Check to see if the course is already in the schedule
         if(checkOverlap(c))
-            return;
+            return false;
         //If the course was not already in the schedule
         courses.add(c);
         System.out.println("Course successfully added!\n");
+        return true;
     }
 
-    public void removeCourse(String courseCode) {
+    public boolean removeCourse(String courseCode) {
         //Check to make sure that the course is in the schedule before removing it
         boolean removed = false;
         for(int i = 0; i < courses.size(); i++) {
@@ -38,8 +39,10 @@ public class CourseList{
         // Handle removal and not found cases
         if(removed) {
             System.out.println("Course was successfully removed!\n");
+            return true;
         } else {
             System.out.println("Course was not found in the schedule.\n");
+            return false;
         }
     }
 
@@ -62,34 +65,17 @@ public class CourseList{
         }
         return false;
     }
-//        {
-//        int conflicts = 0;
-//        List<Course> overlappingCourses = new ArrayList<>();
-//        for (int i = 0; i < courses.size(); i++){
-////            Course temp = courses.get(i);
-//            String day = courses.get(i).getDay();
-//            String time = courses.get(i).getTime();
-//
-//
-////            for (int j = 0; j < courses.size(); j++){
-//                if (c.getDay().equals(day) && c.getTime().equals(time)){
-//                    conflicts++;
-//                }
-////                if (conflicts > 1){
-////                    overlappingCourses.add(temp);
-////                    overlappingCourses.add(courses.get(j));
-////                } else {
-////                    overlappingCourses.remove(temp);
-////                }
-////            }
-//        }
-//        System.out.println("your schedule has " + overlappingCourses.size() + " conflicts.");
-//        if (overlappingCourses.size() > 0){
-//            System.out.print("the overlapping courses are: ");
-//            for (int i = 0; i < overlappingCourses.size(); i++){
-//                System.out.print(overlappingCourses.get(i).getCourseCode());
-//            }
-//            System.out.print("\n");
-//        }
-//    }
+
+    /**
+     *
+     * @return returns a string of courses that is comma deliminated
+     */
+    public String coursesAsString(){
+        StringBuilder stb = new StringBuilder();
+        for(Course c: courses){
+            stb.append(c.toString());
+            stb.append(",");
+        }
+        return stb.toString();
+    }
 }

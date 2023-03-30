@@ -1,5 +1,8 @@
 package edu.gcc.nemo.scheduler;
 
+import edu.gcc.nemo.scheduler.DB.Courses;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +10,61 @@ public class Student extends User{
     private int gradYear;
     private List<String> majors;
     private List<String> minors;
+    protected StatusSheet statusSheet;
+//    protected List<Schedule> scheduleList;
+    protected Schedule schedule;
+    private Connection conn;
 
     public Student(String username, String password, String name, int id, int gradYear) {
         super(username, password, name, id);
         this.gradYear = gradYear;
         majors = new ArrayList<>();
         minors = new ArrayList<>();
+        statusSheet = new StatusSheet();
+//        scheduleList = new ArrayList<>();
+
+        try{
+            conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
+
+    /**
+     *
+     * @param refCourses this MUST be passed in and called right after Student instance is created
+     */
+    public void loadScheduleFromDB(Courses refCourses){
+        try{
+            PreparedStatement loadS = conn.prepareStatement("select * from Schedules where id = ?");
+            loadS.setInt(1, id);
+            ResultSet rs = loadS.executeQuery();
+            while(rs.next()){
+                schedule = new Schedule(rs.getString("name"),
+                                            rs.getString("semester"),
+                                            rs.getInt("isApproved"),
+                                            "courses",
+                                            refCourses,
+                                            id);
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * creates a new schedule for the student
+     * @param nameForSchedule
+     * @param semester
+     * @param refCourses
+     */
+    public void createNewSchedule(String nameForSchedule, String semester, Courses refCourses){
+//        if(scheduleList.size() == 0){
+//            scheduleList.add(new Schedule(nameForSchedule, semester, 0, "", refCourses, id));
+//        }
+        schedule = new Schedule(nameForSchedule, semester, 0, "", refCourses, id);
+    }
+
 
     @Override
     public void printInfo() {

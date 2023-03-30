@@ -15,6 +15,7 @@ public class Students {
 //    private PreparedStatement loginStatement;
     private Map<String, Student> allStudents;
     private ArrayList<String> studentUsernames;
+    private ArrayList<Integer> listOfIds;
 
     /**
      * Singleton for students
@@ -34,6 +35,7 @@ public class Students {
 //            loginStatement = conn.prepareStatement("select  * from Students where login = ?");
             allStudents = new HashMap<>();
             studentUsernames = new ArrayList<>();
+            listOfIds = new ArrayList<>();
             loadAllStudents();
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -47,6 +49,17 @@ public class Students {
      */
     public Student getStudent(String username){
         return allStudents.get(username);
+    }
+
+    /**
+     *
+     * @param id
+     * @return "false" if id does not exist, "true" if id exists
+     */
+    public boolean doesStuIdExist(int id) {
+        if(listOfIds.contains(id))
+            return true;
+        return false;
     }
 
     /**
@@ -66,6 +79,7 @@ public class Students {
                                 rs.getInt("id"),
                                 rs.getInt("grad_year")));
                 studentUsernames.add(rs.getString("username"));
+                listOfIds.add(rs.getInt("id"));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
