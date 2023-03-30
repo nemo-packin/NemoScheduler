@@ -4,7 +4,12 @@ import java.util.List;
 
 public enum StudentFieldNames {
     id,
-    gradYear,
+    gradYear {
+        @Override
+        public String toString() {
+            return "grad_year";
+        }
+    },
     major,
     minor
 }
