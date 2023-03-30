@@ -150,6 +150,9 @@ public class Main4 {
             }
         }
         int gradYear = sc.nextInt();
+
+        
+
         studentList.put(login, new Student(login, password, username, studentList.size() + 1, gradYear));
         System.out.println("You have successfully created an account!");
 
@@ -206,7 +209,7 @@ public class Main4 {
      * @param id
      * @return "false" if id does not exist, "true" if id exists
      */
-    public static boolean doesIdExist(int id) {
+    private static boolean doesIdExist(int id) {
         if (students.doesStuIdExist(id) || admins.doesAdminIdExist(id))
             return true;
         return false;

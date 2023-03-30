@@ -41,6 +41,8 @@ public class Session {
             authenticated = true;
         }else if(stu != null && stu.password.equals(password)){
             authenticated = true;
+        }else{
+            System.out.println("Failed to authenticate!");
         }
         return authenticated;
     }
