@@ -88,6 +88,13 @@ public class Students {
         }
     }
 
+    /**
+     * just calls the method above
+     */
+    public void reloadStudents(){
+        loadAllStudents();
+    }
+
     public ArrayList<String> getListOfAllStudentUsernames(){
         return studentUsernames;
     }

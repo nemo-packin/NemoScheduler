@@ -46,7 +46,7 @@ public class Main4 {
             }
             while (stuSignedIn != null || adminSignedIn != null) {
                 System.out.println("Would you like to sign out or add course to schedule? \n" +
-                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or" +
+                        "(Type: 'Log out' or 'Add Course' or 'Remove Course' or 'Search Student' or\n" +
                         "'Show Schedule' or 'Create Schedule' or 'Exit')");
                 input = sc.nextLine().toLowerCase().trim();
                 System.out.println(input);
@@ -94,7 +94,13 @@ public class Main4 {
                         removeCourse(input);
                     }
                 } else if (input.equals("show schedule")) {
-                    displayAllSchedule();
+                    if(stuSignedIn == null) {
+                        System.out.println("You cannot 'Add Course' as an admin!");
+                    }else if(stuSignedIn.schedule == null){
+                        System.out.println("You must first create a schedule to add courses to!");
+                    }else{
+                        displayAllSchedule();
+                    }
                 } else if (input.equals("search student")) {
 
                 }
