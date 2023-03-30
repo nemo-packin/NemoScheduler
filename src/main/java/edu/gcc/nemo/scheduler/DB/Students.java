@@ -12,10 +12,10 @@ public class Students {
     private static Students students = null;
     private Connection conn;
     private Statement stmt;
-    private PreparedStatement loginStatement;
+//    private PreparedStatement loginStatement;
     private Map<String, Student> allStudents;
-    private Map<String, String> nameToLoginMap;
     private ArrayList<String> studentUsernames;
+    private ArrayList<Integer> listOfIds;
 
     /**
      * Singleton for students
@@ -32,12 +32,11 @@ public class Students {
         try{
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             stmt = conn.createStatement();
-            loginStatement = conn.prepareStatement("select  * from Students where login = ?");
+//            loginStatement = conn.prepareStatement("select  * from Students where login = ?");
             allStudents = new HashMap<>();
             studentUsernames = new ArrayList<>();
-            nameToLoginMap = new HashMap<>();
+            listOfIds = new ArrayList<>();
             loadAllStudents();
-//            getAllStudentUsers();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -45,19 +44,22 @@ public class Students {
 
     /**
      * getStudent
-     * @param login the login the person uses to access their account
+     * @param username uses this to reference the hashmap of students
      * @returns returns the student from the map if the login exists
      */
-    public Student getStudent(String login){
-        return allStudents.get(login);
+    public Student getStudent(String username){
+        return allStudents.get(username);
     }
 
     /**
-     * @param username
-     * @return this returns the matching login for the specific username
+     *
+     * @param id
+     * @return "false" if id does not exist, "true" if id exists
      */
-    public String getLogin(String username){
-        return nameToLoginMap.get(username);
+    public boolean doesStuIdExist(int id) {
+        if(listOfIds.contains(id))
+            return true;
+        return false;
     }
 
     /**
@@ -70,15 +72,16 @@ public class Students {
         try{
             ResultSet rs = stmt.executeQuery("select * from Students");
             while(rs.next()){
-                allStudents.put(rs.getString("login"),
-                        new Student(rs.getString("login"),
+                allStudents.put(rs.getString("username"),
+                        new Student(rs.getString("username"),
                                 rs.getString("password"),
                                 rs.getString("name"),
                                 rs.getInt("id"),
-                                rs.getInt("grad_year")));
-                nameToLoginMap.put(rs.getString("name"),
-                                rs.getString("login"));
-                studentUsernames.add(rs.getString("name"));
+                                rs.getInt("grad_year"),
+                                rs.getString("majors"),
+                                rs.getString("minors")));
+                studentUsernames.add(rs.getString("username"));
+                listOfIds.add(rs.getInt("id"));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);

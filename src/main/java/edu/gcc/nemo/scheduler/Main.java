@@ -105,9 +105,6 @@
 //
 //        }
 //        System.out.println("Goodbye nemo-er!");
-////        Schedule s = new Schedule("Spring");
-////        s.addCourse("COMP 342 A");
-////        System.out.println(s.toString());
 //
 //    }
 //    public static void createAccount() {
@@ -223,16 +220,9 @@
 //    public static void displayAllCourses(){
 //        if(stuSignedIn != null){
 //            System.out.println("The following is a list of all the classes: \n");
-//            System.out.println(stuSignedIn.account.schedule.toString());
-////            for(Course c : stuSignedIn.account.schedule){
-////                System.out.println(c.toString());
-////            }
+//            System.out.println(stuSignedIn.schedule.toString());
 //        }else if(adminSignedIn != null){
-//            System.out.println("The following is a list of all the classes: \n");
-//            System.out.println(adminSignedIn.account.schedule.toString());
-////            for(Course c : adminSignedIn.account.schedule.allCourseList){
-////                System.out.println(c.toString());
-////            }
+//            System.out.println("As an admin you do not have a schedule!");
 //        }
 //        else{
 //            System.out.println("You are not signed in!");
@@ -241,11 +231,10 @@
 //
 //    public static void addCourse(String courseCode){
 //        if(stuSignedIn != null){
-//            stuSignedIn.account.schedule.addCourseToSchedule(courseCode);
-//            System.out.println(stuSignedIn.account.schedule.toString());
+//            stuSignedIn.schedule.addCourseToSchedule(courseCode);
+//            System.out.println(stuSignedIn.schedule.toString());
 //        }else if(adminSignedIn != null){
-//            adminSignedIn.account.schedule.addCourseToSchedule(courseCode);
-//            System.out.println(adminSignedIn.account.schedule.toString());
+//            System.out.println("As an admin you do not have a schedule!");
 //        }
 //        else{
 //            System.out.println("You are not signed in!");
@@ -254,11 +243,10 @@
 //
 //    public static void removeCourse(String courseCode){
 //        if(stuSignedIn != null){
-//            stuSignedIn.account.schedule.removeCourseFromSchedule(courseCode);
-//            System.out.println(stuSignedIn.account.schedule.toString());
+//            stuSignedIn.schedule.removeCourseFromSchedule(courseCode);
+//            System.out.println(stuSignedIn.schedule.toString());
 //        }else if(adminSignedIn != null){
-//            adminSignedIn.account.schedule.removeCourseFromSchedule(courseCode);
-//            System.out.println(adminSignedIn.account.schedule.toString());
+//            System.out.println("As an admin you do not have a schedule!");
 //        }
 //        else{
 //            System.out.println("You are not signed in!");
