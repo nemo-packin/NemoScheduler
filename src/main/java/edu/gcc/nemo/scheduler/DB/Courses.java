@@ -19,8 +19,8 @@ public class Courses {
     private Connection conn;
     private Statement statement;
     private PreparedStatement courseCodeStatement;
-//    private Map<String, Course> allCourses;
-//    private ArrayList<String> courseCodes;
+    private Map<String, Course> allCourses;
+    private ArrayList<String> courseCodes;
 
 
     /**
@@ -41,6 +41,9 @@ public class Courses {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             statement = conn.createStatement();
             courseCodeStatement = conn.prepareStatement("select  * from Courses where course_code = ?");
+            allCourses = new HashMap<>();
+            courseCodes = new ArrayList<>();
+            getAllCourses();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -53,38 +56,18 @@ public class Courses {
      * @return the course object corresponding to the course code
      */
     public Course getCourse(String courseCode) {
-        try {
-            courseCodeStatement.setString(1, courseCode);
-            ResultSet rs = courseCodeStatement.executeQuery();
-            if(rs.next()) {
-                return new Course(
-                        rs.getString("course_code"),
-                        rs.getString("department"),
-                        rs.getString("semester"),
-                        rs.getString("time"),
-                        rs.getString("day"),
-                        rs.getString("prof"),
-                        rs.getString("name"),
-                        rs.getInt("credit_hours"),
-                        rs.getInt("capacity")
-                );
-            }
-            throw new IllegalArgumentException("Course not found for course code.");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return allCourses.get(courseCode);
     }
 
     /***
      * getAllCourses
      * populates a map<courseCode, Course> all the courses in the database
      */
-    public List<Course> getAllCourses() {
+    private void getAllCourses() {
         try {
-            List<Course> courseList = new ArrayList<>();
             ResultSet rs = statement.executeQuery("select * from Courses");
             while(rs.next()) {
-                courseList.add(new Course(
+                allCourses.put(rs.getString("course_code"),new Course(
                         rs.getString("course_code"),
                         rs.getString("department"),
                         rs.getString("semester"),
@@ -94,43 +77,14 @@ public class Courses {
                         rs.getString("name"),
                         rs.getInt("credit_hours"),
                         rs.getInt("capacity")));
+                courseCodes.add(rs.getString("course_code"));
             }
-            return courseList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public List<Course> runQuery(List<String> conditions) {
-        String queryString = "select * from Courses";
-        if(conditions.size() > 0)
-            queryString += " WHERE (" + conditions.get(0) + ")";
-        for(int i = 1; i < conditions.size(); i ++) {
-            queryString += "AND (" + conditions.get(i) + ")";
-        }
-        try {
-            List<Course> courseList = new ArrayList<>();
-            System.out.println(queryString);
-            ResultSet rs = statement.executeQuery(queryString);
-            while(rs.next()) {
-                courseList.add(new Course(
-                        rs.getString("course_code"),
-                        rs.getString("department"),
-                        rs.getString("semester"),
-                        rs.getString("time"),
-                        rs.getString("day"),
-                        rs.getString("prof"),
-                        rs.getString("name"),
-                        rs.getInt("credit_hours"),
-                        rs.getInt("capacity")));
-            }
-            return courseList;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public ArrayList<String> getAllCourseCodes(){
+        return courseCodes;
     }
-
-//    public ArrayList<String> getAllCourseCodes(){
-//        return courseCodes;
-//    }
 }
