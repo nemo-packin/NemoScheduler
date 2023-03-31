@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Admin extends User {
 
-    public Admin(String login, String password, String name){
-        super(login, password, name);
+    public Admin(String login, String password, String name, int id){
+        super(login, password, name, id);
 
     }
 
@@ -13,9 +13,9 @@ public class Admin extends User {
     public void printInfo() {
         System.out.println(
                 "You are an admin! Here is your info: " + "\n" +
-                "Login: " + account.login + "\n" +
+                "Username: " + username + "\n" +
                 "Name: " + name + "\n" +
-                "Password: " + account.password + "\n");
+                "Password: " + password + "\n");
     }
 
     //Methods
