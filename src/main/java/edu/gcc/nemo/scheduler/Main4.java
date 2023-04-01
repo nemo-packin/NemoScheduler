@@ -87,7 +87,7 @@ public class Main4 {
                         System.out.println("Enter the course code you would like to remove (or type 'Exit' or 'Log out'): *Please type out exactly!");
                         input = sc.nextLine().trim(); //NOT DOING 'TOLOWERCASE'!!!!
                         if (input.equals("log out") || input.equals("exit")) {
-                            stuSignedIn = null;
+                                stuSignedIn = null;
                             adminSignedIn = null;
                             break;
                         }
@@ -236,7 +236,7 @@ public class Main4 {
      * @param gradYear
      */
     private static void addStudentToDB (String username, String password, String name, int id, int gradYear, String major, String minor){
-        String sql = "INSERT INTO STUDENTS (id, gradYear, majors, minors, name, username, password) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO STUDENTS (id, grad_year, majors, minors, name, username, password) VALUES(?,?,?,?,?,?,?)";
         try{
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -247,6 +247,8 @@ public class Main4 {
             pstmt.setString(5, name);
             pstmt.setString(6, username);
             pstmt.setString(7, password);
+            pstmt.executeUpdate();
+            conn.close();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
