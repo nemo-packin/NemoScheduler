@@ -2,10 +2,11 @@ package edu.gcc.nemo.scheduler;
 
 import java.util.List;
 
-public class StatusSheet extends CourseList {
+public class StatusSheet {
     private List<String> major;
     private List<String> minor;
     private int gradYear;
+    private CourseList courseList;
 
     public StatusSheet() {}
 
