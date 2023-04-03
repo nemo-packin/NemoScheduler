@@ -39,17 +39,20 @@ public class Student extends User{
      */
     public void loadScheduleFromDB(Courses refCourses){
         try{
+            conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement loadS = conn.prepareStatement("select * from Schedules where id = ?");
             loadS.setInt(1, id);
             ResultSet rs = loadS.executeQuery();
             while(rs.next()){
-                schedule = new Schedule(rs.getString("name"),
+                schedule = new Schedule(rs.getString("name").replace(id + "", ""),
                                             rs.getString("semester"),
                                             rs.getInt("isApproved"),
-                                            "courses",
+                                            rs.getString("courses").toLowerCase(),
                                             refCourses,
                                             id);
             }
+            loadS.close();
+            conn.close();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }

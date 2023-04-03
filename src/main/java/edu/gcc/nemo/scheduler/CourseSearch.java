@@ -10,20 +10,20 @@ public class CourseSearch {
     private List<CourseFilter> filters;
     private boolean changed = false;
     public CourseSearch() {
-        this.courses = Courses.getCoursesInstance().getAllCourses();
+        this.courses = Courses.getInstance().getAllCourses();
         this.filters = new ArrayList<>();
     }
 
     public CourseSearch(List<CourseFilter> filters) {
         List<String> conditions = filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
         this.filters = filters;
-        this.courses = Courses.getCoursesInstance().runQuery(conditions);
+        this.courses = Courses.getInstance().runQuery(conditions);
     }
 
     public CourseSearch(CourseFilter ...filters) {
         this.filters = Arrays.stream(filters).collect(Collectors.toList());
         List<String> conditions = this.filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
-        this.courses = Courses.getCoursesInstance().runQuery(conditions);
+        this.courses = Courses.getInstance().runQuery(conditions);
     }
 
     public void addFilter(CourseFilter filter) {
@@ -73,7 +73,7 @@ public class CourseSearch {
     public List<Course> getResults() {
         if(changed) {
             List<String> conditions = filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
-            this.courses = Courses.getCoursesInstance().runQuery(conditions);
+            this.courses = Courses.getInstance().runQuery(conditions);
             changed = false;
         }
         return this.courses;

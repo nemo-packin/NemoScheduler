@@ -1,12 +1,18 @@
 package edu.gcc.nemo.scheduler;
 
+import edu.gcc.nemo.scheduler.DB.Courses;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CourseListTest {
     //Holder schedule for testing
-    Schedule s = new Schedule("Spring 2024");
+    Schedule s = new Schedule("Spring 2024",
+            "Spring",
+            0,
+            "",
+            Courses.getInstance(),
+            0);
 
     @Test
     void addCourse() {
