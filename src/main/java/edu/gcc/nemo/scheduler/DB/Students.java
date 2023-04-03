@@ -20,7 +20,7 @@ public class Students {
     /**
      * Singleton for students
      */
-    public static Students getStudentsInstance(){
+    public static Students getInstance(){
         if(students == null){
             students = new Students();
             return students;

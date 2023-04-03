@@ -20,9 +20,9 @@ public class Main4 {
 
     public static void main(String[] args) {
         // created singleton objects
-        students = Students.getStudentsInstance();
+        students = Students.getInstance();
         admins = Admins.getAdminsInstance();
-        courses = Courses.getCoursesInstance();
+        courses = Courses.getInstance();
 
         session = new Session(admins, students, courses);
         System.out.println("Hello nemo packers!");
