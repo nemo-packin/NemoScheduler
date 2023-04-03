@@ -47,7 +47,7 @@ public class Student extends User{
                 schedule = new Schedule(rs.getString("name").replace(id + "", ""),
                                             rs.getString("semester"),
                                             rs.getInt("isApproved"),
-                                            rs.getString("courses"),
+                                            rs.getString("courses").toLowerCase(),
                                             refCourses,
                                             id);
             }

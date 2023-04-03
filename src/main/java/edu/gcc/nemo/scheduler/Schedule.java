@@ -39,9 +39,7 @@ public class Schedule{
         this.refCourses = refCourses;
         courseList = new CourseList(refCourses);
         if(coursesString.length() > 0) {
-            System.out.println(coursesString);
             for(String courseCode : coursesString.split(",")) {
-                System.out.println(courseCode + " being added");
                 courseList.addCourse(courseCode);
             }
         }

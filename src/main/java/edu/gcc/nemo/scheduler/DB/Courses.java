@@ -55,7 +55,7 @@ public class Courses {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             courseCodeStatement = conn.prepareStatement("select  * from Courses where LOWER(course_code) = ?");
             courseCodeStatement.setString(1, courseCode);
-            System.out.println(courseCodeStatement);
+//            System.out.println(courseCodeStatement);
             ResultSet rs = courseCodeStatement.executeQuery();
             if(rs.next()) {
                 Course out = new Course(
