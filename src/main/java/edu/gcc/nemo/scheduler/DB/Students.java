@@ -20,7 +20,7 @@ public class Students {
     /**
      * Singleton for students
      */
-    public static Students getStudentsInstance(){
+    public static Students getInstance(){
         if(students == null){
             students = new Students();
             return students;
@@ -77,7 +77,7 @@ public class Students {
                                 rs.getString("password"),
                                 rs.getString("name"),
                                 rs.getInt("id"),
-                                rs.getInt("gradYear"),
+                                rs.getInt("grad_year"),
                                 rs.getString("majors"),
                                 rs.getString("minors")));
                 studentUsernames.add(rs.getString("username"));

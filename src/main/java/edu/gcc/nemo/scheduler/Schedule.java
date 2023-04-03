@@ -2,9 +2,9 @@ package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Schedule{
     private CourseList courseList;
@@ -15,6 +15,7 @@ public class Schedule{
     private Statement stmt;
     private String name;
     private final Courses refCourses;
+
     private int id;
 
     // Constructor
@@ -37,27 +38,35 @@ public class Schedule{
         this.coursesString = courses;
         this.refCourses = refCourses;
         courseList = new CourseList(refCourses);
+        if(coursesString.length() > 0) {
+            System.out.println(coursesString);
+            for(String courseCode : coursesString.split(",")) {
+                System.out.println(courseCode + " being added");
+                courseList.addCourse(courseCode);
+            }
+        }
+
     }
 
     //Methods
-    public void saveSchedule(){
-        String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
-        try{
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            pstmt.setString(2, name + "_" + id);
-            pstmt.setString(3, semester);
-            pstmt.setString(4,courseList.coursesAsString());
-            if(isApproved)
-                pstmt.setInt(5,1);
-            else
-                pstmt.setInt(5,0);
-
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
+//    public void saveSchedule(){
+//        String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
+//        try{
+//            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+//            PreparedStatement pstmt = conn.prepareStatement(sql);
+//            pstmt.setInt(1, id);
+//            pstmt.setString(2, name + "_" + id);
+//            pstmt.setString(3, semester);
+//            pstmt.setString(4,courseList.coursesAsString());
+//            if(isApproved)
+//                pstmt.setInt(5,1);
+//            else
+//                pstmt.setInt(5,0);
+//
+//        }catch (SQLException e){
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     /**
      *
@@ -80,12 +89,12 @@ public class Schedule{
         return listOfCoursesInSchedule;
     }
 
-    public void addCourseToSchedule(String courseCode){
+    public void addCourse(String courseCode){
         if (courseList.addCourse(courseCode))
             isApproved = false;
     }
 
-    public void removeCourseFromSchedule(String courseCode){
+    public void removeCourse(String courseCode){
         if(courseList.removeCourse(courseCode))
             isApproved = false;
     }
@@ -103,8 +112,21 @@ public class Schedule{
         return semester;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
     public void setSemester(String semester) {
         this.semester = semester;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCourses() {
+        this.coursesString = this.courseList.courses.stream().map((course -> course.getCourseCode())).collect(Collectors.joining(","));
+        return this.coursesString;
+    }
 }
