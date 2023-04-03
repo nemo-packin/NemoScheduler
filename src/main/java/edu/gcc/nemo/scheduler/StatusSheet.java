@@ -8,6 +8,8 @@ public class StatusSheet {
     private int gradYear;
     private CourseList courseList;
 
+    public StatusSheet() {}
+
     //Methods
     public String serialize() {
         return null;

@@ -77,7 +77,7 @@ public class Students {
                                 rs.getString("password"),
                                 rs.getString("name"),
                                 rs.getInt("id"),
-                                rs.getInt("grad_year"),
+                                rs.getInt("gradYear"),
                                 rs.getString("majors"),
                                 rs.getString("minors")));
                 studentUsernames.add(rs.getString("username"));
@@ -86,6 +86,13 @@ public class Students {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * just calls the method above
+     */
+    public void reloadStudents(){
+        loadAllStudents();
     }
 
     public ArrayList<String> getListOfAllStudentUsernames(){

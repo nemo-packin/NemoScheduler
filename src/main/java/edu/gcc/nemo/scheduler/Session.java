@@ -6,6 +6,8 @@ import edu.gcc.nemo.scheduler.DB.Courses;
 import org.eclipse.jetty.util.StringUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Session {
     private Student stu;
@@ -86,18 +88,10 @@ public class Session {
      * @return an array of courses with course codes that contains the search value
      */
     public Course[] searchCourses(String courseCodeSearchVal) {
-        String courseCodeSearchVal2 = courseCodeSearchVal.replace(" ","");
-        ArrayList<String> listOfCourseCodes = refCourses.getAllCourseCodes();
-        ArrayList<String> resultCourseCodeMatches = new ArrayList<>();
-        for(String cc: listOfCourseCodes){
-            if(cc.contains(courseCodeSearchVal2))
-                resultCourseCodeMatches.add(cc);
-        }
-        Course[] courseArr = new Course[resultCourseCodeMatches.size()];
-        for(int i = 0; i < courseArr.length; i++){
-            courseArr[i] = refCourses.getCourse(resultCourseCodeMatches.get(i));
-        }
-        return courseArr;
+        String searchVal = courseCodeSearchVal.replace(" ", "");
+        CourseSearch cs = new CourseSearch();
+        cs.addFilter(CourseFieldNames.courseCode, searchVal, FilterMatchType.CONTAINS);
+        return cs.getResults().toArray(new Course[0]);
     }
 
     public String getSchedule() {
