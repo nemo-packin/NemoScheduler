@@ -304,7 +304,7 @@ public class Main4 {
 
     public static void addCourse(String courseCode) {
         if (stuSignedIn != null) {
-            stuSignedIn.schedule.addCourseToSchedule(courseCode);
+            stuSignedIn.schedule.addCourse(courseCode);
             System.out.println(stuSignedIn.schedule.toString());
         } else if (adminSignedIn != null) {
             System.out.println("As an admin you do not have a schedule!");
@@ -315,7 +315,7 @@ public class Main4 {
 
     public static void removeCourse(String courseCode) {
         if (stuSignedIn != null) {
-            stuSignedIn.schedule.removeCourseFromSchedule(courseCode);
+            stuSignedIn.schedule.removeCourse(courseCode);
             System.out.println(stuSignedIn.schedule.toString());
         } else if (adminSignedIn != null) {
             System.out.println("As an admin you do not have a schedule!");

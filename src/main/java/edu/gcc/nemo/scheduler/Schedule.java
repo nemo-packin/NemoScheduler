@@ -2,7 +2,6 @@ package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -80,12 +79,12 @@ public class Schedule{
         return listOfCoursesInSchedule;
     }
 
-    public void addCourseToSchedule(String courseCode){
+    public void addCourse(String courseCode){
         if (courseList.addCourse(courseCode))
             isApproved = false;
     }
 
-    public void removeCourseFromSchedule(String courseCode){
+    public void removeCourse(String courseCode){
         if(courseList.removeCourse(courseCode))
             isApproved = false;
     }

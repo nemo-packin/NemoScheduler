@@ -29,6 +29,7 @@ public class Session {
     }
 
     public boolean authenticate(String username, String password) {
+        refStudents.reloadStudents();
         if(refStudents.getStudent(username) != null) {
             stu = refStudents.getStudent(username);
             typeOfUser = "student";

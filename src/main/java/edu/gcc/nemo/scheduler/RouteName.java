@@ -7,6 +7,7 @@ public enum RouteName {
     ADD_COURSE,
     REMOVE_COURSE,
     SEARCH_COURSE,
+    SEARCH_STUDENT,
     VIEW_SCHEDULE,
     EDIT_SCHEDULE,
     CREATE_SCHEDULE,

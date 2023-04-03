@@ -79,6 +79,10 @@ public class Main5 {
                 System.out.println("Enter course code query!");
                 m.put("query", getLine());
                 break;
+            case SEARCH_STUDENT:
+                System.out.println("Enter student query!");
+                m.put("query", getLine());
+                break;
             case VIEW_SCHEDULE:
                 break;
             case EDIT_SCHEDULE:
@@ -207,6 +211,11 @@ public class Main5 {
                 searchCourse(query);
                 state.update(RouteName.HOME);
                 break;
+            case SEARCH_STUDENT:
+                String stuQuery = (String)input.get("query");
+                studentSearch(stuQuery);
+                state.update(RouteName.HOME);
+                break;
             case VIEW_SCHEDULE:
                 displayAllSchedule();
                 state.update(RouteName.HOME);
@@ -214,10 +223,10 @@ public class Main5 {
             case EDIT_SCHEDULE:
                 switch ((String) input.get("action")) {
                     case "add course":
-                        state.update(RouteName.AUTHENTICATE);
+                        state.update(RouteName.ADD_COURSE);
                         break;
                     case "remove course":
-                        state.update(RouteName.CREATE_ACCOUNT);
+                        state.update(RouteName.REMOVE_COURSE);
                         break;
                     default:
                         throw new TextInputException("Must `add course` or `remove course`");
@@ -227,6 +236,7 @@ public class Main5 {
                 stuSignedIn.createNewSchedule((String)input.get("name"),
                         (String)input.get("semester"),
                         courses);
+                state.update(RouteName.HOME);
                 break;
             case HOME:
                 switch ((String) input.get("action")) {
@@ -245,6 +255,9 @@ public class Main5 {
                         break;
                     case "search course":
                         state.update(RouteName.SEARCH_COURSE);
+                        break;
+                    case "search student":
+                        state.update(RouteName.SEARCH_STUDENT);
                         break;
                     case "log out":
                         return false;
@@ -342,10 +355,14 @@ public class Main5 {
         }
     }
 
-    public static void addCourse(String courseCode) {
+    public static void addCourse(String courseCode) throws TextInputException {
         if (stuSignedIn != null) {
-            stuSignedIn.schedule.addCourseToSchedule(courseCode);
-            System.out.println(stuSignedIn.schedule.toString());
+            try {
+                stuSignedIn.schedule.addCourse(courseCode);
+                System.out.println(stuSignedIn.schedule.toString());
+            } catch (IllegalArgumentException e) {
+                throw new TextInputException("Could not find course");
+            }
         } else if (adminSignedIn != null) {
             System.out.println("As an admin you do not have a schedule!");
         } else {
@@ -355,7 +372,7 @@ public class Main5 {
 
     public static void removeCourse(String courseCode) {
         if (stuSignedIn != null) {
-            stuSignedIn.schedule.removeCourseFromSchedule(courseCode);
+            stuSignedIn.schedule.removeCourse(courseCode);
             System.out.println(stuSignedIn.schedule.toString());
         } else if (adminSignedIn != null) {
             System.out.println("As an admin you do not have a schedule!");
@@ -368,6 +385,12 @@ public class Main5 {
         Course[] cs = session.searchCourses(query);
         for(Course c : cs) {
             System.out.println(c);
+        }
+    }
+    public static void studentSearch(String stuQuery) {
+        Student[] ss = session.searchStudents(stuQuery);
+        for(Student s : ss) {
+            System.out.println(s);
         }
     }
 }
