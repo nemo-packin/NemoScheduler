@@ -5,6 +5,9 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'application'
+mainClassName = 'edu.gcc.nemo.scheduler.Main'
+
 repositories {
     mavenCentral()
 }

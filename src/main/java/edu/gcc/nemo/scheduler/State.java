@@ -11,7 +11,10 @@ public class State {
         current = newState;
     }
     public void goBack() {
-        current = history.remove(history.size() - 1);
+        if(history.size() > 0)
+            current = history.remove(history.size() - 1);
+        else
+            current = RouteName.SIGNED_OUT;
     }
     public RouteName getCurrent() {
         return current;

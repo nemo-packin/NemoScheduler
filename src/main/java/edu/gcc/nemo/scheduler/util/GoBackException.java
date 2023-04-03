@@ -1,2 +1,4 @@
-package edu.gcc.nemo.scheduler;public class GoBackException {
+package edu.gcc.nemo.scheduler.util;
+
+public class GoBackException extends Exception {
 }

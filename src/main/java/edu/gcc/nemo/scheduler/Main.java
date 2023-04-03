@@ -4,6 +4,7 @@ import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.DB.Students;
 import edu.gcc.nemo.scheduler.util.EarlyExitException;
+import edu.gcc.nemo.scheduler.util.GoBackException;
 import edu.gcc.nemo.scheduler.util.TextInputException;
 
 import java.sql.*;
@@ -40,20 +41,24 @@ public class Main {
                 System.out.println(e.getMessage());
             } catch (EarlyExitException e) {
                 cont = false;
+            } catch (GoBackException e) {
+                state.goBack();
             }
         }
         System.out.println("Goodbye nemo-er!");
 
     }
 
-    public static String getLine() throws EarlyExitException {
+    public static String getLine() throws EarlyExitException, GoBackException {
         String input = sc.nextLine().toLowerCase().trim();
         if (input.equals("exit"))
             throw new EarlyExitException();
+        if (input.equals("back"))
+            throw new GoBackException();
         return input;
     }
 
-    public static Map<String, Object> getInput(State state) throws EarlyExitException, TextInputException {
+    public static Map<String, Object> getInput(State state) throws EarlyExitException, TextInputException, GoBackException {
         Map<String, Object> m = new HashMap<>();
         switch (state.getCurrent()) {
             case SIGNED_OUT:
@@ -218,7 +223,7 @@ public class Main {
         return true;
     }
 
-    private static Map<String, Object> getAccountDetails() throws TextInputException, EarlyExitException {
+    private static Map<String, Object> getAccountDetails() throws TextInputException, EarlyExitException, GoBackException {
         Map<String, Object> m = new HashMap<>();
         System.out.println("Please enter the username you would like to use:  (Type 'exit' to go back)");
         String username = getLine();
@@ -270,7 +275,7 @@ public class Main {
         return m;
     }
 
-    public static Map<String, Object> getLoginInfo() throws EarlyExitException {
+    public static Map<String, Object> getLoginInfo() throws EarlyExitException, GoBackException {
         System.out.println("To login in please enter your username (Type 'Exit' to go back to home)");
         String username = getLine();
         System.out.println("Please enter your password (Type 'Exit' to go back to home)");
@@ -326,7 +331,7 @@ public class Main {
         }
     }
 
-    private static Map<String, Object> getCreateScheduleInfo() throws TextInputException, EarlyExitException {
+    private static Map<String, Object> getCreateScheduleInfo() throws TextInputException, EarlyExitException, GoBackException {
         if (session.getTypeOfUser().equals("student")) {
             System.out.println("What would you like the name of your schedule to be?");
             String name = getLine();
@@ -348,7 +353,7 @@ public class Main {
     public static void displayAllSchedule() {
         if (stuSignedIn != null) {
             System.out.println("The following is a list of all the classes: \n");
-            System.out.println(stuSignedIn.schedule.toString());
+            System.out.println(stuSignedIn.schedule.calendarView());
         } else if (adminSignedIn != null) {
             System.out.println("As an admin you do not have a schedule!");
         } else {
