@@ -3,16 +3,15 @@ package edu.gcc.nemo.scheduler;
 import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.DB.Students;
-import spark.Route;
 
 import static spark.Spark.*;
 
 public class MainTwo {
 
     public static void main(String[] args) {
-        Students students = Students.getStudentsInstance();
+        Students students = Students.getInstance();
         Admins admins = Admins.getAdminsInstance();
-        Courses courses = Courses.getCoursesInstance();
+        Courses courses = Courses.getInstance();
 
         before((request, response) -> {
             if (request.session().isNew()) {
