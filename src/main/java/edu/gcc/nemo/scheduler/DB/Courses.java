@@ -38,7 +38,7 @@ public class Courses {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             statement = conn.createStatement();
-            courseCodeStatement = conn.prepareStatement("select  * from Courses where course_code = ?");
+            courseCodeStatement = conn.prepareStatement("select  * from Courses where LOWER(course_code) = ?");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -52,10 +52,13 @@ public class Courses {
      */
     public Course getCourse(String courseCode) {
         try {
+            conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            courseCodeStatement = conn.prepareStatement("select  * from Courses where LOWER(course_code) = ?");
             courseCodeStatement.setString(1, courseCode);
+            System.out.println(courseCodeStatement);
             ResultSet rs = courseCodeStatement.executeQuery();
             if(rs.next()) {
-                return new Course(
+                Course out = new Course(
                         rs.getString("course_code"),
                         rs.getString("department"),
                         rs.getString("semester"),
@@ -66,6 +69,8 @@ public class Courses {
                         rs.getInt("credit_hours"),
                         rs.getInt("capacity")
                 );
+                conn.close();
+                return out;
             }
             throw new IllegalArgumentException("Course not found for course code.");
         } catch (SQLException e) {
@@ -79,6 +84,8 @@ public class Courses {
      */
     public List<Course> getAllCourses() {
         try {
+            conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            statement = conn.createStatement();
             List<Course> courseList = new ArrayList<>();
             ResultSet rs = statement.executeQuery("select * from Courses");
             while(rs.next()) {
@@ -93,6 +100,7 @@ public class Courses {
                         rs.getInt("credit_hours"),
                         rs.getInt("capacity")));
             }
+            conn.close();
             return courseList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -107,8 +115,10 @@ public class Courses {
             queryString += "AND (" + conditions.get(i) + ")";
         }
         try {
+            conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            statement = conn.createStatement();
             List<Course> courseList = new ArrayList<>();
-            System.out.println(queryString);
+//            System.out.println(queryString);
             ResultSet rs = statement.executeQuery(queryString);
             while(rs.next()) {
                 courseList.add(new Course(
@@ -122,6 +132,7 @@ public class Courses {
                         rs.getInt("credit_hours"),
                         rs.getInt("capacity")));
             }
+            conn.close();
             return courseList;
         } catch (SQLException e) {
             throw new RuntimeException(e);

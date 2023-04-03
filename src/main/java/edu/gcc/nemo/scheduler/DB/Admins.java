@@ -37,6 +37,7 @@ public class Admins {
             allAdmins = new HashMap<>();
             listOfIds = new ArrayList<>();
             loadAllAdmins();
+            conn.close();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }

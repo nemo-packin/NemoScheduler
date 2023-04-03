@@ -5,6 +5,10 @@ import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import org.eclipse.jetty.util.StringUtil;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -43,6 +47,7 @@ public class Session {
         if(admin != null && admin.password.equals(password)) {
             authenticated = true;
         }else if(stu != null && stu.password.equals(password)){
+            stu.loadScheduleFromDB(Courses.getInstance());
             authenticated = true;
         }else{
             System.out.println("Failed to authenticate!");
@@ -55,11 +60,56 @@ public class Session {
     }
 
     void saveSchedule() {
-
+        Schedule schedule = this.stu.schedule;
+        String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, schedule.getId());
+            pstmt.setString(2, schedule.getName());
+            pstmt.setString(3, schedule.getSemester());
+            pstmt.setString(4, schedule.getCourses());
+            pstmt.setString(5, schedule.getApproved() ? "true" : "false");
+            pstmt.executeUpdate();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("You already have a schedule with this name! Updating...");
+            sql = "update Schedules set id = ?, name = ?, semester = ?, courses = ?, isApproved = ? where name = ?";
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, schedule.getId());
+                pstmt.setString(2, schedule.getName());
+                pstmt.setString(3, schedule.getSemester());
+                pstmt.setString(4, schedule.getCourses());
+                pstmt.setString(5, schedule.getApproved() ? "true" : "false");
+                pstmt.setString(6,schedule.getName());
+                pstmt.executeUpdate();
+                conn.close();
+            } catch (SQLException e2) {
+                throw new RuntimeException(e2);
+            }
+        }
     }
 
     void editSchedule() {
-
+        Schedule schedule = stu.schedule;
+//        System.out.println("You already have a schedule with this name! Updating...");
+        String sql = "update Schedules set id = ?, name = ?, semester = ?, courses = ?, isApproved = ? where name = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, schedule.getId());
+            pstmt.setString(2, schedule.getName());
+            pstmt.setString(3, schedule.getSemester());
+            pstmt.setString(4, schedule.getCourses());
+            pstmt.setString(5, schedule.getApproved() ? "true" : "false");
+            pstmt.setString(6,schedule.getName());
+            pstmt.executeUpdate();
+            conn.close();
+        } catch (SQLException e2) {
+            throw new RuntimeException(e2);
+        }
     }
 
     /**
