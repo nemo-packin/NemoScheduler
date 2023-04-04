@@ -38,7 +38,7 @@ public class Main {
                 input = getInput(state);
                 cont = step(input, state);
             } catch (TextInputException e) {
-                System.out.println(e.getMessage());
+                System.out.println("WHOOPS! - " + e.getMessage());
             } catch (EarlyExitException e) {
                 cont = false;
             } catch (GoBackException e) {
@@ -50,6 +50,7 @@ public class Main {
     }
 
     public static String getLine() throws EarlyExitException, GoBackException {
+        System.out.print(" > ");
         String input = sc.nextLine().toLowerCase().trim();
         if (input.equals("exit"))
             throw new EarlyExitException();
@@ -91,7 +92,7 @@ public class Main {
             case VIEW_SCHEDULE:
                 break;
             case EDIT_SCHEDULE:
-                System.out.println("Would you like to add or remove course?");
+                System.out.println("Would you like to add or remove course (`add course` / `remove_course`)?");
                 m.put("action", getLine());
                 break;
             case CREATE_SCHEDULE:
@@ -100,7 +101,7 @@ public class Main {
             case HOME:
                 System.out.println("Would you like to sign out, create a schedule, view schedule, edit a schedule, or search course? \n" +
                         "(Type: 'Log out' or 'Edit schedule' or 'Search Student' or" +
-                        "'Show Schedule' or 'Create Schedule' or 'Exit' or 'Search Course')");
+                        "'View Schedule' or 'Create Schedule' or 'Exit' or 'Search Course')");
                 m.put("action", getLine());
                 break;
         }
@@ -146,7 +147,9 @@ public class Main {
                     }
                     System.out.println("You successfully logged in as a " + session.getTypeOfUser() + "!");
                     state.update(RouteName.HOME);
-                    break;
+
+                } else {
+                    throw new TextInputException("Failed to authenticate!");
                 }
                 break;
             case ADD_COURSE:
@@ -225,7 +228,7 @@ public class Main {
 
     private static Map<String, Object> getAccountDetails() throws TextInputException, EarlyExitException, GoBackException {
         Map<String, Object> m = new HashMap<>();
-        System.out.println("Please enter the username you would like to use:  (Type 'exit' to go back)");
+        System.out.println("Please enter the username you would like to use:  (Type 'back' to go back)");
         String username = getLine();
         if (doesUsernameExist(username))
             throw new TextInputException("I'm sorry, but that username already exists, please pick a different one");
@@ -242,14 +245,14 @@ public class Main {
         if (doesIdExist(id))
             throw new TextInputException("id already exists");
         m.put("id", id);
-        System.out.println("Please enter the password you would like to use:  (Type 'exit' to go back to home)");
+        System.out.println("Please enter the password you would like to use:  (Type 'back' to go back to home)");
         String password = getLine();
         System.out.println("Please re-enter your password:");
         String confirm = getLine();
         if (!confirm.equals(password))
             throw new TextInputException("Passwords must match");
         m.put("password", password);
-        System.out.println("What is your name? (Type 'exit' to back to home)");
+        System.out.println("What is your name? (Type 'back' to back to home)");
         String name = getLine();
         m.put("name", name);
         System.out.println("What is your graduation year?");
@@ -276,9 +279,9 @@ public class Main {
     }
 
     public static Map<String, Object> getLoginInfo() throws EarlyExitException, GoBackException {
-        System.out.println("To login in please enter your username (Type 'Exit' to go back to home)");
+        System.out.println("To login in please enter your username (Type 'Back' to go back to home)");
         String username = getLine();
-        System.out.println("Please enter your password (Type 'Exit' to go back to home)");
+        System.out.println("Please enter your password (Type 'Back' to go back to home)");
         String password = getLine();
         return new HashMap<>(Map.of("username", username, "password", password));
     }

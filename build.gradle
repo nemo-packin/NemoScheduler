@@ -8,6 +8,10 @@ version '1.0-SNAPSHOT'
 apply plugin: 'application'
 mainClassName = 'edu.gcc.nemo.scheduler.Main'
 
+run {
+    standardInput = System.in
+}
+
 repositories {
     mavenCentral()
 }
@@ -24,10 +28,12 @@ test {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     manifest {
         attributes "Main-Class": "edu.gcc.nemo.scheduler.Main"
     }
     from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it)}
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }

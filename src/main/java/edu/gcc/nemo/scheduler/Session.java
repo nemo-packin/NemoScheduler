@@ -41,16 +41,12 @@ public class Session {
         else if(refAdmins.getAdmin(username) != null) {
             admin = refAdmins.getAdmin(username);
             typeOfUser = "admin";
-        }else{
-            System.out.println("Failed to authenticate!");
         }
         if(admin != null && admin.password.equals(password)) {
             authenticated = true;
         }else if(stu != null && stu.password.equals(password)){
             stu.loadScheduleFromDB(Courses.getInstance());
             authenticated = true;
-        }else{
-            System.out.println("Failed to authenticate!");
         }
         return authenticated;
     }

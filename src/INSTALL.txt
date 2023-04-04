@@ -1,3 +1,12 @@
+Run from source (intellij):
 1. Open project in intellij
 2. Open Main.java
 3. Run public static void main() in Main.java
+
+Run from source (gradle):
+1. Open terminal and type `./gradlew run`
+
+Run from build (gradle):
+1. Ensure package is unzipped with NemoDB.db in the same directory as NemoScheduler-xxxx.jar
+2. Open terminal in the directory containing above files.
+3. Run `java -jar NemoScheduler-xxxx.jar`.
