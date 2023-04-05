@@ -82,9 +82,10 @@ public class Main {
                 m.put("course_code", getLine());
                 break;
             case SEARCH_COURSE:
-                System.out.println("Enter course code query!");
+                System.out.println("Enter search as list of filters separated by semicolons ([filter]:[value];[filter]:[value]).\n" +
+                        "Valid filters are 'course code', 'prof', 'semester', 'time', 'day', 'credit hours')!");
                 m.put("query", getLine());
-                break;
+                break
             case SEARCH_STUDENT:
                 System.out.println("Enter student query!");
                 m.put("query", getLine());
