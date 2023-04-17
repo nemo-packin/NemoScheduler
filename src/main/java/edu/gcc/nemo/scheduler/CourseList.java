@@ -30,7 +30,7 @@ public class CourseList{
         //Check to make sure that the course is in the schedule before removing it
         boolean removed = false;
         for(int i = 0; i < courses.size(); i++) {
-            if(courses.get(i).getCourseCode().equals(courseCode)) {
+            if(courses.get(i).getCourseCode().equals(courseCode.toUpperCase().trim())) {
                 courses.remove(i);
                 removed = true;
                 break;
