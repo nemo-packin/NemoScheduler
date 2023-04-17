@@ -78,7 +78,7 @@ public class Course {
 
     @Override
     public String toString(){
-        return courseCode + " " + day + " " + prof;
+        return courseCode + " | " + day + " | " + time + " | " + prof;
     }
 
 }

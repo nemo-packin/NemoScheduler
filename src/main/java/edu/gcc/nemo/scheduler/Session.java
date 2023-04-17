@@ -138,7 +138,7 @@ public class Session {
         String[] filters = courseCodeSearchVal.split(";");
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
-            String[] kv = f.split(":");
+            String[] kv = f.split("_");
             String fieldName = kv[0];
             String vals = kv[1];
             switch (fieldName) {
