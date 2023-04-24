@@ -45,11 +45,18 @@ public class Session {
         String password = data.get("password").toString();
 
         authenticate(username, password);
+        System.out.println("");
         // Process the data here
-        if(authenticated)
-            return ResponseEntity.ok("valid login!");
+        if(authenticated && typeOfUser.equals("student"))
+            return ResponseEntity.ok("student");
+        else if(authenticated && typeOfUser.equals("admin"))
+            return ResponseEntity.ok("admin");
         else
             return ResponseEntity.ok("invalid login!");
+    }
+    @GetMapping("/auth")
+    public boolean getAuth() {
+        return authenticated;
     }
 
     public boolean authenticate(String username, String password) {
