@@ -34,7 +34,7 @@ public class Courses {
     /**
      * Constructor
      */
-    private Courses() {
+    public Courses() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             statement = conn.createStatement();

@@ -5,6 +5,8 @@ import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.CourseFieldNames;
 import org.eclipse.jetty.util.StringUtil;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,8 +14,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
     private Student stu;
     private Admin admin;
@@ -31,6 +37,26 @@ public class Session {
         stu = null;
         admin = null;
         typeOfUser = "";
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> postData(@RequestBody Map<String, Object> data) {
+        String username = data.get("username").toString();
+        String password = data.get("password").toString();
+
+        authenticate(username, password);
+        System.out.println("");
+        // Process the data here
+        if(authenticated && typeOfUser.equals("student"))
+            return ResponseEntity.ok("student");
+        else if(authenticated && typeOfUser.equals("admin"))
+            return ResponseEntity.ok("admin");
+        else
+            return ResponseEntity.ok("invalid login!");
+    }
+    @GetMapping("/auth")
+    public boolean getAuth() {
+        return authenticated;
     }
 
     public boolean authenticate(String username, String password) {
