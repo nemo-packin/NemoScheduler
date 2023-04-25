@@ -8,6 +8,7 @@ import org.eclipse.jetty.util.StringUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,6 +63,12 @@ public class Session {
     @GetMapping("/userType")
     public String userType(){
         return typeOfUser;
+    }
+
+    @PostMapping("/logout")
+    public void logout(){
+        authenticated = false;
+        typeOfUser = "";
     }
 
     public boolean authenticate(String username, String password) {
