@@ -1,4 +1,4 @@
-package edu.gcc.nemo.scheduler;
+package edu.gcc.nemo.scheduler.springboot;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

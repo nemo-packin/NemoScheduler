@@ -25,6 +25,7 @@ public class Main {
     private static Session session;
 
     public static void main(String[] args) {
+        System.out.println("Hello World!");
         // created singleton objects
         students = Students.getInstance();
         admins = Admins.getAdminsInstance();

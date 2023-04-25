@@ -59,6 +59,11 @@ public class Session {
         return authenticated;
     }
 
+    @GetMapping("/userType")
+    public String userType(){
+        return typeOfUser;
+    }
+
     public boolean authenticate(String username, String password) {
         refStudents.reloadStudents();
         if (refStudents.getStudent(username) != null) {
