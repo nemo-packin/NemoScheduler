@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -66,9 +67,16 @@ public class Session {
     }
 
     @PostMapping("/logout")
-    public void logout(){
+    public void logout() {
         authenticated = false;
         typeOfUser = "";
+    }
+
+    @GetMapping("/accountInfo")
+    public List<String> getAccountInfo() {
+        if(this.typeOfUser.equals("student")) {
+            return List.of(stu.name, stu.username);
+        } else return List.of(admin.name, admin.username);
     }
 
     public boolean authenticate(String username, String password) {
