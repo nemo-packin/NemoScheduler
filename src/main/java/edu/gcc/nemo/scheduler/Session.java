@@ -185,39 +185,41 @@ public class Session {
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
             String[] kv = f.split("_");
-            String fieldName = kv[0];
-            String vals = kv[1];
-            switch (fieldName) {
-                case "department":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "semester":
-                    cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "time":
-                    cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "day":
-                    cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "prof":
-                    cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "name":
-                    cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "credit hours":
-                    cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "course code":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "capacity":
-                    cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
-                    break;
-                default:
-                    break;
+            if (kv.length > 1) {
+                String fieldName = kv[0];
+                String vals = kv[1];
+                switch (fieldName) {
+                    case "department":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "semester":
+                        cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "time":
+                        cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "day":
+                        cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "prof":
+                        cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "name":
+                        cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "credit hours":
+                        cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "course code":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "capacity":
+                        cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
+                        break;
+                    default:
+                        break;
 
+                }
             }
         }
         String searchVal = courseCodeSearchVal.replace(" ", "");
