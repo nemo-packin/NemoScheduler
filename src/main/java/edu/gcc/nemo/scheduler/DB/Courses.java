@@ -5,6 +5,7 @@ import edu.gcc.nemo.scheduler.Course;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Courses {
     /***
@@ -52,7 +53,7 @@ public class Courses {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             courseCodeStatement = conn.prepareStatement("select  * from Courses where LOWER(course_code) = ?");
-            courseCodeStatement.setString(1, courseCode);
+            courseCodeStatement.setString(1, courseCode.toLowerCase());
             ResultSet rs = courseCodeStatement.executeQuery();
             if(rs.next()) {
                 Course out = new Course(

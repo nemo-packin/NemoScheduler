@@ -87,8 +87,11 @@ public class Schedule{
     }
 
     public void addCourse(String courseCode){
-        if (courseList.addCourse(courseCode))
+        if (courseList.addCourse(courseCode)) {
             isApproved = false;
+        } else {
+            System.out.println("Did not add course");
+        }
     }
 
     public void removeCourse(String courseCode){

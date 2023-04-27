@@ -210,6 +210,31 @@ public class Session {
         return searchCourses(search);
     }
 
+    @PostMapping("/addCourse")
+    public boolean addToSchedule(@RequestBody Map<String, String> data){
+        String courseCode = data.get("courseCode");
+        if(typeOfUser.equals("student")) {
+            stu.schedule.addCourse(courseCode);
+            System.out.println("Added Course on Frontend");
+            System.out.println(stu.schedule.toString());
+            saveSchedule();
+            return true;
+        }
+        return false;
+    }
+
+    @PostMapping("/removeCourse")
+    public boolean removeToSchedule(@RequestBody Map<String, String> data){
+        String courseCode = data.get("code");
+        if(typeOfUser.equals("student")) {
+            stu.schedule.removeCourse(courseCode);
+            System.out.println("Removed Course on Frontend");
+            saveSchedule();
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @param courseCodeSearchVal is the name of the course the user is searching for
      * @return an array of courses with course codes that contains the search value
