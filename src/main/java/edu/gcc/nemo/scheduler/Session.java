@@ -12,10 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -70,6 +67,29 @@ public class Session {
         if(this.typeOfUser.equals("student")) {
             return List.of(stu.name, stu.username);
         } else return List.of(admin.name, admin.username);
+    }
+
+    @GetMapping("/calendar")
+    public List<List<String>> getCalendar() {
+        List<Course> c = stu.schedule.getCourseList().courses;
+        if(stu.schedule.getCourseList().courses != null) {
+            c = stu.schedule.getCourseList().courses;
+        } else {
+            c = Collections.<Course>emptyList();
+        }
+        List<String> courses = new ArrayList<>();
+        List<String> days = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+        for(Course x : c) {
+            courses.add(x.getCourseCode());
+            days.add(x.getDay());
+            times.add(x.getTime());
+        }
+        List<List<String>> codeAndTime = new ArrayList<>();
+        codeAndTime.add(courses);
+        codeAndTime.add(days);
+        codeAndTime.add(times);
+        return codeAndTime;
     }
 
     public boolean authenticate(String username, String password) {
