@@ -200,14 +200,13 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/searchResults")
+    @PostMapping("/ccSearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
         if(input.equals("")){
             return new Course[0];
         }
         String search = "course code_" + data.get("content");
-        System.out.println("Search: " + search);
         return searchCourses(search);
     }
 
