@@ -126,6 +126,10 @@ public class Schedule{
         this.coursesString = this.courseList.courses.stream().map((course -> course.getCourseCode())).collect(Collectors.joining(","));
         return this.coursesString;
     }
+
+    public CourseList getCourseList() {
+        return courseList;
+    }
     public String calendarView() {
         //Set up the format for storing once the data is parsed
         ArrayList<Course> Monday = new ArrayList<Course>();
