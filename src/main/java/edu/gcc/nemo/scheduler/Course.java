@@ -1,6 +1,6 @@
 package edu.gcc.nemo.scheduler;
 
-public class Course {
+public class Course extends CourseLike{
     private String courseCode;
     private String department;
     private String semester;
