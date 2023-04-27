@@ -42,7 +42,7 @@ public class Session {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> postData(@RequestBody Map<String, Object> data) {
+    public String postData(@RequestBody Map<String, String> data) {
         String username = data.get("username").toString();
         String password = data.get("password").toString();
 
@@ -50,11 +50,11 @@ public class Session {
         System.out.println("");
         // Process the data here
         if(authenticated && typeOfUser.equals("student"))
-            return ResponseEntity.ok("student");
+            return "student";
         else if(authenticated && typeOfUser.equals("admin"))
-            return ResponseEntity.ok("admin");
+            return "admin";
         else
-            return ResponseEntity.ok("invalid login!");
+            return "invalid login!";
     }
     @GetMapping("/auth")
     public boolean getAuth() {
@@ -76,7 +76,11 @@ public class Session {
     public List<String> getAccountInfo() {
         if(this.typeOfUser.equals("student")) {
             return List.of(stu.name, stu.username);
-        } else return List.of(admin.name, admin.username);
+        } else if (this.typeOfUser.equals("admin")) {
+            return List.of(admin.name, admin.username);
+        }else{
+            return List.of("","");
+        }
     }
 
     public boolean authenticate(String username, String password) {
@@ -176,11 +180,23 @@ public class Session {
         return null;
     }
 
+    @PostMapping("/searchResults")
+    public Course[] searchResults(@RequestBody Map<String, String> data){
+        String input = data.get("content").strip();
+        if(input.equals("")){
+            return new Course[0];
+        }
+        String search = "course code_" + data.get("content");
+        System.out.println("Search: " + search);
+        return searchCourses(search);
+    }
+
     /**
      * @param courseCodeSearchVal is the name of the course the user is searching for
      * @return an array of courses with course codes that contains the search value
      */
     public Course[] searchCourses(String courseCodeSearchVal) {
+        System.out.println("SEARCH VALUE IS: " + courseCodeSearchVal);
         String[] filters = courseCodeSearchVal.split(";");
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
