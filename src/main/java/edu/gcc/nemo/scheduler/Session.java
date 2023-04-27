@@ -200,15 +200,16 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/searchResults")
+    @PostMapping("/ccSearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
-        if(input.equals("")){
+        String count = data.get("numFilters");
+        System.out.println("Input is: " + input);
+        System.out.println("Num Filters: " + count);
+        if(count.equals("0")){
             return new Course[0];
         }
-        String search = "course code_" + data.get("content");
-        System.out.println("Search: " + search);
-        return searchCourses(search);
+        return searchCourses(input);
     }
 
     @PostMapping("/addCourse")
@@ -216,8 +217,6 @@ public class Session {
         String courseCode = data.get("courseCode");
         if(typeOfUser.equals("student")) {
             stu.schedule.addCourse(courseCode);
-            System.out.println("Added Course on Frontend");
-            System.out.println(stu.schedule.toString());
             saveSchedule();
             return true;
         }
@@ -229,7 +228,6 @@ public class Session {
         String courseCode = data.get("code");
         if(typeOfUser.equals("student")) {
             stu.schedule.removeCourse(courseCode);
-            System.out.println("Removed Course on Frontend");
             saveSchedule();
             return true;
         }
@@ -241,10 +239,11 @@ public class Session {
      * @return an array of courses with course codes that contains the search value
      */
     public Course[] searchCourses(String courseCodeSearchVal) {
-        System.out.println("SEARCH VALUE IS: " + courseCodeSearchVal);
         String[] filters = courseCodeSearchVal.split(";");
+        System.out.println("Filters: " + Arrays.deepToString(filters));
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
+            System.out.println("f: " + f);
             String[] kv = f.split("_");
             if (kv.length > 1) {
                 String fieldName = kv[0];
