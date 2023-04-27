@@ -25,7 +25,6 @@ public class Main {
     private static Session session;
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         // created singleton objects
         students = Students.getInstance();
         admins = Admins.getAdminsInstance();
@@ -87,7 +86,7 @@ public class Main {
                 m.put("course_code", getLine());
                 break;
             case SEARCH_COURSE:
-                System.out.println("Enter search as list of filters separated by semicolons ([filter]-[value];[filter]-[value]).\n" +
+                System.out.println("Enter search as list of filters separated by semicolons ([filter]_[value];[filter]_[value]).\n" +
                         "Valid filters are 'course code', 'prof', 'semester', 'time', 'day', 'credit hours')!");
                 m.put("query", getLine());
                 break;

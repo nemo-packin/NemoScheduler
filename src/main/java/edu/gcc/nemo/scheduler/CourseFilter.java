@@ -32,14 +32,18 @@ public class CourseFilter extends Filter {
     public String toString() {
         switch(matchType) {
             case EQUALS:
-                return values.stream().map((value) -> fieldName + "='" + value + "'").collect(Collectors.joining(" OR "));
+                return values.stream().map((value) -> fieldName + " = ?").collect(Collectors.joining(" OR "));
             case CONTAINS:
-                return values.stream().map((value) -> fieldName + " LIKE '%" + value + "%'").collect(Collectors.joining(" OR "));
+                return values.stream().map((value) -> fieldName + " LIKE ?").collect(Collectors.joining(" OR "));
             case NEQUALS:
-                return values.stream().map((value) -> fieldName + "!='" + value +"'").collect(Collectors.joining(" OR "));
+                return values.stream().map((value) -> fieldName + "!= ?").collect(Collectors.joining(" OR "));
             default:
                 return "";
         }
+    }
+
+    public List<String> getValues(){
+        return values;
     }
     public CourseFieldNames getFieldName() {
         return fieldName;

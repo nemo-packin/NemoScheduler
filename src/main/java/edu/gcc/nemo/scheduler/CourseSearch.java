@@ -16,14 +16,16 @@ public class CourseSearch {
 
     public CourseSearch(List<CourseFilter> filters) {
         List<String> conditions = filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
+        List<List<String>> values = filters.stream().map(CourseFilter::getValues).collect((Collectors.toList()));
         this.filters = filters;
-        this.courses = Courses.getInstance().runQuery(conditions);
+        this.courses = Courses.getInstance().runQuery(conditions, values);
     }
 
     public CourseSearch(CourseFilter ...filters) {
         this.filters = Arrays.stream(filters).collect(Collectors.toList());
         List<String> conditions = this.filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
-        this.courses = Courses.getInstance().runQuery(conditions);
+        List<List<String>> values = this.filters.stream().map(CourseFilter::getValues).collect((Collectors.toList()));
+        this.courses = Courses.getInstance().runQuery(conditions, values);
     }
 
     public void addFilter(CourseFilter filter) {
@@ -73,7 +75,8 @@ public class CourseSearch {
     public List<Course> getResults() {
         if(changed) {
             List<String> conditions = filters.stream().map(CourseFilter::toString).collect(Collectors.toList());
-            this.courses = Courses.getInstance().runQuery(conditions);
+            List<List<String>> values = filters.stream().map(CourseFilter::getValues).collect((Collectors.toList()));
+            this.courses = Courses.getInstance().runQuery(conditions, values);
             changed = false;
         }
         return this.courses;

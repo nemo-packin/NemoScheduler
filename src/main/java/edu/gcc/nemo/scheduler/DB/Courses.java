@@ -17,8 +17,6 @@ public class Courses {
     private Connection conn;
     private Statement statement;
     private PreparedStatement courseCodeStatement;
-//    private Map<String, Course> allCourses;
-//    private ArrayList<String> courseCodes;
 
 
     /**
@@ -55,7 +53,6 @@ public class Courses {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             courseCodeStatement = conn.prepareStatement("select  * from Courses where LOWER(course_code) = ?");
             courseCodeStatement.setString(1, courseCode);
-//            System.out.println(courseCodeStatement);
             ResultSet rs = courseCodeStatement.executeQuery();
             if(rs.next()) {
                 Course out = new Course(
@@ -107,19 +104,32 @@ public class Courses {
         }
     }
 
-    public List<Course> runQuery(List<String> conditions) {
+    public List<Course> runQuery(List<String> conditions, List<List<String>> values) {
         String queryString = "select * from Courses";
-        if(conditions.size() > 0)
+        if(conditions.size() > 0) {
             queryString += " WHERE (" + conditions.get(0) + ")";
+        }
         for(int i = 1; i < conditions.size(); i ++) {
             queryString += "AND (" + conditions.get(i) + ")";
         }
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
-            statement = conn.createStatement();
+            PreparedStatement ps = conn.prepareStatement(queryString);
+            int pos = 1;
+            for(int i = 0; i < values.size(); i++){
+                System.out.println(values.get(i));
+                for(int j = 0; j < values.get(i).size(); j++){
+                    if(queryString.length() > 3 && queryString.charAt(queryString.indexOf("?")-2) == 'E'){
+                        ps.setString(pos, "%" + values.get(i).get(j) + "%");
+                        pos++;
+                    }else {
+                        ps.setString(pos, values.get(i).get(j));
+                        pos++;
+                    }
+                }
+            }
             List<Course> courseList = new ArrayList<>();
-//            System.out.println(queryString);
-            ResultSet rs = statement.executeQuery(queryString);
+            ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 courseList.add(new Course(
                         rs.getString("course_code"),
@@ -138,8 +148,4 @@ public class Courses {
             throw new RuntimeException(e);
         }
     }
-
-//    public ArrayList<String> getAllCourseCodes(){
-//        return courseCodes;
-//    }
 }

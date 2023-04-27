@@ -8,6 +8,7 @@ import org.eclipse.jetty.util.StringUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -41,7 +42,7 @@ public class Session {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> postData(@RequestBody Map<String, Object> data) {
+    public String postData(@RequestBody Map<String, String> data) {
         String username = data.get("username").toString();
         String password = data.get("password").toString();
 
@@ -49,11 +50,11 @@ public class Session {
         System.out.println("");
         // Process the data here
         if(authenticated && typeOfUser.equals("student"))
-            return ResponseEntity.ok("student");
+            return "student";
         else if(authenticated && typeOfUser.equals("admin"))
-            return ResponseEntity.ok("admin");
+            return "admin";
         else
-            return ResponseEntity.ok("invalid login!");
+            return "invalid login!";
     }
     @GetMapping("/auth")
     public boolean getAuth() {
@@ -65,11 +66,21 @@ public class Session {
         return typeOfUser;
     }
 
+    @PostMapping("/logout")
+    public void logout() {
+        authenticated = false;
+        typeOfUser = "";
+    }
+
     @GetMapping("/accountInfo")
     public List<String> getAccountInfo() {
         if(this.typeOfUser.equals("student")) {
             return List.of(stu.name, stu.username);
-        } else return List.of(admin.name, admin.username);
+        } else if (this.typeOfUser.equals("admin")) {
+            return List.of(admin.name, admin.username);
+        }else{
+            return List.of("","");
+        }
     }
 
     public boolean authenticate(String username, String password) {
@@ -169,48 +180,62 @@ public class Session {
         return null;
     }
 
+    @PostMapping("/searchResults")
+    public Course[] searchResults(@RequestBody Map<String, String> data){
+        String input = data.get("content").strip();
+        if(input.equals("")){
+            return new Course[0];
+        }
+        String search = "course code_" + data.get("content");
+        System.out.println("Search: " + search);
+        return searchCourses(search);
+    }
+
     /**
      * @param courseCodeSearchVal is the name of the course the user is searching for
      * @return an array of courses with course codes that contains the search value
      */
     public Course[] searchCourses(String courseCodeSearchVal) {
+        System.out.println("SEARCH VALUE IS: " + courseCodeSearchVal);
         String[] filters = courseCodeSearchVal.split(";");
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
             String[] kv = f.split("_");
-            String fieldName = kv[0];
-            String vals = kv[1];
-            switch (fieldName) {
-                case "department":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "semester":
-                    cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "time":
-                    cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "day":
-                    cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "prof":
-                    cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "name":
-                    cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "credit hours":
-                    cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "course code":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "capacity":
-                    cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
-                    break;
-                default:
-                    break;
+            if (kv.length > 1) {
+                String fieldName = kv[0];
+                String vals = kv[1];
+                switch (fieldName) {
+                    case "department":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "semester":
+                        cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "time":
+                        cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "day":
+                        cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "prof":
+                        cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "name":
+                        cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "credit hours":
+                        cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "course code":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "capacity":
+                        cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
+                        break;
+                    default:
+                        break;
 
+                }
             }
         }
         String searchVal = courseCodeSearchVal.replace(" ", "");
