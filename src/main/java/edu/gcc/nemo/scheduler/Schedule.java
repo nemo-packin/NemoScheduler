@@ -184,8 +184,6 @@ public class Schedule{
         finalString += ("============================================\n");
         //For each day of the week
         for(String key : days.keySet()) {
-//            System.out.println(key);
-//            days.get(key).forEach(System.out::println);
             finalString += "++++" + prefixes.get(key) + "++++" + "\n";
             //For every 15 minute increment
             for(String time : times) {

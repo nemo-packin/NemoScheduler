@@ -80,9 +80,23 @@ public class Session {
         }
     }
 
+    @PostMapping("/newCalendar")
+    public void newCalendar(@RequestBody Map<String, String> data) {
+        String name4Schedule = data.get("nameForSchedule");
+        String semester = data.get("semester");
+        stu.createNewSchedule(name4Schedule, semester, refCourses);
+        saveSchedule();
+    }
+
     @GetMapping("/calendar")
     public List<List<String>> getCalendar() {
-        List<Course> c = stu.schedule.getCourseList().courses;
+        List<Course> c;
+        if(stu.schedule != null)
+            c = stu.schedule.getCourseList().courses;
+        else{
+            List<List<String>> useless = new ArrayList<>();
+            return useless;
+        }
         if(stu.schedule.getCourseList().courses != null) {
             c = stu.schedule.getCourseList().courses;
         } else {
@@ -204,8 +218,6 @@ public class Session {
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
         String count = data.get("numFilters");
-        System.out.println("Input is: " + input);
-        System.out.println("Num Filters: " + count);
         if(count.equals("0")){
             return new Course[0];
         }
