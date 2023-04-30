@@ -214,7 +214,7 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/ccSearchResults")
+    @PostMapping("/SearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
         String count = data.get("numFilters");
@@ -224,15 +224,34 @@ public class Session {
         return searchCourses(input);
     }
 
+    /**
+     *
+     * @param data -> Map of input from the user (Str, Str)
+     * @return if course successfully added (or type of user isn't a student) return empty array
+     *          else return an array of other courses that the user could take
+     */
     @PostMapping("/addCourse")
-    public boolean addToSchedule(@RequestBody Map<String, String> data){
+    public Course[] addToSchedule(@RequestBody Map<String, String> data){
         String courseCode = data.get("courseCode");
         if(typeOfUser.equals("student")) {
-            stu.schedule.addCourse(courseCode);
-            saveSchedule();
-            return true;
+            boolean validResult = stu.schedule.addCourse(courseCode);
+            if(validResult)
+                saveSchedule();
+            else{
+                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
+                Course[] suggested2 = new Course[suggested1.length - 1];
+                int j = 0;
+                for(int i = 0; i < suggested1.length; i++){
+                    if(!courseCode.equals(suggested1[i].getCourseCode())){
+                        suggested2[j] = suggested1[i];
+                        j++;
+                    }
+                }
+                return suggested2;
+            }
+            return new Course[0];
         }
-        return false;
+        return new Course[0];
     }
 
     @PostMapping("/removeCourse")
