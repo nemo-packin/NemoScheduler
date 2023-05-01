@@ -239,7 +239,12 @@ public class Session {
                 saveSchedule();
             else{
                 Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
-                Course[] suggested2 = new Course[suggested1.length - 1];
+                int numSameCourseCodes = 0;
+                for(Course c: suggested1){
+                    if(c.getCourseCode().equals(courseCode))
+                        numSameCourseCodes++;
+                }
+                Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
                 int j = 0;
                 for(int i = 0; i < suggested1.length; i++){
                     if(!courseCode.equals(suggested1[i].getCourseCode())){
@@ -247,6 +252,10 @@ public class Session {
                         j++;
                     }
                 }
+                System.out.println("ORIGINAL LIST");
+                System.out.println(Arrays.deepToString(suggested1));
+                System.out.println("SUGGESTED");
+                System.out.println(Arrays.deepToString(suggested2));
                 return suggested2;
             }
             return new Course[0];
