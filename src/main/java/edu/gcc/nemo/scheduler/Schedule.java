@@ -86,11 +86,13 @@ public class Schedule{
         return listOfCoursesInSchedule;
     }
 
-    public void addCourse(String courseCode){
+    public boolean addCourse(String courseCode){
         if (courseList.addCourse(courseCode)) {
             isApproved = false;
+            return true;
         } else {
             System.out.println("Did not add course");
+            return false;
         }
     }
 
@@ -184,8 +186,6 @@ public class Schedule{
         finalString += ("============================================\n");
         //For each day of the week
         for(String key : days.keySet()) {
-//            System.out.println(key);
-//            days.get(key).forEach(System.out::println);
             finalString += "++++" + prefixes.get(key) + "++++" + "\n";
             //For every 15 minute increment
             for(String time : times) {

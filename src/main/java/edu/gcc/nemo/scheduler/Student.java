@@ -8,12 +8,9 @@ import java.util.List;
 
 public class Student extends User{
     private int gradYear;
-//    private List<String> majors;
-//    private List<String> minors;
     private String major;
     private String minor;
     protected StatusSheet statusSheet;
-//    protected List<Schedule> scheduleList;
     protected Schedule schedule;
     private Connection conn;
     public Student(String username, String password, String name, int id, int gradYear, String major, String minor) {
@@ -21,10 +18,7 @@ public class Student extends User{
         this.gradYear = gradYear;
         this.major = major;
         this.minor = minor;
-//        majors = new ArrayList<>();
-//        minors = new ArrayList<>();
         statusSheet = new StatusSheet();
-//        scheduleList = new ArrayList<>();
 
         try{
             conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -65,9 +59,6 @@ public class Student extends User{
      * @param refCourses
      */
     public void createNewSchedule(String nameForSchedule, String semester, Courses refCourses){
-//        if(scheduleList.size() == 0){
-//            scheduleList.add(new Schedule(nameForSchedule, semester, 0, "", refCourses, id));
-//        }
         schedule = new Schedule(nameForSchedule, semester, 0, "", refCourses, id);
     }
 
@@ -100,22 +91,6 @@ public class Student extends User{
     public void setGradYear(int gradYear) {
         this.gradYear = gradYear;
     }
-
-//    public List<String> getMajor() {
-//        return majors;
-//    }
-
-//    public void addMajor(String major) {
-//        majors.add(major);
-//    }
-
-//    public List<String> getMinor() {
-//        return minors;
-//    }
-
-//    public void addMinor(String minor) {
-//        minors.add(minor);
-//    }
 
     @Override
     public String toString(){

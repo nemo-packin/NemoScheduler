@@ -121,7 +121,7 @@ public class Courses {
                 System.out.println(values.get(i));
                 for(int j = 0; j < values.get(i).size(); j++){
                     if(queryString.length() > 3 && queryString.charAt(queryString.indexOf("?")-2) == 'E'){
-                        ps.setString(pos, "%" + values.get(i).get(j) + "%");
+                        ps.setString(pos, values.get(i).get(j) + "%");
                         pos++;
                     }else {
                         ps.setString(pos, values.get(i).get(j));
