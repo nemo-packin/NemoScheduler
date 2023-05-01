@@ -86,11 +86,13 @@ public class Schedule{
         return listOfCoursesInSchedule;
     }
 
-    public void addCourse(String courseCode){
+    public boolean addCourse(String courseCode){
         if (courseList.addCourse(courseCode)) {
             isApproved = false;
+            return true;
         } else {
             System.out.println("Did not add course");
+            return false;
         }
     }
 
