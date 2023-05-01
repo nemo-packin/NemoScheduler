@@ -91,7 +91,7 @@ public class Session {
     @GetMapping("/calendar")
     public List<List<String>> getCalendar() {
         List<Course> c;
-        if(stu.schedule != null)
+        if(typeOfUser.equals("student") && stu.schedule != null)
             c = stu.schedule.getCourseList().courses;
         else{
             List<List<String>> useless = new ArrayList<>();
