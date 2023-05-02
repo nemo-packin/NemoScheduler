@@ -36,7 +36,7 @@ public class Schedule{
         else this.isApproved = false;
         this.coursesString = courses;
         this.refCourses = refCourses;
-        courseList = new CourseList(refCourses);
+        courseList = new CourseList();
         if(coursesString.length() > 0) {
             for(String courseCode : coursesString.split(",")) {
                 courseList.addCourse(courseCode);

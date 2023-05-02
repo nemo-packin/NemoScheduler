@@ -7,11 +7,10 @@ import java.util.List;
 
 public class CourseList{
     protected List<Course> courses;
-    private final Courses refCourses;
+    private final Courses refCourses = Courses.getInstance();
     // Constructor
-    public CourseList(Courses refCourses) {
+    public CourseList() {
         courses = new ArrayList<Course>();
-        this.refCourses = refCourses;
     }
 
     //Methods
