@@ -40,18 +40,20 @@ public class Session {
 
     @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
-        String username = data.get("username").toString();
-        String password = data.get("password").toString();
+        if(!authenticated){
+            String username = data.get("username").toString();
+            String password = data.get("password").toString();
 
-        authenticate(username, password);
-        System.out.println("");
-        // Process the data here
-        if(authenticated && typeOfUser.equals("student"))
-            return "student";
-        else if(authenticated && typeOfUser.equals("admin"))
-            return "admin";
-        else
-            return "invalid login!";
+            authenticate(username, password);
+            // Process the data here
+            if(authenticated && typeOfUser.equals("student"))
+                return "student";
+            else if(authenticated && typeOfUser.equals("admin"))
+                return "admin";
+            else
+                return "invalid login!";
+        }else return "already logged in!";
+
     }
     @GetMapping("/auth")
     public boolean getAuth() {
@@ -67,6 +69,8 @@ public class Session {
     public void logout() {
         authenticated = false;
         typeOfUser = "";
+        stu = null;
+        admin = null;
     }
 
     @GetMapping("/accountInfo")
@@ -91,6 +95,8 @@ public class Session {
     @GetMapping("/calendar")
     public List<List<String>> getCalendar() {
         List<Course> c;
+        if(stu != null)
+            System.out.println(stu.schedule);
         if(typeOfUser.equals("student") && stu.schedule != null)
             c = stu.schedule.getCourseList().courses;
         else{
@@ -129,7 +135,9 @@ public class Session {
         if (admin != null && admin.password.equals(password)) {
             authenticated = true;
         } else if (stu != null && stu.password.equals(password)) {
+            System.out.println("RIGHT HERE!");
             stu.loadScheduleFromDB(Courses.getInstance());
+            System.out.println("IT WORKED!");
             authenticated = true;
         }
         return authenticated;
@@ -252,13 +260,13 @@ public class Session {
                         j++;
                     }
                 }
-                System.out.println("ORIGINAL LIST");
-                System.out.println(Arrays.deepToString(suggested1));
-                System.out.println("SUGGESTED");
-                System.out.println(Arrays.deepToString(suggested2));
+//                System.out.println("ORIGINAL LIST");
+//                System.out.println(Arrays.deepToString(suggested1));
+//                System.out.println("SUGGESTED");
+//                System.out.println(Arrays.deepToString(suggested2));
                 return suggested2;
             }
-            return new Course[0];
+            return null;
         }
         return new Course[0];
     }
