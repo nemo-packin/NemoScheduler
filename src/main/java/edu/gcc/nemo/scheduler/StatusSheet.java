@@ -6,14 +6,9 @@ public class StatusSheet {
     private List<String> major;
     private List<String> minor;
     private int gradYear;
-    private CourseList courseList;
+    private CourseList completedCourse;
 
     public StatusSheet() {}
-
-    //Methods
-    public String serialize() {
-        return null;
-    }
 
     //Getters and Setters
     public int getGradYear() {

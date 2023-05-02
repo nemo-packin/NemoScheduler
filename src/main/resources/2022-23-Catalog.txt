@@ -7983,7 +7983,7 @@ major quality point average (MQPA):
 All courses with “EDUC” prefix and SEDU 101. A minimum MQPA of 2.00 is required
 to graduate. A minimum CQPA of 3.00 and MQPA of 2.75 are required for certification.
 Course Requirements for Bachelor of Science Degree in Middle Level Math/History
-and Elementary Education—114 hours
+and Elementary Education—104 hours
 Liberal Arts Core (27 hours):
 History 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;
 Mathematics 151, 152; Psychology 102; Science 201 or Physics lab course; Science
@@ -8814,7 +8814,7 @@ Computer Science 141
 Engineering 156
 Engineering 120
 
-Course Requirements for Bachelor of Science Degree in Electrical Engineering—99100 hours
+Course Requirements for Bachelor of Science Degree in Electrical Engineering—99-100 hours
 Electrical Engineering/Computer Core (28 hours)
 Computer Science 141; Electrical Engineering 201, 204, 251, 252, 301, 304, 321,
 351, 401; Engineering or Robotics 451 and 452.
