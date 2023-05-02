@@ -5,15 +5,20 @@ import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.CourseFieldNames;
 import org.eclipse.jetty.util.StringUtil;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
     private Student stu;
     private Admin admin;
@@ -31,6 +36,85 @@ public class Session {
         stu = null;
         admin = null;
         typeOfUser = "";
+    }
+
+    @PostMapping("/login")
+    public String postData(@RequestBody Map<String, String> data) {
+        String username = data.get("username").toString();
+        String password = data.get("password").toString();
+
+        authenticate(username, password);
+        System.out.println("");
+        // Process the data here
+        if(authenticated && typeOfUser.equals("student"))
+            return "student";
+        else if(authenticated && typeOfUser.equals("admin"))
+            return "admin";
+        else
+            return "invalid login!";
+    }
+    @GetMapping("/auth")
+    public boolean getAuth() {
+        return authenticated;
+    }
+
+    @GetMapping("/userType")
+    public String userType(){
+        return typeOfUser;
+    }
+
+    @PostMapping("/logout")
+    public void logout() {
+        authenticated = false;
+        typeOfUser = "";
+    }
+
+    @GetMapping("/accountInfo")
+    public List<String> getAccountInfo() {
+        if(this.typeOfUser.equals("student")) {
+            return List.of(stu.name, stu.username);
+        } else if (this.typeOfUser.equals("admin")) {
+            return List.of(admin.name, admin.username);
+        }else{
+            return List.of("","");
+        }
+    }
+
+    @PostMapping("/newCalendar")
+    public void newCalendar(@RequestBody Map<String, String> data) {
+        String name4Schedule = data.get("nameForSchedule");
+        String semester = data.get("semester");
+        stu.createNewSchedule(name4Schedule, semester, refCourses);
+        saveSchedule();
+    }
+
+    @GetMapping("/calendar")
+    public List<List<String>> getCalendar() {
+        List<Course> c;
+        if(typeOfUser.equals("student") && stu.schedule != null)
+            c = stu.schedule.getCourseList().courses;
+        else{
+            List<List<String>> useless = new ArrayList<>();
+            return useless;
+        }
+        if(stu.schedule.getCourseList().courses != null) {
+            c = stu.schedule.getCourseList().courses;
+        } else {
+            c = Collections.<Course>emptyList();
+        }
+        List<String> courses = new ArrayList<>();
+        List<String> days = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+        for(Course x : c) {
+            courses.add(x.getCourseCode());
+            days.add(x.getDay());
+            times.add(x.getTime());
+        }
+        List<List<String>> codeAndTime = new ArrayList<>();
+        codeAndTime.add(courses);
+        codeAndTime.add(days);
+        codeAndTime.add(times);
+        return codeAndTime;
     }
 
     public boolean authenticate(String username, String password) {
@@ -130,48 +214,112 @@ public class Session {
         return null;
     }
 
+    @PostMapping("/SearchResults")
+    public Course[] searchResults(@RequestBody Map<String, String> data){
+        String input = data.get("content").strip();
+        String count = data.get("numFilters");
+        if(count.equals("0")){
+            return new Course[0];
+        }
+        return searchCourses(input);
+    }
+
+    /**
+     *
+     * @param data -> Map of input from the user (Str, Str)
+     * @return if course successfully added (or type of user isn't a student) return empty array
+     *          else return an array of other courses that the user could take
+     */
+    @PostMapping("/addCourse")
+    public Course[] addToSchedule(@RequestBody Map<String, String> data){
+        String courseCode = data.get("courseCode");
+        if(typeOfUser.equals("student")) {
+            boolean validResult = stu.schedule.addCourse(courseCode);
+            if(validResult)
+                saveSchedule();
+            else{
+                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
+                int numSameCourseCodes = 0;
+                for(Course c: suggested1){
+                    if(c.getCourseCode().equals(courseCode))
+                        numSameCourseCodes++;
+                }
+                Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
+                int j = 0;
+                for(int i = 0; i < suggested1.length; i++){
+                    if(!courseCode.equals(suggested1[i].getCourseCode())){
+                        suggested2[j] = suggested1[i];
+                        j++;
+                    }
+                }
+                System.out.println("ORIGINAL LIST");
+                System.out.println(Arrays.deepToString(suggested1));
+                System.out.println("SUGGESTED");
+                System.out.println(Arrays.deepToString(suggested2));
+                return suggested2;
+            }
+            return new Course[0];
+        }
+        return new Course[0];
+    }
+
+    @PostMapping("/removeCourse")
+    public boolean removeToSchedule(@RequestBody Map<String, String> data){
+        String courseCode = data.get("code");
+        if(typeOfUser.equals("student")) {
+            stu.schedule.removeCourse(courseCode);
+            saveSchedule();
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @param courseCodeSearchVal is the name of the course the user is searching for
      * @return an array of courses with course codes that contains the search value
      */
     public Course[] searchCourses(String courseCodeSearchVal) {
         String[] filters = courseCodeSearchVal.split(";");
+        System.out.println("Filters: " + Arrays.deepToString(filters));
         CourseSearch cs = new CourseSearch();
         for (String f : filters) {
+            System.out.println("f: " + f);
             String[] kv = f.split("_");
-            String fieldName = kv[0];
-            String vals = kv[1];
-            switch (fieldName) {
-                case "department":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "semester":
-                    cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "time":
-                    cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "day":
-                    cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "prof":
-                    cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "name":
-                    cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "credit hours":
-                    cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "course code":
-                    cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
-                    break;
-                case "capacity":
-                    cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
-                    break;
-                default:
-                    break;
+            if (kv.length > 1) {
+                String fieldName = kv[0];
+                String vals = kv[1];
+                switch (fieldName) {
+                    case "department":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "semester":
+                        cs.addFilter(CourseFieldNames.semester, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "time":
+                        cs.addFilter(CourseFieldNames.time, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "day":
+                        cs.addFilter(CourseFieldNames.day, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "prof":
+                        cs.addFilter(CourseFieldNames.prof, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "name":
+                        cs.addFilter(CourseFieldNames.name, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "credit hours":
+                        cs.addFilter(CourseFieldNames.creditHours, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "course code":
+                        cs.addFilter(CourseFieldNames.courseCode, vals, FilterMatchType.CONTAINS);
+                        break;
+                    case "capacity":
+                        cs.addFilter(CourseFieldNames.capacity, vals, FilterMatchType.CONTAINS);
+                        break;
+                    default:
+                        break;
 
+                }
             }
         }
         String searchVal = courseCodeSearchVal.replace(" ", "");

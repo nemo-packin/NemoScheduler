@@ -9,7 +9,10 @@ import edu.gcc.nemo.scheduler.util.TextInputException;
 
 import java.sql.*;
 import java.util.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static Student stuSignedIn = null;
@@ -26,6 +29,7 @@ public class Main {
         students = Students.getInstance();
         admins = Admins.getAdminsInstance();
         courses = Courses.getInstance();
+        SpringApplication.run(Main.class, args);
 
         session = new Session(admins, students, courses);
         System.out.println("Hello nemo packers!");
@@ -82,7 +86,7 @@ public class Main {
                 m.put("course_code", getLine());
                 break;
             case SEARCH_COURSE:
-                System.out.println("Enter search as list of filters separated by semicolons ([filter]-[value];[filter]-[value]).\n" +
+                System.out.println("Enter search as list of filters separated by semicolons ([filter]_[value];[filter]_[value]).\n" +
                         "Valid filters are 'course code', 'prof', 'semester', 'time', 'day', 'credit hours')!");
                 m.put("query", getLine());
                 break;

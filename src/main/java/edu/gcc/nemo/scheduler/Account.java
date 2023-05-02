@@ -14,7 +14,7 @@ public class Account {
     protected int id;
 
     public Account(String login, String password, int id){
-        statusSheet = new StatusSheet();
+        statusSheet = new StatusSheet(null, null, 0);
         scheduleList = new ArrayList<>();
         this.login = login;
         this.password = password;
