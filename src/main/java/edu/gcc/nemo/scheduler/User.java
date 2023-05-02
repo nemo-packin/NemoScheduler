@@ -1,8 +1,5 @@
 package edu.gcc.nemo.scheduler;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public abstract class User {
 
     protected String username;
@@ -15,29 +12,6 @@ public abstract class User {
         this.password = password;
         this.name = name;
         this.id = id;
-    }
-
-    //Methods
-    public void username() {
-
-    }
-
-    public void updateLoadAccountDBInfo(){
-
-    }
-
-    public void editAccount() {
-
-    }
-
-    //NEW METHOD FOR SAVING ACCOUNT TO DATABASE
-
-    public void saveSchedule() {
-
-    }
-
-    public void editSchedule() {
-
     }
 
     //NEW

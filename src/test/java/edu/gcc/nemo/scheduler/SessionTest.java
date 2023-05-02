@@ -1,4 +1,4 @@
-package edu.gcc.nemo.scheduler.DB;
+package edu.gcc.nemo.scheduler;
 
 public class SessionTest
 {
