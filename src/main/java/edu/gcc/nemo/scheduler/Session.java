@@ -222,6 +222,15 @@ public class Session {
         return null;
     }
 
+    @PostMapping("/SearchStudents")
+    public List<Student> studentSearch(@RequestBody Map<String, String> data){
+        String input = data.get("usernameSearch").strip();
+        Student[] students = searchStudents(input);
+        List<Student> searchResults = Arrays.asList(students);
+        return searchResults.stream().distinct().collect(Collectors.toList());
+    }
+
+
     @PostMapping("/SearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
