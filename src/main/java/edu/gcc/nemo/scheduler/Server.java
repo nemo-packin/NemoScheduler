@@ -23,7 +23,7 @@ public class Server {
         students = Students.getInstance();
         admins = Admins.getAdminsInstance();
         courses = Courses.getInstance();
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Session.class, args);
 
         session = new Session(admins, students, courses);
         State state = new State();

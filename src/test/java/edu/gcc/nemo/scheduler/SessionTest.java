@@ -1,99 +1,74 @@
-//package edu.gcc.nemo.scheduler;
-//
-//import edu.gcc.nemo.scheduler.DB.Admins;
-//import edu.gcc.nemo.scheduler.DB.Courses;
-//import edu.gcc.nemo.scheduler.DB.Students;
-//import org.junit.jupiter.api.Assertions;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
-//
-//import java.util.*;
-//
-//@SpringBootTest
-//class SessionTest {
-//    private Admins admins;
-//    private Students students;
-//    private Courses courses;
-//    private Session session;
-//
-//    @BeforeEach
-//    void setUp() {
-//        admins = new Admins();
-//        students = new Students();
-//        courses = Courses.getInstance();
-//        session = new Session(admins, students, courses);
-//    }
-//
+package edu.gcc.nemo.scheduler;
+
+import edu.gcc.nemo.scheduler.DB.Admins;
+import edu.gcc.nemo.scheduler.DB.Courses;
+import edu.gcc.nemo.scheduler.DB.Students;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+
+import edu.gcc.nemo.scheduler.DB.Admins;
+import edu.gcc.nemo.scheduler.DB.Courses;
+import edu.gcc.nemo.scheduler.DB.Students;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+public class SessionTest {
+    private Admins admins;
+    private Students students;
+    private Courses courses;
+
+    @BeforeEach
+    public void setup() {
+        // initialize the test data
+        admins = new Admins();
+        students = Students.getInstance();
+        courses = Courses.getInstance();
+        // add test students and admins
+//        students.addStudent(new Student("test_student", "password"));
+//        admins.addAdmin(new Admin("test_admin", "password"));
+//        studeStudents.getInstance();
+    }
+
+    @Test
+    @DisplayName("Test authentication with invalid credentials")
+    public void testAuthenticateWithInvalidCredentials() {
+        Session session = new Session(admins, students, courses);
+        boolean result = session.authenticate("test_student", "wrong_password");
+        Assertions.assertFalse(result);
+        Assertions.assertNull(session.getStu());
+    }
+
+    @Test
+    @DisplayName("Test get status sheet for non-authenticated user")
+    public void testGetStatusSheetForNonAuthenticatedUser() {
+        Session session = new Session(admins, students, courses);
+        String result = session.getStatusSheet();
+        Assertions.assertNull(result);
+    }
+
 //    @Test
-//    void testAuthenticateAdmin() {
-//        admins.addAdmin("admin", "password");
-//        boolean result = session.authenticate("admin", "password");
-//        Assertions.assertTrue(result);
-//        Assertions.assertEquals("admin", session.userType());
+//    @DisplayName("Test get student for authenticated admin")
+//    public void testGetStudentForAuthenticatedAdmin() {
+//        Session session = new Session(admins, students, courses);
+//        session.authenticate("test_admin", "password");
+//        Student result = session.getStudent("test_student");
+//        Assertions.assertNotNull(result);
+//        Assertions.assertEquals("test_student", result.getUsername());
 //    }
-//
-//    @Test
-//    void testAuthenticateStudent() {
-//        students.addStudent("student", "password");
-//        boolean result = session.authenticate("student", "password");
-//        Assertions.assertTrue(result);
-//        Assertions.assertEquals("student", session.userType());
-//    }
-//
-//    @Test
-//    void testAuthenticateInvalidUser() {
-//        boolean result = session.authenticate("invalid", "password");
-//        Assertions.assertFalse(result);
-//        Assertions.assertEquals("", session.userType());
-//    }
-//
-//    @Test
-//    void testAuthenticateInvalidPassword() {
-////        students.addStudent("student", "password");
-//        students.
-//        boolean result = session.authenticate("student", "invalid");
-//        Assertions.assertFalse(result);
-//        Assertions.assertEquals("", session.userType());
-//    }
-//
-//    @Test
-//    void testGetAuth() {
-//        boolean result = session.getAuth();
-//        Assertions.assertFalse(result);
-//    }
-//
-//    @Test
-//    void testLogout() {
-//        session.logout();
-//        Assertions.assertFalse(session.getAuth());
-//        Assertions.assertEquals("", session.userType());
-//    }
-//
-//    @Test
-//    void testNewCalendar() {
-//        students.addStudent("student", "password");
-//        session.authenticate("student", "password");
-//        Map<String, String> data = new HashMap<>();
-//        data.put("nameForSchedule", "schedule");
-//        data.put("semester", "Fall 2021");
-//        session.newCalendar(data);
-//        List<List<String>> result = session.getCalendar();
-//        Assertions.assertEquals(0, result.size());
-//    }
-//
-//    @Test
-//    void testGetCalendar() {
-//        students.addStudent("student", "password");
-//        session.authenticate("student", "password");
-//        Map<String, String> data = new HashMap<>();
-//        data.put("nameForSchedule", "schedule");
-//        data.put("semester", "Fall 2021");
-//        session.newCalendar(data);
-//        List<List<String>> result = session.getCalendar();
-//        Assertions.assertEquals(3, result.size());
-//        Assertions.assertEquals(Collections.emptyList(), result.get(0));
-//        Assertions.assertEquals(Collections.emptyList(), result.get(1));
-//        Assertions.assertEquals(Collections.emptyList(), result.get(2));
-//    }
-//}
+
+    @Test
+    @DisplayName("Test get student for non-authenticated user")
+    public void testGetStudentForNonAuthenticatedUser() {
+        Session session = new Session(admins, students, courses);
+        Student result = session.getStudent("test_student");
+        Assertions.assertNull(result);
+    }
+}
