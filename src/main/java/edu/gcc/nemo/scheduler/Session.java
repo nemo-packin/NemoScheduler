@@ -3,18 +3,12 @@ package edu.gcc.nemo.scheduler;
 import edu.gcc.nemo.scheduler.DB.Students;
 import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
-import edu.gcc.nemo.scheduler.CourseFieldNames;
-import org.eclipse.jetty.util.StringUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")

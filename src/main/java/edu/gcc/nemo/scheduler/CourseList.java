@@ -1,7 +1,6 @@
 package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
-
 import java.util.ArrayList;
 import java.util.List;
 
