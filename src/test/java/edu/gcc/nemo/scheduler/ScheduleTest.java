@@ -21,14 +21,14 @@ class ScheduleTest {
 
     @Test
     void testToString() {
-        s.addCourse("COMP 444 A");
-        String test = "Courses in you're schedule include: \nCOMP 444 A";
+        s.addCourse("COMP435A");
+        String test = "Courses in you're schedule include: \nCOMP435A | TR | 10:05:00 AM-11:20:00 AM | Jonathan Hutchins";
         assertEquals(s.toString(), test);
     }
 
     @Test
     void testCalendarView() {
-        s.addCourse("COMP 444 A");
+        s.addCourse("COMP435A");
         String test = "============================================\n" +
                 "Schedule View\n" +
                 "============================================\n" +
@@ -88,13 +88,13 @@ class ScheduleTest {
                 "8:45am - \n" +
                 "9:00am - \n" +
                 "9:15am - \n" +
-                "9:30am - COMP 444 A\n" +
-                "9:45am - COMP 444 A\n" +
-                "10:00am - COMP 444 A\n" +
-                "10:15am - COMP 444 A\n" +
-                "10:30am - COMP 444 A\n" +
-                "10:45am - \n" +
-                "11:00am - \n" +
+                "9:30am - \n" +
+                "9:45am - \n" +
+                "10:00am - COMP435A\n" +
+                "10:15am - COMP435A\n" +
+                "10:30am - COMP435A\n" +
+                "10:45am - COMP435A\n" +
+                "11:00am - COMP435A\n" +
                 "11:15am - \n" +
                 "11:30am - \n" +
                 "11:45am - \n" +
@@ -186,13 +186,13 @@ class ScheduleTest {
                 "8:45am - \n" +
                 "9:00am - \n" +
                 "9:15am - \n" +
-                "9:30am - COMP 444 A\n" +
-                "9:45am - COMP 444 A\n" +
-                "10:00am - COMP 444 A\n" +
-                "10:15am - COMP 444 A\n" +
-                "10:30am - COMP 444 A\n" +
-                "10:45am - \n" +
-                "11:00am - \n" +
+                "9:30am - \n" +
+                "9:45am - \n" +
+                "10:00am - COMP435A\n" +
+                "10:15am - COMP435A\n" +
+                "10:30am - COMP435A\n" +
+                "10:45am - COMP435A\n" +
+                "11:00am - COMP435A\n" +
                 "11:15am - \n" +
                 "11:30am - \n" +
                 "11:45am - \n" +
@@ -289,7 +289,7 @@ class ScheduleTest {
 
     @Test
     void getSemester() {
-        assertEquals("Spring 2024", s.getSemester());
+        assertEquals("Spring", s.getSemester());
     }
 
     @Test

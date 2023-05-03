@@ -51,7 +51,7 @@ public class CourseList{
      * @param course is the course you want to check and see if it overlaps with any other courses
      * @return "true" if there is a course overlap. "false" if there is not a course overlap
      */
-    private boolean checkOverlap(Course course) {
+    boolean checkOverlap(Course course) {
         for (Course c : courses) {
             String day = c.getDay();
             String time = c.getTime();
