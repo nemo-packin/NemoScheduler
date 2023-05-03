@@ -297,4 +297,85 @@ class ScheduleTest {
         s.setSemester("Fall 2023");
         assertEquals("Fall 2023", s.getSemester());
     }
+
+    private Schedule schedule;
+    private CourseList courseList;
+    private Courses refCourses;
+
+    @Test
+    public void testAddCourse() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        assertTrue(schedule.addCourse("HUMA303A"));
+    }
+
+//    @Test
+//    public void testRemoveCourse() {
+//        schedule.addCourse("CSC 101");
+//        schedule.addCourse("CSC 201");
+//        schedule.removeCourse("CSC 101");
+//        assertEquals(1, schedule.getCourseList().getSize());
+//        assertNull(schedule.getCourseList().getCourseByCode("CSC 101"));
+//    }
+
+    @Test
+    public void testApprove() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        schedule.approve();
+        assertTrue(schedule.getApproved());
+    }
+
+    @Test
+    public void testGetSemester() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        assertEquals("Fall 2021", schedule.getSemester());
+    }
+
+    @Test
+    public void testSetSemester() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        schedule.setSemester("Spring 2022");
+        assertEquals("Spring 2022", schedule.getSemester());
+    }
+
+    @Test
+    public void testGetName() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        assertEquals("1Schedule 1", schedule.getName());
+    }
+
+    @Test
+    public void testGetCourses() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        schedule.addCourse("MATH161A");
+        schedule.addCourse("COMP222A");
+        assertEquals("MATH161A,COMP222A", schedule.getCourses());
+    }
+
+    @Test
+    public void testGetCourseList() {
+        refCourses = new Courses();
+        refCourses.getCourse("COMP350A");
+        courseList = new CourseList(refCourses);
+        schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+        assertNotNull(schedule.getCourseList());
+        assertEquals(courseList.courses.toString(), schedule.getCourseList().courses.toString());
+    }
 }
