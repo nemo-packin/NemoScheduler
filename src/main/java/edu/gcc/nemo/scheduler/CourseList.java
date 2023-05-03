@@ -52,6 +52,8 @@ public class CourseList{
      * @return "true" if there is a course overlap. "false" if there is not a course overlap
      */
     private boolean checkOverlap(Course course) {
+//        System.out.println(course);
+//        System.out.println("Course time: " + course.getTime());
         String[] inputTimes = course.getTime().split("-");
 //        System.out.println(Arrays.deepToString(inputTimes));
         int inputStartTime = courseTimeValue(inputTimes[0]);

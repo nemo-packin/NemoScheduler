@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
+    private Student psudoStu;
     private Student stu;
     private Admin admin;
     private String typeOfUser;
@@ -33,10 +34,43 @@ public class Session {
         refAdmins = admins;
         refStudents = students;
         refCourses = courses;
+        psudoStu = null;
         stu = null;
         admin = null;
         typeOfUser = "";
     }
+
+    @PostMapping("/createPseudoStudent")
+    public String createPseudoStudent(@RequestBody Map<String, String> data){
+        if(admin != null && typeOfUser.equals("admin")){
+            String stuUsername = data.get("username");
+            refStudents.reloadStudents();
+            psudoStu = refStudents.getStudent(stuUsername);
+            return "Success!";
+        }
+        return "failure";
+    }
+
+
+//    public boolean authenticate(String username, String password) {
+//        refStudents.reloadStudents();
+//        if (refStudents.getStudent(username) != null) {
+//            stu = refStudents.getStudent(username);
+//            typeOfUser = "student";
+//        } else if (refAdmins.getAdmin(username) != null) {
+//            admin = refAdmins.getAdmin(username);
+//            typeOfUser = "admin";
+//        }
+//        if (admin != null && admin.password.equals(password)) {
+//            authenticated = true;
+//        } else if (stu != null && stu.password.equals(password)) {
+//            System.out.println("RIGHT HERE!");
+//            stu.loadScheduleFromDB(Courses.getInstance());
+//            System.out.println("IT WORKED!");
+//            authenticated = true;
+//        }
+//        return authenticated;
+//    }
 
     @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
