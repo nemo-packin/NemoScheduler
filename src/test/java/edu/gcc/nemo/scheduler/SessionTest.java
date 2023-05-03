@@ -61,7 +61,7 @@ public class SessionTest {
 //        session.authenticate("test_admin", "password");
 //        Student result = session.getStudent("test_student");
 //        Assertions.assertNotNull(result);
-//        Assertions.assertEquals("test_student", result.getUsername());
+////        Assertions.assertEquals("test_student", result.getUsername());
 //    }
 
     @Test
