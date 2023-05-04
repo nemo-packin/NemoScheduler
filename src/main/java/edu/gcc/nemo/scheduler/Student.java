@@ -102,6 +102,10 @@ public class Student extends User{
         return this.minor;
     }
 
+    public void setMajor(String major) {this.major = major;}
+
+    public void setMinor(String minor) {this.minor = minor;}
+
     @Override
     public String toString(){
         return name;
