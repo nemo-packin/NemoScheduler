@@ -102,7 +102,7 @@ public class Session {
         String name4Schedule = data.get("nameForSchedule");
         String semester = data.get("semester");
         stu.createNewSchedule(name4Schedule, semester, refCourses);
-        saveSchedule();
+        saveSchedule("student");
     }
 
     @GetMapping("/pseudoStatus")
@@ -197,8 +197,12 @@ public class Session {
         return authenticated;
     }
 
-    void saveSchedule() {
-        Schedule schedule = this.stu.schedule;
+    private void saveSchedule(String user) {
+        Schedule schedule;
+        if(user.equals("student"))
+           schedule = stu.schedule;
+        else
+            schedule = psudoStu.schedule;
         String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -303,7 +307,7 @@ public class Session {
         if(typeOfUser.equals("student")) {
             boolean validResult = stu.schedule.addCourse(courseCode);
             if(validResult)
-                saveSchedule();
+                saveSchedule("student");
             else{
                 Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
                 int numSameCourseCodes = 0;
@@ -335,7 +339,11 @@ public class Session {
         String courseCode = data.get("code");
         if(typeOfUser.equals("student")) {
             stu.schedule.removeCourse(courseCode);
-            saveSchedule();
+            saveSchedule("student");
+            return true;
+        }else if(typeOfUser.equals("admin") && psudoStu != null){
+            psudoStu.schedule.removeCourse(courseCode);
+            saveSchedule("pseudoStudent");
             return true;
         }
         return false;
