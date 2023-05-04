@@ -1,6 +1,7 @@
 package edu.gcc.nemo.scheduler.util;
 
 import java.io.*;
+import java.sql.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -23,6 +24,40 @@ public class MinorParser {
             System.out.println("Hours: " + hours);
             System.out.println("Courses: " + courses);
             System.out.println();
+            String sql = "INSERT INTO MINORS (Title, Credit_Hours, Requirements) VALUES(?,?,?)";
+            String del = "DELETE FROM MINORS";
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, title);
+                pstmt.setString(2, hours);
+                pstmt.setString(3, courses);
+                pstmt.executeUpdate();
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+
+    public static String minorToString (String name){
+        String minorInfo = "";
+        String sql = "select * from Minors where Title = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, name);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+                minorInfo = rs.getString("Credit_Hours");
+//                        rs.getString("department"),
+//                        rs.getString("semester"),
+
+                conn.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return minorInfo;
     }
 }
