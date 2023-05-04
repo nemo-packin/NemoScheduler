@@ -41,7 +41,9 @@ public class MinorParser {
     }
 
     public static String minorToString (String name){
-        String minorInfo = "";
+        String minorTitle = "";
+        String minorHrs = "";
+        String minorReq = "";
         String sql = "select * from Minors where Title = ?";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -49,15 +51,15 @@ public class MinorParser {
             pstmt.setString(1, name);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
-                minorInfo = rs.getString("Credit_Hours");
-//                        rs.getString("department"),
-//                        rs.getString("semester"),
-
+                minorTitle = "Title: " + rs.getString("Title") + "\n";
+                minorHrs =  "Credit Hours: " + rs.getString("Credit_Hours") + "\n";
+                minorReq =  "Requirements: " + rs.getString("Requirements") + "\n";
                 conn.close();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        String minorInfo = minorTitle + minorHrs + minorReq;
         return minorInfo;
     }
 }

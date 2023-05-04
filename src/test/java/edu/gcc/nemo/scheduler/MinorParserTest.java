@@ -7,6 +7,6 @@ public class MinorParserTest
     @Test
     void testRetreiveMinor(){
         String s = MinorParser.minorToString("ROBOTICS");
-        System.out.println("gyvnuygvnuygvnuygnvuygvnuygvuygvugyvn"+s);
+        System.out.println(s);
     }
 }
