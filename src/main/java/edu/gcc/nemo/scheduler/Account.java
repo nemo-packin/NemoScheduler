@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //package edu.gcc.nemo.scheduler;
 //import edu.gcc.nemo.scheduler.DB.Courses;
 //import edu.gcc.nemo.scheduler.Schedule;
@@ -20,7 +19,6 @@
 //        this.login = login;
 //        this.password = password;
 //        this.id = id;
-=======
 package edu.gcc.nemo.scheduler;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.Schedule;
@@ -57,7 +55,6 @@ public class Account {
     // adds schedule to account
 //    public void addSchedule(String name, String semester, int isApproved, String courses, Student student, Courses refCourses){
 //        scheduleList.add(new Schedule(name, semester, isApproved, courses, student, refCourses));
->>>>>>> main
 //    }
 //
 //    // METHODS
@@ -83,4 +80,4 @@ public class Account {
 //    public int getId(){
 //        return id;
 //    }
-//}
+}

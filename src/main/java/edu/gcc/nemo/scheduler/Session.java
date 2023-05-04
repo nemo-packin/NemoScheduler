@@ -76,11 +76,14 @@ public class Session {
     @GetMapping("/accountInfo")
     public List<String> getAccountInfo() {
         if(this.typeOfUser.equals("student")) {
-            return List.of(stu.name, stu.username);
+            if(stu.schedule.getApproved()) {
+                return List.of(stu.name, stu.username, "Approved");
+            }
+            return List.of(stu.name, stu.username, "Not Approved");
         } else if (this.typeOfUser.equals("admin")) {
-            return List.of(admin.name, admin.username);
+            return List.of(admin.name, admin.username, "none");
         }else{
-            return List.of("","");
+            return List.of("","","");
         }
     }
 
@@ -90,6 +93,39 @@ public class Session {
         String semester = data.get("semester");
         stu.createNewSchedule(name4Schedule, semester, refCourses);
         saveSchedule();
+    }
+
+    @GetMapping("/statusSheet")
+    public List<String> statusSheetGet() {
+        List<String> c = new ArrayList<String>();
+        if(stu != null)
+        if(typeOfUser.equals("student") && stu.statusSheet != null)
+            for(Course x : stu.statusSheet.getCourses().courses) {
+                c.add(x.getCourseCode());
+            }
+        else{
+            List<String> useless = new ArrayList<>();
+            return useless;
+        }
+        return c;
+    }
+
+    @PostMapping("/statusSheet")
+    public boolean statusSheetPost(@RequestBody Map<String, String> data) {
+        String courseCode = data.get("code");
+        if(stu != null) {
+            if (stu.statusSheet != null) {
+                return stu.statusSheet.addCourse(courseCode);
+            } else {
+                List ma = new ArrayList<>();
+                List mi = new ArrayList<>();
+                ma.add((stu.getMajor()));
+                mi.add((stu.getMinor()));
+                stu.statusSheet = new StatusSheet(ma, mi, stu.getGradYear());
+                return stu.statusSheet.addCourse(courseCode);
+            }
+        }
+        return false;
     }
 
     @GetMapping("/calendar")
