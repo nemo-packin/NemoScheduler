@@ -90,14 +90,36 @@ public class Session {
     public List<String> getAccountInfo() {
         if(this.typeOfUser.equals("student")) {
             if(stu.schedule.getApproved()) {
-                return List.of(stu.name, stu.username, "Approved");
+                return List.of(stu.name, stu.username, "Approved", stu.getMajor(), stu.getMinor());
             }
-            return List.of(stu.name, stu.username, "Not Approved");
+            return List.of(stu.name, stu.username, "Not Approved", stu.getMajor(), stu.getMinor());
         } else if (this.typeOfUser.equals("admin")) {
-            return List.of(admin.name, admin.username, "none");
+            return List.of(admin.name, admin.username, "none", "none", "none");
         }else{
-            return List.of("","","");
+            return List.of("","","", "", "");
         }
+    }
+
+    @PostMapping("/changeName")
+    public void changeName(@RequestBody Map<String, String> data) {
+        String newName = data.get("name");
+        stu.setName(newName);
+    }
+
+    @PostMapping("/changeMajor")
+    public void changeMajor(@RequestBody Map<String, String> data) {
+        String newMajor = data.get("major");
+        System.out.println(newMajor);
+        stu.setMajor(newMajor);
+        saveMajor(newMajor);
+    }
+
+    @PostMapping("/changeMinor")
+    public void changeMinor(@RequestBody Map<String, String> data) {
+        String newMinor = data.get("minor");
+        System.out.println(newMinor);
+        stu.setMinor(newMinor);
+        saveMinor(newMinor);
     }
 
     @PostMapping("/newCalendar")
@@ -267,6 +289,38 @@ public class Session {
             } catch (SQLException e2) {
                 throw new RuntimeException(e2);
             }
+        }
+    }
+
+    void saveMajor(String major) {
+        String sql = "update Students set majors = ? where id = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, major);
+            pstmt.setInt(2, stu.getId());
+            System.out.println(pstmt);
+            pstmt.executeUpdate();
+            conn.close();
+            System.out.println("Updated Major");
+        } catch (SQLException e) {
+            System.out.println("Failed to update major..." + e.getMessage());
+        }
+    }
+
+    void saveMinor(String minor) {
+        String sql = "update Students set minors = ? where id = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, minor);
+            pstmt.setInt(2, stu.getId());
+            System.out.println(pstmt);
+            pstmt.executeUpdate();
+            conn.close();
+            System.out.println("Updated Minor");
+        } catch (SQLException e) {
+            System.out.println("Failed to update minor..." + e.getMessage());
         }
     }
 
