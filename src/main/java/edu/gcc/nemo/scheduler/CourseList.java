@@ -23,6 +23,7 @@ public class CourseList{
         //If the course was not already in the schedule
         courses.add(c);
         System.out.println("Course successfully added!\n");
+        System.out.println(Arrays.deepToString(courses.toArray()));
         return true;
     }
 
@@ -52,6 +53,8 @@ public class CourseList{
      * @return "true" if there is a course overlap. "false" if there is not a course overlap
      */
     private boolean checkOverlap(Course course) {
+//        System.out.println(course);
+//        System.out.println("Course time: " + course.getTime());
         String[] inputTimes = course.getTime().split("-");
 //        System.out.println(Arrays.deepToString(inputTimes));
         int inputStartTime = courseTimeValue(inputTimes[0]);
@@ -103,7 +106,6 @@ public class CourseList{
         }else{
             totalT = Integer.parseInt(splitT[0]) * 60;
         }
-        System.out.println("TOTAL: " + totalT);
         return totalT + Integer.parseInt(splitT[1]);
     }
 

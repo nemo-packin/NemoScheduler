@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
+    private Student psudoStu;
     private Student stu;
     private Admin admin;
     private String typeOfUser;
@@ -33,9 +34,21 @@ public class Session {
         refAdmins = admins;
         refStudents = students;
         refCourses = courses;
+        psudoStu = null;
         stu = null;
         admin = null;
         typeOfUser = "";
+    }
+
+    @PostMapping("/createPseudoStudent")
+    public String createPseudoStudent(@RequestBody Map<String, String> data){
+        if(admin != null && typeOfUser.equals("admin")){
+            String stuUsername = data.get("username");
+            psudoStu = refStudents.getStudent(stuUsername);
+            psudoStu.loadScheduleFromDB(Courses.getInstance());
+            return "success";
+        }
+        return "failure";
     }
 
     @PostMapping("/login")
@@ -92,7 +105,44 @@ public class Session {
         saveSchedule();
     }
 
-    @GetMapping("/calendar")
+    @GetMapping("/pseudoStatus")
+    public boolean getPseudoStatus(){
+        if(psudoStu == null) return false;
+        return true;
+    }
+
+    @GetMapping("/calendarPseudoStu")
+    public List<List<String>> getCalendarTwo() {
+        List<Course> c;
+        if(psudoStu != null)
+            System.out.println(psudoStu.schedule);
+        if(typeOfUser.equals("admin") && psudoStu.schedule != null)
+            c = psudoStu.schedule.getCourseList().courses;
+        else{
+            List<List<String>> useless = new ArrayList<>();
+            return useless;
+        }
+        if(psudoStu.schedule.getCourseList().courses != null) {
+            c = psudoStu.schedule.getCourseList().courses;
+        } else {
+            c = Collections.<Course>emptyList();
+        }
+        List<String> courses = new ArrayList<>();
+        List<String> days = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+        for(Course x : c) {
+            courses.add(x.getCourseCode());
+            days.add(x.getDay());
+            times.add(x.getTime());
+        }
+        List<List<String>> codeAndTime = new ArrayList<>();
+        codeAndTime.add(courses);
+        codeAndTime.add(days);
+        codeAndTime.add(times);
+        return codeAndTime;
+    }
+
+    @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
         if(stu != null)
