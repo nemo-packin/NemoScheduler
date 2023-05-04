@@ -23,6 +23,7 @@ public class CourseList{
         //If the course was not already in the schedule
         courses.add(c);
         System.out.println("Course successfully added!\n");
+        System.out.println(Arrays.deepToString(courses.toArray()));
         return true;
     }
 
@@ -105,7 +106,6 @@ public class CourseList{
         }else{
             totalT = Integer.parseInt(splitT[0]) * 60;
         }
-        System.out.println("TOTAL: " + totalT);
         return totalT + Integer.parseInt(splitT[1]);
     }
 

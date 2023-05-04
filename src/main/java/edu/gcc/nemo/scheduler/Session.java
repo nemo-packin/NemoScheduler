@@ -44,33 +44,12 @@ public class Session {
     public String createPseudoStudent(@RequestBody Map<String, String> data){
         if(admin != null && typeOfUser.equals("admin")){
             String stuUsername = data.get("username");
-            refStudents.reloadStudents();
             psudoStu = refStudents.getStudent(stuUsername);
-            return "Success!";
+            psudoStu.loadScheduleFromDB(Courses.getInstance());
+            return "success";
         }
         return "failure";
     }
-
-
-//    public boolean authenticate(String username, String password) {
-//        refStudents.reloadStudents();
-//        if (refStudents.getStudent(username) != null) {
-//            stu = refStudents.getStudent(username);
-//            typeOfUser = "student";
-//        } else if (refAdmins.getAdmin(username) != null) {
-//            admin = refAdmins.getAdmin(username);
-//            typeOfUser = "admin";
-//        }
-//        if (admin != null && admin.password.equals(password)) {
-//            authenticated = true;
-//        } else if (stu != null && stu.password.equals(password)) {
-//            System.out.println("RIGHT HERE!");
-//            stu.loadScheduleFromDB(Courses.getInstance());
-//            System.out.println("IT WORKED!");
-//            authenticated = true;
-//        }
-//        return authenticated;
-//    }
 
     @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
@@ -126,7 +105,44 @@ public class Session {
         saveSchedule();
     }
 
-    @GetMapping("/calendar")
+    @GetMapping("/pseudoStatus")
+    public boolean getPseudoStatus(){
+        if(psudoStu == null) return false;
+        return true;
+    }
+
+    @GetMapping("/calendarPseudoStu")
+    public List<List<String>> getCalendarTwo() {
+        List<Course> c;
+        if(psudoStu != null)
+            System.out.println(psudoStu.schedule);
+        if(typeOfUser.equals("admin") && psudoStu.schedule != null)
+            c = psudoStu.schedule.getCourseList().courses;
+        else{
+            List<List<String>> useless = new ArrayList<>();
+            return useless;
+        }
+        if(psudoStu.schedule.getCourseList().courses != null) {
+            c = psudoStu.schedule.getCourseList().courses;
+        } else {
+            c = Collections.<Course>emptyList();
+        }
+        List<String> courses = new ArrayList<>();
+        List<String> days = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+        for(Course x : c) {
+            courses.add(x.getCourseCode());
+            days.add(x.getDay());
+            times.add(x.getTime());
+        }
+        List<List<String>> codeAndTime = new ArrayList<>();
+        codeAndTime.add(courses);
+        codeAndTime.add(days);
+        codeAndTime.add(times);
+        return codeAndTime;
+    }
+
+    @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
         if(stu != null)
