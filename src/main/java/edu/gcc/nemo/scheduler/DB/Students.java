@@ -28,7 +28,7 @@ public class Students {
         return students;
     }
 
-    private Students() {
+    public Students() {
         try{
             conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             stmt = conn.createStatement();

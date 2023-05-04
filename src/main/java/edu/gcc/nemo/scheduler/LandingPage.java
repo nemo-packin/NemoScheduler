@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 @CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
-public class testHome {
+public class LandingPage {
 
     @GetMapping
     public String homeGreeting(){

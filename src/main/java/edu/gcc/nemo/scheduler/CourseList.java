@@ -7,11 +7,10 @@ import java.util.List;
 
 public class CourseList{
     protected List<Course> courses;
-    private final Courses refCourses;
+    private final Courses refCourses = Courses.getInstance();
     // Constructor
-    public CourseList(Courses refCourses) {
+    public CourseList() {
         courses = new ArrayList<Course>();
-        this.refCourses = refCourses;
     }
 
     //Methods
@@ -30,6 +29,7 @@ public class CourseList{
         //Check to make sure that the course is in the schedule before removing it
         boolean removed = false;
         for(int i = 0; i < courses.size(); i++) {
+            System.out.println(courseCode);
             if(courses.get(i).getCourseCode().equals(courseCode.toUpperCase().trim())) {
                 courses.remove(i);
                 removed = true;

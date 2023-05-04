@@ -36,7 +36,7 @@ public class Schedule{
         else this.isApproved = false;
         this.coursesString = courses;
         this.refCourses = refCourses;
-        courseList = new CourseList(refCourses);
+        courseList = new CourseList();
         if(coursesString.length() > 0) {
             for(String courseCode : coursesString.split(",")) {
                 courseList.addCourse(courseCode);
@@ -86,9 +86,14 @@ public class Schedule{
         return listOfCoursesInSchedule;
     }
 
-    public void addCourse(String courseCode){
-        if (courseList.addCourse(courseCode))
+    public boolean addCourse(String courseCode){
+        if (courseList.addCourse(courseCode)) {
             isApproved = false;
+            return true;
+        } else {
+            System.out.println("Did not add course");
+            return false;
+        }
     }
 
     public void removeCourse(String courseCode){
@@ -125,6 +130,10 @@ public class Schedule{
     public String getCourses() {
         this.coursesString = this.courseList.courses.stream().map((course -> course.getCourseCode())).collect(Collectors.joining(","));
         return this.coursesString;
+    }
+
+    public CourseList getCourseList() {
+        return courseList;
     }
     public String calendarView() {
         //Set up the format for storing once the data is parsed
@@ -177,8 +186,6 @@ public class Schedule{
         finalString += ("============================================\n");
         //For each day of the week
         for(String key : days.keySet()) {
-//            System.out.println(key);
-//            days.get(key).forEach(System.out::println);
             finalString += "++++" + prefixes.get(key) + "++++" + "\n";
             //For every 15 minute increment
             for(String time : times) {
