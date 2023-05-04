@@ -359,10 +359,6 @@ public class Session {
                         j++;
                     }
                 }
-//                System.out.println("ORIGINAL LIST");
-//                System.out.println(Arrays.deepToString(suggested1));
-//                System.out.println("SUGGESTED");
-//                System.out.println(Arrays.deepToString(suggested2));
                 return suggested2;
             }
             return null;
