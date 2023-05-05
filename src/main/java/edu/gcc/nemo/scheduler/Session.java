@@ -14,6 +14,7 @@ import java.util.*;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
+    private Student psudoStu;
     private Student stu;
     private Admin admin;
     private String typeOfUser;
@@ -27,25 +28,39 @@ public class Session {
         refAdmins = admins;
         refStudents = students;
         refCourses = courses;
+        psudoStu = null;
         stu = null;
         admin = null;
         typeOfUser = "";
     }
 
+    @PostMapping("/createPseudoStudent")
+    public String createPseudoStudent(@RequestBody Map<String, String> data){
+        if(admin != null && typeOfUser.equals("admin")){
+            String stuUsername = data.get("username");
+            psudoStu = refStudents.getStudent(stuUsername);
+            psudoStu.loadScheduleFromDB(Courses.getInstance());
+            return "success";
+        }
+        return "failure";
+    }
+
     @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
-        String username = data.get("username").toString();
-        String password = data.get("password").toString();
+        if(!authenticated){
+            String username = data.get("username").toString();
+            String password = data.get("password").toString();
 
-        authenticate(username, password);
-        System.out.println("");
-        // Process the data here
-        if(authenticated && typeOfUser.equals("student"))
-            return "student";
-        else if(authenticated && typeOfUser.equals("admin"))
-            return "admin";
-        else
-            return "invalid login!";
+            authenticate(username, password);
+            // Process the data here
+            if(authenticated && typeOfUser.equals("student"))
+                return "student";
+            else if(authenticated && typeOfUser.equals("admin"))
+                return "admin";
+            else
+                return "invalid login!";
+        }else return "already logged in!";
+
     }
     @GetMapping("/auth")
     public boolean getAuth() {
@@ -61,17 +76,44 @@ public class Session {
     public void logout() {
         authenticated = false;
         typeOfUser = "";
+        stu = null;
+        admin = null;
     }
 
     @GetMapping("/accountInfo")
     public List<String> getAccountInfo() {
         if(this.typeOfUser.equals("student")) {
-            return List.of(stu.name, stu.username);
+            if(stu.schedule.getApproved()) {
+                return List.of(stu.name, stu.username, "Approved", stu.getMajor(), stu.getMinor());
+            }
+            return List.of(stu.name, stu.username, "Not Approved", stu.getMajor(), stu.getMinor());
         } else if (this.typeOfUser.equals("admin")) {
-            return List.of(admin.name, admin.username);
+            return List.of(admin.name, admin.username, "none", "none", "none");
         }else{
-            return List.of("","");
+            return List.of("","","", "", "");
         }
+    }
+
+    @PostMapping("/changeName")
+    public void changeName(@RequestBody Map<String, String> data) {
+        String newName = data.get("name");
+        stu.setName(newName);
+    }
+
+    @PostMapping("/changeMajor")
+    public void changeMajor(@RequestBody Map<String, String> data) {
+        String newMajor = data.get("major");
+        System.out.println(newMajor);
+        stu.setMajor(newMajor);
+        saveMajor(newMajor);
+    }
+
+    @PostMapping("/changeMinor")
+    public void changeMinor(@RequestBody Map<String, String> data) {
+        String newMinor = data.get("minor");
+        System.out.println(newMinor);
+        stu.setMinor(newMinor);
+        saveMinor(newMinor);
     }
 
     @PostMapping("/newCalendar")
@@ -82,9 +124,81 @@ public class Session {
         saveSchedule();
     }
 
-    @GetMapping("/calendar")
+    @GetMapping("/statusSheet")
+    public List<String> statusSheetGet() {
+        List<String> c = new ArrayList<String>();
+        if(stu != null)
+        if(typeOfUser.equals("student") && stu.statusSheet != null)
+            for(Course x : stu.statusSheet.getCourses().courses) {
+                c.add(x.getCourseCode());
+            }
+        else{
+            List<String> useless = new ArrayList<>();
+            return useless;
+        }
+        return c;
+    }
+
+    @PostMapping("/statusSheet")
+    public boolean statusSheetPost(@RequestBody Map<String, String> data) {
+        String courseCode = data.get("code");
+        if(stu != null) {
+            if (stu.statusSheet != null) {
+                return stu.statusSheet.addCourse(courseCode);
+            } else {
+                List ma = new ArrayList<>();
+                List mi = new ArrayList<>();
+                ma.add((stu.getMajor()));
+                mi.add((stu.getMinor()));
+                stu.statusSheet = new StatusSheet(ma, mi, stu.getGradYear());
+                return stu.statusSheet.addCourse(courseCode);
+            }
+        }
+        return false;
+    }
+
+    @GetMapping("/pseudoStatus")
+    public boolean getPseudoStatus(){
+        if(psudoStu == null) return false;
+        return true;
+    }
+
+    @GetMapping("/calendarPseudoStu")
+    public List<List<String>> getCalendarTwo() {
+        List<Course> c;
+        if(psudoStu != null)
+            System.out.println(psudoStu.schedule);
+        if(typeOfUser.equals("admin") && psudoStu.schedule != null)
+            c = psudoStu.schedule.getCourseList().courses;
+        else{
+            List<List<String>> useless = new ArrayList<>();
+            return useless;
+        }
+        if(psudoStu.schedule.getCourseList().courses != null) {
+            c = psudoStu.schedule.getCourseList().courses;
+        } else {
+            c = Collections.<Course>emptyList();
+        }
+        List<String> courses = new ArrayList<>();
+        List<String> days = new ArrayList<>();
+        List<String> times = new ArrayList<>();
+        for(Course x : c) {
+            courses.add(x.getCourseCode());
+            days.add(x.getDay());
+            times.add(x.getTime());
+        }
+        List<List<String>> codeAndTime = new ArrayList<>();
+        codeAndTime.add(courses);
+        codeAndTime.add(days);
+        codeAndTime.add(times);
+        return codeAndTime;
+    }
+
+    @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
+        if(stu != null)
+            System.out.println(stu.schedule);
         if(typeOfUser.equals("student") && stu.schedule != null)
             c = stu.schedule.getCourseList().courses;
         else{
@@ -123,7 +237,9 @@ public class Session {
         if (admin != null && admin.password.equals(password)) {
             authenticated = true;
         } else if (stu != null && stu.password.equals(password)) {
+            System.out.println("RIGHT HERE!");
             stu.loadScheduleFromDB(Courses.getInstance());
+            System.out.println("IT WORKED!");
             authenticated = true;
         }
         return authenticated;
@@ -163,6 +279,38 @@ public class Session {
             } catch (SQLException e2) {
                 throw new RuntimeException(e2);
             }
+        }
+    }
+
+    void saveMajor(String major) {
+        String sql = "update Students set majors = ? where id = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, major);
+            pstmt.setInt(2, stu.getId());
+            System.out.println(pstmt);
+            pstmt.executeUpdate();
+            conn.close();
+            System.out.println("Updated Major");
+        } catch (SQLException e) {
+            System.out.println("Failed to update major..." + e.getMessage());
+        }
+    }
+
+    void saveMinor(String minor) {
+        String sql = "update Students set minors = ? where id = ?";
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, minor);
+            pstmt.setInt(2, stu.getId());
+            System.out.println(pstmt);
+            pstmt.executeUpdate();
+            conn.close();
+            System.out.println("Updated Minor");
+        } catch (SQLException e) {
+            System.out.println("Failed to update minor..." + e.getMessage());
         }
     }
 
@@ -208,6 +356,15 @@ public class Session {
         return null;
     }
 
+    @PostMapping("/SearchStudents")
+    public List<Student> studentSearch(@RequestBody Map<String, String> data){
+        String input = data.get("usernameSearch").strip();
+        Student[] students = searchStudents(input);
+        List<Student> searchResults = Arrays.asList(students);
+        return searchResults.stream().distinct().collect(Collectors.toList());
+    }
+
+
     @PostMapping("/SearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data){
         String input = data.get("content").strip();
@@ -246,13 +403,13 @@ public class Session {
                         j++;
                     }
                 }
-                System.out.println("ORIGINAL LIST");
-                System.out.println(Arrays.deepToString(suggested1));
-                System.out.println("SUGGESTED");
-                System.out.println(Arrays.deepToString(suggested2));
+//                System.out.println("ORIGINAL LIST");
+//                System.out.println(Arrays.deepToString(suggested1));
+//                System.out.println("SUGGESTED");
+//                System.out.println(Arrays.deepToString(suggested2));
                 return suggested2;
             }
-            return new Course[0];
+            return null;
         }
         return new Course[0];
     }

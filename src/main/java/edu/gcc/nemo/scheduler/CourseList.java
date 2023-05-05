@@ -1,16 +1,17 @@
 package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CourseList{
     protected List<Course> courses;
-    private final Courses refCourses;
+    private final Courses refCourses = Courses.getInstance();
     // Constructor
-    public CourseList(Courses refCourses) {
+    public CourseList() {
         courses = new ArrayList<Course>();
-        this.refCourses = refCourses;
     }
 
     //Methods
@@ -22,6 +23,7 @@ public class CourseList{
         //If the course was not already in the schedule
         courses.add(c);
         System.out.println("Course successfully added!\n");
+        System.out.println(Arrays.deepToString(courses.toArray()));
         return true;
     }
 
@@ -50,21 +52,64 @@ public class CourseList{
      * @param course is the course you want to check and see if it overlaps with any other courses
      * @return "true" if there is a course overlap. "false" if there is not a course overlap
      */
-    boolean checkOverlap(Course course) {
+    private boolean checkOverlap(Course course) {
+//        System.out.println(course);
+//        System.out.println("Course time: " + course.getTime());
+        String[] inputTimes = course.getTime().split("-");
+//        System.out.println(Arrays.deepToString(inputTimes));
+        int inputStartTime = courseTimeValue(inputTimes[0]);
+        int inputEndTime = courseTimeValue(inputTimes[1]);
+
+        System.out.println("Input times-> Start: " + inputStartTime + " End: " + inputEndTime);
         for (Course c : courses) {
             String day = c.getDay();
-            String time = c.getTime();
+            String[] times = c.getTime().split("-");
+            int startTime = courseTimeValue(times[0]);
+            int endTime = courseTimeValue(times[1]);
+
+//            System.out.println("Overlap Days: " + overlapDays(day, course.getDay()));
+//            System.out.println("Schedule course-> Start: " + startTime + " End: " + endTime);
             if(c.getCourseCode().equals(course.getCourseCode())){
-                System.out.println("This class is already in the schedule!");
+//                System.out.println("This class is already in the schedule!");
                 return true;
-            } else if (course.getDay().equals(day) && course.getTime().equals(time)) {
-                System.out.println("You have a conflicting class in your schedule!");
-                System.out.println("You're class over laps with: " + c.toString());
+            } else if (overlapDays(day, course.getDay()) && (
+                    (inputStartTime >= startTime && inputStartTime < endTime) ||
+                            (inputEndTime > startTime && inputEndTime<= endTime)) ) {
+//                System.out.println("You have a conflicting class in your schedule!");
+//                System.out.println("You're class over laps with: " + c.toString());
                 return true;
             }
         }
         return false;
     }
+
+    // checks and sees if any days overlap
+    private boolean overlapDays(String courseDays1, String courseDays2){
+        for(int i = 0; i < courseDays2.length(); i++){
+            if(courseDays1.indexOf(courseDays2.charAt(i)) != -1) return true;
+        }
+        return false;
+    }
+
+    // converts the time into an integer value
+    private int courseTimeValue(String time) {
+        time = time.replace(" ", "");
+        String[] splitT = time.split(":");
+        Arrays.deepToString(splitT);
+        int totalT = 0;
+        if (splitT[2].contains("PM") && !splitT[0].contains("12")) {
+            //All PM times except Noon
+            totalT = (Integer.parseInt(splitT[0]) + 12) * 60;//Convert to Military
+        } else if (splitT[0].contains("12") && !splitT[2].contains("PM")) {
+            //Catch 12AM classes
+            totalT = (Integer.parseInt(splitT[0]) + 12) * 60;//Convert to Military
+        }else{
+            totalT = Integer.parseInt(splitT[0]) * 60;
+        }
+        return totalT + Integer.parseInt(splitT[1]);
+    }
+
+
 
     /**
      *

@@ -14,8 +14,10 @@ public class Student extends User{
         super(username, password, name, id);
         this.gradYear = gradYear;
         this.major = major;
+        List<String> majors = List.of(this.major.split(","));
         this.minor = minor;
-        statusSheet = new StatusSheet();
+        List<String> minors = List.of(this.minor.split(","));
+        statusSheet = new StatusSheet(majors, minors, gradYear);
 
         try{
             conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -88,6 +90,18 @@ public class Student extends User{
     public void setGradYear(int gradYear) {
         this.gradYear = gradYear;
     }
+
+    public String getMajor() {
+        return this.major;
+    }
+
+    public String getMinor() {
+        return this.minor;
+    }
+
+    public void setMajor(String major) {this.major = major;}
+
+    public void setMinor(String minor) {this.minor = minor;}
 
     @Override
     public String toString(){

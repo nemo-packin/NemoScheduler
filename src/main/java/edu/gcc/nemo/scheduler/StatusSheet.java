@@ -3,19 +3,26 @@ package edu.gcc.nemo.scheduler;
 import java.util.List;
 
 public class StatusSheet {
-    private List<String> major;
-    private List<String> minor;
+    private List<String> majors;
+    private List<String> minors;
     private int gradYear;
-    private CourseList courseList;
+    private CourseList courses;
 
-    public StatusSheet() {}
-
-    //Methods
-    public String serialize() {
-        return null;
+    public StatusSheet(List<String> majors, List<String> minors, int gradYear) {
+        this.majors = majors;
+        this.minors = minors;
+        this.gradYear = gradYear;
+        this.courses = new CourseList();
     }
 
-    //Getters and Setters
+    public boolean addCourse(String code) {
+        return this.courses.addCourse(code);
+    }
+
+    public boolean removeCourse(String code) {
+        return this.courses.removeCourse(code);
+    }
+
     public int getGradYear() {
         return gradYear;
     }
@@ -23,4 +30,10 @@ public class StatusSheet {
     public void setGradYear(int gradYear) {
         this.gradYear = gradYear;
     }
+
+
+    public CourseList getCourses() {
+        return courses;
+    }
+
 }

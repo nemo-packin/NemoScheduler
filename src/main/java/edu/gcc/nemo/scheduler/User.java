@@ -1,5 +1,8 @@
 package edu.gcc.nemo.scheduler;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public abstract class User {
 
     protected String username;
@@ -25,9 +28,15 @@ public abstract class User {
         return id;
     }
 
-    public String getPassword(){
-        return password;
-    }
+    public String getUsername(){return username;}
 
     public abstract void printInfo();
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {return this.name;}
+
+    public String getPassword() {return this.password;}
+
 }
