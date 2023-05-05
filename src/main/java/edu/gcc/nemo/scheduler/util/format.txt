@@ -1,0 +1,3 @@
+Course Requirements for (Degree Type:[\w ]+) Degree in (Field:[\w ]+)-(Tot Hours:\d+)
+(Section Title:[\w ]+) \((Section Hours:\d+)\):{0,1}
+(Department:[\w ]+) (Course Codes:[\d,- ])

@@ -18,7 +18,7 @@ public class Student extends User{
         List<String> majors = List.of(this.major.split(","));
         this.minor = minor;
         List<String> minors = List.of(this.minor.split(","));
-        statusSheet = new StatusSheet(majors, minors, gradYear);
+        statusSheet = new StatusSheet(false, majors, minors, gradYear);
 
         try{
             conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");

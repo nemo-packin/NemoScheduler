@@ -1,0 +1,107 @@
+Accounting, Entrepreneurship, Finance, International Business, Management, Marketing 200-,300-,400-
+stop
+Accounting, Entrepreneurship, Finance, International Business, Management, Marketing 200-,300-,400-
+stop
+Biology 320, 328, 331, 332, 403, and 421 Biology 305, 323, 326, and 409 Biology 310, 313, 314, and 341 Biology 301, 302, 322, 325, 334, 346, and 407
+stop
+Biology**
+stop
+Biology 320, 328, 331, 332, 403, and 421 Biology 305, 323, 326, and 409 Biology 310, 313, 314, and 341 Biology 301, 302, 322, 325, 334, 346, and 407
+stop
+Biology**
+stop
+ignore
+Biology**
+stop
+ignore
+Biology**
+stop
+Biology**
+stop
+Chemistry 351, 352, 441, 445, 453, 458, 463, and 466 Psychology 315, Sociology 233, or Sociology 314Statistics 131 or Psychology 201 Chemistry
+Chemistry 408, 471
+stop
+Communication Arts 245, 277, 359, 378, 388 Design 101, 102, 201, or 210 Communication Arts 222, 240, 250, 304, 352, 362, 444, 427 Communication Arts 235, 300, 303, 305, 405, 406, 459 Art 320
+stop
+Communication Arts 104, 300-, 400- Entrepreneurship 300-,400- Marketing 415, 417, 419, 420 Design 401, 480
+stop
+Computer Science 300-, 400- Data Science 300-, 400- Robotics 302
+stop
+Math** English 203, 204, 222, 261, 302, 351, 352, 402 Communication Arts 104, 225, 235, or 378
+stop
+Math**
+stop
+Math** Science 201, 202, 203, 204
+stop
+Math** English 203, 204, 222, 261, 302, 351, 352, 402 Communication Arts 104, 225, 235, or 378
+stop
+Math**
+stop
+Math** Science 201, 202, 203, 204
+stop
+add_Technical Elective Requirement_6
+Electrical Engineering 200-, 300-, 400- Computer Science 200-, 300-, 400- Engineering 200-, 300-, 400- Robotics 200-, 300-, 400-
+stop
+add_Math/Science Core_30
+Chemistry 105 or Biology 101 Mathematics 161, 162, 261, 262 Engineering 274 Mathematics 214 Physics 101, 102
+English 300-, 400-
+stop
+English 300-, 400-
+stop
+add_Business Analaysis Concentration_12
+Accounting 301, 302 Management 300-
+Mathematics 161, 162 Mathematics 214, 232, 261, 262, or
+Statistics 331
+Finance 332, 341, and 440
+Marketing 411, 415 International Business 416 Management 325, Marketing 330, 370, 411, 417, 468, or 480
+Management 302, 424 Management 311, 325, 450, 457, 480, and International Business 417
+Computer Science 222 Computer Science 300-, 400- Data Science **
+stop
+add_Business Statistics Concentration_9
+Management 204, 307, 310, Computer Science 220, 244 and Statistics 132 Computer Science 222, 300- Data Science ** Management 311, 325, 450, 457, 480, and International Business 417 Management 302, 424 Management 325, Marketing 330, 370, 411, 417, 468, or 480 International Business 416 Marketing 411, 415 Finance 332, 341, and 440 Mathematics 214, 232, 261, 262, or
+Statistics 331 Mathematics 161, 162 Accounting 301, 302
+stop
+add_Minor or Second Major_18
+stop
+add_Math Core Requirements_23
+Mathematics 125, 162, 210, 213, 222, 261, 421, 465, and 488
+Computer Science 141; Physics 101, or Physics 121, 122
+stop
+add_Math Core/Major Related Requirements_39
+Mathematics 125, 162, 210, 213, 222, 240, 261, 303, 421, 465, 488 Statistics 331
+Computer Science 141; Physics 101, or Physics 121, 122
+stop
+add_Mechanical Engineering Electives_13
+Mechanical Engineering 260, 270, 303, 360, 370, 390, 408, 410, 415, 418, 428, 460, 470, 498, Engineering 411, Robotics 301, or 302 Mechanical Engineering 260, 270, 321, 360, 370, 391, 414, 416, 421, 460, 470, 499 Mechanical Engineering 260, 270, 360, 370, 460, 470, Engineering 301, 304, 305, 331, 390, or 412
+stop
+Spanish 300-, 400-
+stop
+add_Ensemble_7
+Music 100, 101, 102, 114, 115, 116, 117, 118, or 119, 199
+stop
+Music 100, 101, 102, 114, 115, 116, 117, 118, or 119, 199
+stop
+add_Ensemble_7
+stop
+Music 100, 101, 102, 114, 115, 116, 117, 118, or 119, 199
+stop
+add_Ensemble_7
+Music 100, 101, 102, 114, 115, 116, 117, 118, or 119
+stop
+Music 223, 224, 230, 303, 304, 311, 325, 326, 330, 360, 403, 426, 460, and 488
+stop
+add_Applied Music/Ensemble_15
+Music 100, 101, 102, 114, 115, 116, 117, 118, or 119
+stop
+add_Physics Electives_12
+Physics 304, 310, 340, 401, 402, 421, or 442
+stop
+add_Physics Electives_12
+Physics 304, 310, 340, 401, 402, 421, or 442
+stop
+Electrical Engineering 201, 202, 204, 251, 252, 306, 310, and Computer Science 220
+stop
+Computer Science 220, 222, 325, 340, 350; Physics 210 Electrical Engineering 204; Computer Science 480 or Physics 270, 370, 470 Computer Science 314, 400- Mathematics 213, 222
+stop
+Political Science 300-, 400-
+stop
