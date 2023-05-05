@@ -5,7 +5,6 @@ import java.util.List;
 
 public class CourseOptions extends CourseLike {
     public String title;
-    public int creditHours;
     public List<CourseLike> options;
     public CourseOptions(String title, int creditHours) {
         this.title = title;
