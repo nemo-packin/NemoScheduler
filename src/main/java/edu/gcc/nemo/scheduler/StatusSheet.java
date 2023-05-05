@@ -10,10 +10,7 @@ public class StatusSheet {
     private boolean isScienceMajor;
     private List<String> majors;
     private List<String> minors;
-
     private int gradYear;
-
-
     private CourseList courses;
 
     public static void main(String[] args) {
@@ -30,12 +27,12 @@ public class StatusSheet {
         this.courses = new CourseList();
     }
 
-    public void addCourse(String code) {
-        this.courses.addCourse(code);
+    public boolean addCourse(String code) {
+        return this.courses.addCourse(code);
     }
 
-    public void removeCourse(String code) {
-        this.courses.removeCourse(code);
+    public boolean removeCourse(String code) {
+        return this.courses.removeCourse(code);
     }
 
     public int getGradYear() {
