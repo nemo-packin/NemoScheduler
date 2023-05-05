@@ -8,10 +8,15 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import edu.gcc.nemo.scheduler.util.MajorParser;
+
+import edu.gcc.nemo.scheduler.CourseLike;
+import edu.gcc.nemo.scheduler.CourseOptions;
+import edu.gcc.nemo.scheduler.DB.Courses;
 import static edu.gcc.nemo.scheduler.util.MajorParser.getCourseCode;
+import static edu.gcc.nemo.scheduler.util.MajorParser.getMatchingCourses;
 
 public class MinorParser {
+    private static List<CourseOptions> minorOptions = new ArrayList<>();
     private static Map<String, String> dptNamesToCodes = MajorParser.parseDeptCodes();
     public static void main(String[] args) {
         ClassLoader c = Thread.currentThread().getContextClassLoader();
@@ -23,21 +28,30 @@ public class MinorParser {
         Matcher m = r.matcher(f);
 
         while (m.find()) {
+            List<CourseLike> courseCodes = new ArrayList<>();
             String title = m.group(1);
             String hours = m.group(2);
             String courses = m.group(3).trim();
-//            System.out.println("Title: " + title);
-//            System.out.println("Hours: " + hours);
-//            System.out.println("Courses: " + courses);
-            System.out.println();
             String sql = "INSERT INTO MINORS (Title, Credit_Hours, Requirements) VALUES(?,?,?)";
             String del = "DELETE FROM MINORS";
             Pattern coursesPattern = Pattern.compile("(?<dept>(?:[A-Z][a-z]+ ?)+)(?<codes>(?:\\d{3}(?:[^A-Za-z]+|and|or)*))(?!;|\\.|and|[A-Z])", Pattern.DOTALL);
+            Pattern codePattern = Pattern.compile("\\d{3}");
             Matcher courseMatch = coursesPattern.matcher(courses);
+            List<String> CCodesperMinor = new ArrayList<>();
             while (courseMatch.find()){
-                getCourseCode(dptNamesToCodes, courseMatch.group("dept"));
-//                System.out.println(courseMatch.group("dept"));
+                String codes = courseMatch.group("codes");
+                Matcher codeMatch = codePattern.matcher(codes);
+                String s = getCourseCode(dptNamesToCodes, courseMatch.group("dept"));
+                while (codeMatch.find()) {
+                    CCodesperMinor.add(s + codeMatch.group());
+                    getMatchingCourses(Courses.getInstance().getAllCourses(), s + codeMatch.group()).forEach(courseCodes::add);
+                }
             }
+            hours = hours.substring(0, 2);
+            int hrs = Integer.parseInt(hours);
+            CourseOptions courseOptions = new CourseOptions(title, hrs);
+            courseOptions.options = courseCodes;
+            minorOptions.add(courseOptions);
 
 //            try {
 //                Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -50,6 +64,9 @@ public class MinorParser {
 //            } catch (SQLException e) {
 //                throw new RuntimeException(e);
 //            }
+        }
+        for (int i = 0; i < minorOptions.size(); i++){
+            System.out.println(minorOptions.get(i).toString());
         }
     }
 

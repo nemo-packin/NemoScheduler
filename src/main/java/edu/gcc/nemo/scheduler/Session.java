@@ -156,7 +156,7 @@ public class Session {
                 List mi = new ArrayList<>();
                 ma.add((stu.getMajor()));
                 mi.add((stu.getMinor()));
-                stu.statusSheet = new StatusSheet(ma, mi, stu.getGradYear());
+                stu.statusSheet = new StatusSheet(false, ma, mi, stu.getGradYear());
                 return stu.statusSheet.addCourse(courseCode);
             }
         }
