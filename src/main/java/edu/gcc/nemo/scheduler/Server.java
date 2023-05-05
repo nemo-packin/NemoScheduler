@@ -5,9 +5,11 @@ import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
 import edu.gcc.nemo.scheduler.DB.Students;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.Connection;
 
+@SpringBootApplication
 public class Server {
     private static Student stuSignedIn = null;
     private static Admin adminSignedIn = null;
@@ -23,7 +25,7 @@ public class Server {
         students = Students.getInstance();
         admins = Admins.getAdminsInstance();
         courses = Courses.getInstance();
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Server.class, args);
 
         session = new Session(admins, students, courses);
         State state = new State();

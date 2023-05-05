@@ -17,29 +17,6 @@ public abstract class User {
         this.id = id;
     }
 
-    //Methods
-    public void username() {
-
-    }
-
-    public void updateLoadAccountDBInfo(){
-
-    }
-
-    public void editAccount() {
-
-    }
-
-    //NEW METHOD FOR SAVING ACCOUNT TO DATABASE
-
-    public void saveSchedule() {
-
-    }
-
-    public void editSchedule() {
-
-    }
-
     //NEW
     public boolean checkPassword(String pass){
         if(pass.equals(password))
@@ -51,12 +28,15 @@ public abstract class User {
         return id;
     }
 
-    public String getPassword(){
-        return password;
-    }
+    public String getUsername(){return username;}
 
     public abstract void printInfo();
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {return this.name;}
 
+    public String getPassword() {return this.password;}
 
 }
