@@ -94,6 +94,18 @@ public class Student extends User{
         this.gradYear = gradYear;
     }
 
+    public String getMajor() {
+        return this.major;
+    }
+
+    public String getMinor() {
+        return this.minor;
+    }
+
+    public void setMajor(String major) {this.major = major;}
+
+    public void setMinor(String minor) {this.minor = minor;}
+
     @Override
     public String toString(){
         return name;

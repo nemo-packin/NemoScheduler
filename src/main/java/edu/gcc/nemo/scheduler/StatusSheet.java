@@ -5,10 +5,7 @@ import java.util.List;
 public class StatusSheet {
     private List<String> majors;
     private List<String> minors;
-
     private int gradYear;
-
-
     private CourseList courses;
 
     public StatusSheet(List<String> majors, List<String> minors, int gradYear) {
@@ -18,12 +15,12 @@ public class StatusSheet {
         this.courses = new CourseList();
     }
 
-    public void addCourse(String code) {
-        this.courses.addCourse(code);
+    public boolean addCourse(String code) {
+        return this.courses.addCourse(code);
     }
 
-    public void removeCourse(String code) {
-        this.courses.removeCourse(code);
+    public boolean removeCourse(String code) {
+        return this.courses.removeCourse(code);
     }
 
     public int getGradYear() {
