@@ -2,6 +2,7 @@ package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
 import java.sql.*;
+import java.util.List;
 
 public class Student extends User{
     private int gradYear;
