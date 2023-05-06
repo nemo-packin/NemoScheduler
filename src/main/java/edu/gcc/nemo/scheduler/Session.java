@@ -39,18 +39,16 @@ public class Session {
         admin = null;
         typeOfUser = "";
     }
+    @GetMapping("/approveStudent")
+    public boolean approveStu(){
 
-//    @GetMapping("/pseudoAccountInfo")
-//    public List<String> getPseudoAccountInfo() {
-//        if(this.typeOfUser.equals("admin")) {
-//            if(psudoStu.schedule.getApproved()) {
-//                return List.of(psudoStu.name, psudoStu.username, "Approved", psudoStu.getMajor(), psudoStu.getMinor());
-//            }
-//            return List.of(psudoStu.name, psudoStu.username, "Not Approved", psudoStu.getMajor(), psudoStu.getMinor());
-//        } else{
-//            return List.of("","","","","");
-//        }
-//    }
+        if(admin != null && typeOfUser.equals("admin") && pseudoStu != null){
+            pseudoStu.schedule.approve();
+            saveSchedule("PseudoStudent");
+            return true;
+        }
+        return false;
+    }
 
     @PostMapping("/createPseudoStudent")
     public String createPseudoStudent(@RequestBody Map<String, String> data){
@@ -109,8 +107,8 @@ public class Session {
     }
 
     public List<String> getAccountInfo(Student s) {
-        if(s != null) {
-            if(s.schedule != null && s.schedule.getApproved()) {
+        if(s != null && s.schedule != null) {
+            if(s.schedule.getApproved()) {
                 return List.of(s.name, s.username, "Approved", s.getMajor(), s.getMinor());
             }
             return List.of(s.name, s.username, "Not Approved", s.getMajor(), s.getMinor());
