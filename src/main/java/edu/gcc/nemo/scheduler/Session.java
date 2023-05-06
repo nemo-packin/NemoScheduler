@@ -133,11 +133,8 @@ public class Session {
 
     @PostMapping("/newCalendarPseudoStu")
     public boolean newCalendarPseudo(@RequestBody Map<String, String> data) {
-        System.out.println("1");
         String name4Schedule = data.get("nameForSchedule");
-        System.out.println("2");
         String semester = data.get("semester");
-        System.out.println("3");
         if(admin != null && typeOfUser.equals("admin") && pseudoStu != null){
             pseudoStu.createNewSchedule(name4Schedule, semester, refCourses);
             System.out.println("4");
