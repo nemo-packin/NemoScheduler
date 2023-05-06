@@ -8,8 +8,8 @@ import java.util.List;
 
 public class StatusSheet {
     private boolean isScienceMajor;
-    private List<String> majors;
-    private List<String> minors;
+    private ArrayList<String> majors;
+    private ArrayList<String> minors;
     private int gradYear;
     private CourseList courses;
 
@@ -21,8 +21,10 @@ public class StatusSheet {
 
     public StatusSheet(boolean isScienceMajor, List<String> majors, List<String> minors, int gradYear) {
         this.isScienceMajor = isScienceMajor;
-        this.majors = majors;
-        this.minors = minors;
+        this.majors = new ArrayList<>();
+        this.majors.addAll(majors);
+        this.minors = new ArrayList<>();
+        this.minors.addAll(minors);
         this.gradYear = gradYear;
         this.courses = new CourseList();
     }
@@ -58,4 +60,15 @@ public class StatusSheet {
         return outList;
     }
 
+    public ArrayList<String> getMajors() {
+        return majors;
+    }
+
+    public void addMajor(String major) {
+        majors.add(major);
+    }
+
+    public void removeMajor(String major) {
+        majors.removeIf(x -> x.equals(major));
+    }
 }

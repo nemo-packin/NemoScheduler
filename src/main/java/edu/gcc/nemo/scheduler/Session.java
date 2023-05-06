@@ -1,5 +1,7 @@
 package edu.gcc.nemo.scheduler;
 
+import com.google.gson.Gson;
+import edu.gcc.nemo.scheduler.DB.Majors;
 import edu.gcc.nemo.scheduler.DB.Students;
 import edu.gcc.nemo.scheduler.DB.Admins;
 import edu.gcc.nemo.scheduler.DB.Courses;
@@ -41,8 +43,8 @@ public class Session {
     }
 
     @PostMapping("/createPseudoStudent")
-    public String createPseudoStudent(@RequestBody Map<String, String> data){
-        if(admin != null && typeOfUser.equals("admin")){
+    public String createPseudoStudent(@RequestBody Map<String, String> data) {
+        if (admin != null && typeOfUser.equals("admin")) {
             String stuUsername = data.get("username");
             psudoStu = refStudents.getStudent(stuUsername);
             psudoStu.loadScheduleFromDB(Courses.getInstance());
@@ -53,28 +55,29 @@ public class Session {
 
     @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
-        if(!authenticated){
+        if (!authenticated) {
             String username = data.get("username").toString();
             String password = data.get("password").toString();
 
             authenticate(username, password);
             // Process the data here
-            if(authenticated && typeOfUser.equals("student"))
+            if (authenticated && typeOfUser.equals("student"))
                 return "student";
-            else if(authenticated && typeOfUser.equals("admin"))
+            else if (authenticated && typeOfUser.equals("admin"))
                 return "admin";
             else
                 return "invalid login!";
-        }else return "already logged in!";
+        } else return "already logged in!";
 
     }
+
     @GetMapping("/auth")
     public boolean getAuth() {
         return authenticated;
     }
 
     @GetMapping("/userType")
-    public String userType(){
+    public String userType() {
         return typeOfUser;
     }
 
@@ -88,15 +91,15 @@ public class Session {
 
     @GetMapping("/accountInfo")
     public List<String> getAccountInfo() {
-        if(this.typeOfUser.equals("student")) {
-            if(stu.schedule.getApproved()) {
+        if (this.typeOfUser.equals("student")) {
+            if (stu.schedule.getApproved()) {
                 return List.of(stu.name, stu.username, "Approved", stu.getMajor(), stu.getMinor());
             }
             return List.of(stu.name, stu.username, "Not Approved", stu.getMajor(), stu.getMinor());
         } else if (this.typeOfUser.equals("admin")) {
             return List.of(admin.name, admin.username, "none", "none", "none");
-        }else{
-            return List.of("","","", "", "");
+        } else {
+            return List.of("", "", "", "", "");
         }
     }
 
@@ -110,7 +113,9 @@ public class Session {
     public void changeMajor(@RequestBody Map<String, String> data) {
         String newMajor = data.get("major");
         System.out.println(newMajor);
+        stu.statusSheet.removeMajor(stu.getMajor());
         stu.setMajor(newMajor);
+        stu.statusSheet.addMajor(newMajor);
         saveMajor(newMajor);
     }
 
@@ -130,25 +135,28 @@ public class Session {
         saveSchedule();
     }
 
+    @GetMapping("/majorOptions")
+    public List<String> majorOptionsGet() {
+        return Majors.getInstance().getMajorTitles();
+    }
+
     @GetMapping("/statusSheet")
-    public List<String> statusSheetGet() {
-        List<String> c = new ArrayList<String>();
-        if(stu != null)
-        if(typeOfUser.equals("student") && stu.statusSheet != null)
-            for(Course x : stu.statusSheet.getCourses().courses) {
-                c.add(x.getCourseCode());
+    @ResponseBody
+    public HashMap<String, Object> statusSheetGet() {
+        HashMap<String, Object> m = new HashMap<>();
+        if (stu != null)
+            if (typeOfUser.equals("student") && stu.statusSheet != null) {
+                m.put("courses", stu.statusSheet.getCourses().courses.stream().map(course -> course.getCourseCode()));
+                m.put("reqs", stu.statusSheet.getRequirements());
+                return m;
             }
-        else{
-            List<String> useless = new ArrayList<>();
-            return useless;
-        }
-        return c;
+        return null;
     }
 
     @PostMapping("/statusSheet")
     public boolean statusSheetPost(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
-        if(stu != null) {
+        if (stu != null) {
             if (stu.statusSheet != null) {
                 return stu.statusSheet.addCourse(courseCode);
             } else {
@@ -156,7 +164,7 @@ public class Session {
                 List mi = new ArrayList<>();
                 ma.add((stu.getMajor()));
                 mi.add((stu.getMinor()));
-                stu.statusSheet = new StatusSheet(ma, mi, stu.getGradYear());
+                stu.statusSheet = new StatusSheet(false, ma, mi, stu.getGradYear());
                 return stu.statusSheet.addCourse(courseCode);
             }
         }
@@ -164,23 +172,23 @@ public class Session {
     }
 
     @GetMapping("/pseudoStatus")
-    public boolean getPseudoStatus(){
-        if(psudoStu == null) return false;
+    public boolean getPseudoStatus() {
+        if (psudoStu == null) return false;
         return true;
     }
 
     @GetMapping("/calendarPseudoStu")
     public List<List<String>> getCalendarTwo() {
         List<Course> c;
-        if(psudoStu != null)
+        if (psudoStu != null)
             System.out.println(psudoStu.schedule);
-        if(typeOfUser.equals("admin") && psudoStu.schedule != null)
+        if (typeOfUser.equals("admin") && psudoStu.schedule != null)
             c = psudoStu.schedule.getCourseList().courses;
-        else{
+        else {
             List<List<String>> useless = new ArrayList<>();
             return useless;
         }
-        if(psudoStu.schedule.getCourseList().courses != null) {
+        if (psudoStu.schedule.getCourseList().courses != null) {
             c = psudoStu.schedule.getCourseList().courses;
         } else {
             c = Collections.<Course>emptyList();
@@ -188,7 +196,7 @@ public class Session {
         List<String> courses = new ArrayList<>();
         List<String> days = new ArrayList<>();
         List<String> times = new ArrayList<>();
-        for(Course x : c) {
+        for (Course x : c) {
             courses.add(x.getCourseCode());
             days.add(x.getDay());
             times.add(x.getTime());
@@ -203,15 +211,15 @@ public class Session {
     @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
-        if(stu != null)
+        if (stu != null)
             System.out.println(stu.schedule);
-        if(typeOfUser.equals("student") && stu.schedule != null)
+        if (typeOfUser.equals("student") && stu.schedule != null)
             c = stu.schedule.getCourseList().courses;
-        else{
+        else {
             List<List<String>> useless = new ArrayList<>();
             return useless;
         }
-        if(stu.schedule.getCourseList().courses != null) {
+        if (stu.schedule.getCourseList().courses != null) {
             c = stu.schedule.getCourseList().courses;
         } else {
             c = Collections.<Course>emptyList();
@@ -219,7 +227,7 @@ public class Session {
         List<String> courses = new ArrayList<>();
         List<String> days = new ArrayList<>();
         List<String> times = new ArrayList<>();
-        for(Course x : c) {
+        for (Course x : c) {
             courses.add(x.getCourseCode());
             days.add(x.getDay());
             times.add(x.getTime());
@@ -363,7 +371,7 @@ public class Session {
     }
 
     @PostMapping("/SearchStudents")
-    public List<Student> studentSearch(@RequestBody Map<String, String> data){
+    public List<Student> studentSearch(@RequestBody Map<String, String> data) {
         String input = data.get("usernameSearch").strip();
         Student[] students = searchStudents(input);
         List<Student> searchResults = Arrays.asList(students);
@@ -372,39 +380,38 @@ public class Session {
 
 
     @PostMapping("/SearchResults")
-    public Course[] searchResults(@RequestBody Map<String, String> data){
+    public Course[] searchResults(@RequestBody Map<String, String> data) {
         String input = data.get("content").strip();
         String count = data.get("numFilters");
-        if(count.equals("0")){
+        if (count.equals("0")) {
             return new Course[0];
         }
         return searchCourses(input);
     }
 
     /**
-     *
      * @param data -> Map of input from the user (Str, Str)
      * @return if course successfully added (or type of user isn't a student) return empty array
-     *          else return an array of other courses that the user could take
+     * else return an array of other courses that the user could take
      */
     @PostMapping("/addCourse")
-    public Course[] addToSchedule(@RequestBody Map<String, String> data){
+    public Course[] addToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("courseCode");
-        if(typeOfUser.equals("student")) {
+        if (typeOfUser.equals("student")) {
             boolean validResult = stu.schedule.addCourse(courseCode);
-            if(validResult)
+            if (validResult)
                 saveSchedule();
-            else{
-                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
+            else {
+                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0, courseCode.length() - 1));
                 int numSameCourseCodes = 0;
-                for(Course c: suggested1){
-                    if(c.getCourseCode().equals(courseCode))
+                for (Course c : suggested1) {
+                    if (c.getCourseCode().equals(courseCode))
                         numSameCourseCodes++;
                 }
                 Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
                 int j = 0;
-                for(int i = 0; i < suggested1.length; i++){
-                    if(!courseCode.equals(suggested1[i].getCourseCode())){
+                for (int i = 0; i < suggested1.length; i++) {
+                    if (!courseCode.equals(suggested1[i].getCourseCode())) {
                         suggested2[j] = suggested1[i];
                         j++;
                     }
@@ -421,9 +428,9 @@ public class Session {
     }
 
     @PostMapping("/removeCourse")
-    public boolean removeToSchedule(@RequestBody Map<String, String> data){
+    public boolean removeToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
-        if(typeOfUser.equals("student")) {
+        if (typeOfUser.equals("student")) {
             stu.schedule.removeCourse(courseCode);
             saveSchedule();
             return true;

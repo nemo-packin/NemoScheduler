@@ -41,7 +41,7 @@ public class Majors {
         allMajors = gson.fromJson(br, courseOptionsListType);
     }
     public List<String> getMajorTitles() {
-        return allMajors.stream().map(cl -> cl.title).collect(Collectors.toList());
+        return allMajors.stream().map(cl -> cl.title).filter(s -> !s.equals("BA and BS (non-science) General Education") && !s.equals("BM, BS, BSEE, and BSME (science) General Education")).collect(Collectors.toList());
     }
 
     public CourseOptions getMajorRequirements(String title) {
