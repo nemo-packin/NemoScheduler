@@ -23,7 +23,6 @@ public class CourseList{
         //If the course was not already in the schedule
         courses.add(c);
         System.out.println("Course successfully added!\n");
-        System.out.println(Arrays.deepToString(courses.toArray()));
         return true;
     }
 
@@ -31,7 +30,6 @@ public class CourseList{
         //Check to make sure that the course is in the schedule before removing it
         boolean removed = false;
         for(int i = 0; i < courses.size(); i++) {
-            System.out.println(courseCode);
             if(courses.get(i).getCourseCode().equals(courseCode.toUpperCase().trim())) {
                 courses.remove(i);
                 removed = true;
