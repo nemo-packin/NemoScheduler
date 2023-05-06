@@ -98,16 +98,23 @@ public class Session {
         admin = null;
     }
 
-    @GetMapping("/accountInfo")
-    public List<String> getAccountInfo() {
-        if(this.typeOfUser.equals("student") && stu != null) {
-            if(stu.schedule != null && stu.schedule.getApproved()) {
-                return List.of(stu.name, stu.username, "Approved", stu.getMajor(), stu.getMinor());
+    @GetMapping("/accountInfoStu")
+    public List<String> getStuAccInfo(){
+        return getAccountInfo(stu);
+    }
+
+    @GetMapping("/accountInfoPseudoStu")
+    public List<String> getPseudoStuAccInfo(){
+        return getAccountInfo(pseudoStu);
+    }
+
+    public List<String> getAccountInfo(Student s) {
+        if(s != null) {
+            if(s.schedule != null && s.schedule.getApproved()) {
+                return List.of(s.name, s.username, "Approved", s.getMajor(), s.getMinor());
             }
-            return List.of(stu.name, stu.username, "Not Approved", stu.getMajor(), stu.getMinor());
-        } else if (this.typeOfUser.equals("admin")) {
-            return List.of(admin.name, admin.username, "none", "none", "none");
-        }else{
+            return List.of(s.name, s.username, "Not Approved", s.getMajor(), s.getMinor());
+        } else{
             return List.of("","","", "", "");
         }
     }
@@ -115,23 +122,41 @@ public class Session {
     @PostMapping("/changeName")
     public void changeName(@RequestBody Map<String, String> data) {
         String newName = data.get("name");
-        stu.setName(newName);
+        String use = data.get("type");
+        if(use.equals("Stu")){
+            stu.setName(newName);
+        }else{
+            pseudoStu.setName(newName);
+        }
+
     }
 
     @PostMapping("/changeMajor")
     public void changeMajor(@RequestBody Map<String, String> data) {
         String newMajor = data.get("major");
-        System.out.println(newMajor);
-        stu.setMajor(newMajor);
-        saveMajor(newMajor);
+        String use = data.get("type");
+        if(use.equals("Stu")){
+            stu.setMajor(newMajor);
+            saveMajor(newMajor, stu);
+        }else{
+            pseudoStu.setMajor(newMajor);
+            saveMajor(newMajor, pseudoStu);
+        }
+
     }
 
     @PostMapping("/changeMinor")
     public void changeMinor(@RequestBody Map<String, String> data) {
         String newMinor = data.get("minor");
-        System.out.println(newMinor);
-        stu.setMinor(newMinor);
-        saveMinor(newMinor);
+        String use = data.get("type");
+        if(use.equals("Stu")){
+            stu.setMinor(newMinor);
+            saveMinor(newMinor, stu);
+        }else{
+            pseudoStu.setMinor(newMinor);
+            saveMinor(newMinor, pseudoStu);
+        }
+
     }
 
     @PostMapping("/newCalendarStu")
@@ -319,14 +344,18 @@ public class Session {
         }
     }
 
-    void saveMajor(String major) {
+    /**
+     *
+     * @param major
+     * @param s major is the reference (student or pseudoStudent, depending on the frontend)
+     */
+    void saveMajor(String major, Student s) {
         String sql = "update Students set majors = ? where id = ?";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, major);
-            pstmt.setInt(2, stu.getId());
-            System.out.println(pstmt);
+            pstmt.setInt(2, s.getId());
             pstmt.executeUpdate();
             conn.close();
             System.out.println("Updated Major");
@@ -335,14 +364,18 @@ public class Session {
         }
     }
 
-    void saveMinor(String minor) {
+    /**
+     *
+     * @param minor
+     * @param s major is the reference (student or pseudoStudent, depending on the frontend)
+     */
+    void saveMinor(String minor, Student s) {
         String sql = "update Students set minors = ? where id = ?";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, minor);
-            pstmt.setInt(2, stu.getId());
-            System.out.println(pstmt);
+            pstmt.setInt(2, s.getId());
             pstmt.executeUpdate();
             conn.close();
             System.out.println("Updated Minor");
