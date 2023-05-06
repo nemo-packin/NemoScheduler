@@ -40,54 +40,17 @@ public class Session {
         typeOfUser = "";
     }
 
-    @GetMapping("/pseudoAccountInfo")
-    public List<String> getPseudoAccountInfo() {
-        if(this.typeOfUser.equals("admin")) {
-            if(psudoStu.schedule.getApproved()) {
-                return List.of(psudoStu.name, psudoStu.username, "Approved", psudoStu.getMajor(), psudoStu.getMinor());
-            }
-            return List.of(psudoStu.name, psudoStu.username, "Not Approved", psudoStu.getMajor(), psudoStu.getMinor());
-        } else{
-            return List.of("","","","","");
-        }
-    }
-
-    @PostMapping("/pseudoNewCalendar")
-    public void pseudoNewCalendar(@RequestBody Map<String, String> data) {
-        String name4Schedule = data.get("nameForSchedule");
-        String semester = data.get("semester");
-        psudoStu.createNewSchedule(name4Schedule, semester, refCourses);
-        saveSchedule("pseudoStudent");
-    }
-
-    @PostMapping("/pseudoAddCourse")
-    public Course[] pseudoAddToSchedule(@RequestBody Map<String, String> data){
-        String courseCode = data.get("courseCode");
-        if(typeOfUser.equals("admin")) {
-            boolean validResult = psudoStu.schedule.addCourse(courseCode);
-            if(validResult)
-                saveSchedule("pseudoStudent");
-            else{
-                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
-                int numSameCourseCodes = 0;
-                for(Course c: suggested1){
-                    if(c.getCourseCode().equals(courseCode))
-                        numSameCourseCodes++;
-                }
-                Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
-                int j = 0;
-                for(int i = 0; i < suggested1.length; i++){
-                    if(!courseCode.equals(suggested1[i].getCourseCode())){
-                        suggested2[j] = suggested1[i];
-                        j++;
-                    }
-                }
-                return suggested2;
-            }
-            return null;
-        }
-        return new Course[0];
-    }
+//    @GetMapping("/pseudoAccountInfo")
+//    public List<String> getPseudoAccountInfo() {
+//        if(this.typeOfUser.equals("admin")) {
+//            if(psudoStu.schedule.getApproved()) {
+//                return List.of(psudoStu.name, psudoStu.username, "Approved", psudoStu.getMajor(), psudoStu.getMinor());
+//            }
+//            return List.of(psudoStu.name, psudoStu.username, "Not Approved", psudoStu.getMajor(), psudoStu.getMinor());
+//        } else{
+//            return List.of("","","","","");
+//        }
+//    }
 
     @PostMapping("/createPseudoStudent")
     public String createPseudoStudent(@RequestBody Map<String, String> data){
@@ -455,7 +418,6 @@ public class Session {
      * @return if course successfully added (or type of user isn't a student) return empty array
      *          else return an array of other courses that the user could take
      */
-    //----------------------------------------------NEEDS TO BE RE-WORKED to handle stu and pseudostu
     @PostMapping("/addCourseStu")
     public Course[] addToSchedule(@RequestBody Map<String, String> data){
         String courseCode = data.get("courseCode");
