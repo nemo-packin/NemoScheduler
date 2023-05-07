@@ -1,0 +1,3555 @@
+[
+  {
+    "name": "Bachelor of Science Degree in Accounting",
+    "totalHours": 70,
+    "sections": [
+      {
+        "name": "Accounting Core",
+        "hours": 30,
+        "courses": {
+          "Accounting ": [
+            "201",
+            "202",
+            "301",
+            "302",
+            "303",
+            "321",
+            "401",
+            "402",
+            "403",
+            "405"
+          ]
+        }
+      },
+      {
+        "name": "Business Core",
+        "hours": 21,
+        "courses": {
+          "Finance ": [
+            "301"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Major Electives",
+        "hours": 9,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nAccounting Core (30 hours):\nAccounting 201-202, 301, 302, 303, 321, 401, 402, 403, and 405.\nBusiness Core (21 hours):\nManagement 103, 214, 303, 486; Marketing 104; Finance 301 and Statistics 131.\nMajor Electives (9 hours)\nChoose nine additional hours from any 200-, 300-, or 400-level courses in\nAccounting, Entrepreneurship, Finance, International Business, Management, or\nMarketing (maximum of 3 hours of internship credit toward the 70 hours for the\nB.S. degree). Students pursuing their CPA license should consider taking\nAccounting 404, Accounting 406, and/or Accounting 410. (Please see additional\ninformation later in this section under “CPA Licensing Requirements�?.)\nMajor-related courses (10 hours):\nMathematics 141 or 161*; Economics 101 and 102.\n* Mathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Finance",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Core Courses",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Finance Major Core Courses",
+        "hours": 12,
+        "courses": {
+          "Finance ": [
+            "332",
+            "341",
+            "436",
+            "440"
+          ]
+        }
+      },
+      {
+        "name": "Finance Major Elective Courses",
+        "hours": 12,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nBusiness Core Courses (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; Mathematics 141 or 161*\n*Mathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nFinance Major Core Courses (12 hours):\nFinance 332, 341, 436, and 440.\nFinance Major Elective Courses (12 hours):\nChoose twelve additional hours from any 200-, 300-, or 400-level courses in\nAccounting, Economics, Entrepreneurship, Finance, International Business,\nManagement, or Marketing. A minimum of six hours must be Finance, excluding\n\n\n\n460 and 480. A maximum of three hours of internship may count as finance electives;\nany remaining internship credits will count as general electives.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Applied Science and\nEngineering",
+    "totalHours": 87,
+    "sections": [
+      {
+        "name": "Engineering Science Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Engineering ": [
+            "120",
+            "156",
+            "401",
+            "402",
+            "451",
+            "452"
+          ],
+          "Mechanical Engineering ": [
+            "107",
+            "109",
+            "201",
+            "211",
+            "304"
+          ],
+          "Chemistry ": [
+            "105"
+          ],
+          "Biology ": [
+            "101"
+          ],
+          "Mathematics ": [
+            "161",
+            "162"
+          ],
+          "Electrical Engineering ": [
+            "210"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Physics ": [
+            "101",
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Biomedical Engineering Concentration",
+        "hours": 33,
+        "courses": {
+          "Engineering ": [
+            "274",
+            "390",
+            "413",
+            "414"
+          ],
+          "Mechanical Engineering ": [
+            "251",
+            "252"
+          ],
+          "Exercise Science ": [
+            "253",
+            "258",
+            "309"
+          ],
+          "Biology ": [
+            "233",
+            "234"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nEngineering Science Core Requirements (54 hours)\nBiology 101; Chemistry 105; Electrical Engineering 210; Engineering 120, 156, 401,\n402, 451, 452; Mathematics 161, 162; Mechanical Engineering 107, 109, 201, 211,\n304; Physics 101, 102; Statistics 131.\nBiomedical Engineering Concentration (33 hours)\nBiology 233, 234; Engineering 274, 390, 413, 414; Exercise Science 253, 258, 309;\nMechanical Engineering 251, 252.\n*other plans of study must be approved by the Interdisciplinary Study Review\nCommittee\nPublic Health Concentration: (33 hours)\nBiology 233, 234, 310, 325; Exercise Science 134; Management 214; Public health\n190, 290, 390; Statistics 132.\n*other plans of study must be approved by the Interdisciplinary Study Review\nCommittee\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Biblical and Religious Studies",
+    "totalHours": 36,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 15,
+        "courses": {
+          "Religion ": [
+            "211",
+            "212",
+            "217",
+            "218",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Practical Theology Elective",
+        "hours": 3,
+        "courses": {
+          "Christian Ministries ": [
+            "238",
+            "248"
+          ]
+        }
+      },
+      {
+        "name": "Biblical Studies Electives",
+        "hours": 6,
+        "courses": {}
+      },
+      {
+        "name": "Historical Studies Elective",
+        "hours": 3,
+        "courses": {}
+      },
+      {
+        "name": "Theological Studies Elective",
+        "hours": 3,
+        "courses": {
+          "Religion ": [
+            "247",
+            "248",
+            "261",
+            "317",
+            "330",
+            "362"
+          ]
+        }
+      },
+      {
+        "name": "Additional Major Electives",
+        "hours": 6,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nCore Requirements (15 hours)\nReligion 211*, 212*, 217, 218, and 488.\n* Students who have already completed HUMA 102 may substitute one RELI 237\nand one RELI 238 for these courses.\nPractical Theology Elective (3 hours)\nChoose one course from Religion 248, 320, Christian Ministries 238, or 248.\nBiblical Studies Electives (6 hours)\nChoose two courses from Greek 202, Hebrew 202, Religion 221, 232, 235, 237,\n238, 325, or 390 Travel-Israel. Students may complete Religion 237 or 238 more\nthan once, choosing a different topic each time.\nHistorical Studies Elective (3 hours)\nChoose one course from History 349, Religion 341, 345, or 390 TravelReformation.\nTheological Studies Elective (3 hours)\nChoose one course from Religion 247, 248, 261, 317, 330, or 362.\nAdditional Major Electives (6 hours)\nChoose two courses from Religion 255, 450, Sociology 308, or any additional\nReligion course not counting elsewhere. Students may complete Religion 237 or\n238 more than once, choosing a different topic each time.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Christian Ministries",
+    "totalHours": 36,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 24,
+        "courses": {
+          "Religion ": [
+            "211",
+            "212",
+            "217"
+          ],
+          "Christian Ministries ": [
+            "112",
+            "122",
+            "238",
+            "258",
+            "321",
+            "480"
+          ]
+        }
+      },
+      {
+        "name": "Christian Ministry Electives",
+        "hours": 9,
+        "courses": {
+          "Christian Ministries ": [
+            "228",
+            "248",
+            "313",
+            "322",
+            "361",
+            "412",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Religion Electives",
+        "hours": 3,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nCore Requirements (24 hours)\nReligion 211*, 212*, 217; Christian Ministries 112 or 122, 238, 258, 321, and 480.\n\n\n\n* Students who have already completed HUMA 102 may substitute one RELI 237\nand one RELI 238 for these courses.\nChristian Ministry Electives (9 hours)\nChoose nine hours from Christian Ministries 228, 248, 313, 322, 361, 412, and\n486.\nReligion Electives (3 hours)\nChoose three hours from Religion 237, 238, 247, 248, 255, 320, or 390 Travel:\nIsrael.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Philosophy",
+    "totalHours": 33,
+    "sections": [],
+    "source": " hours\nCore Requirements: (30 hours)\nPhilosophy 161 or 191, 201 or 211, 231, 232, 233, 311, 312, 313, 314, and 488.\nMajor Electives: (3 hours) Choose one course from:\nPhilosophy 201, 211, 243, 256, 271, 290, 340, 390, 470, Political Science 205, 355,\n356, or Religion 261. Note: One of Philosophy 201 or 211 may be used to fulfill the\nMajor Elective. The other may fulfill the Core Requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Biology",
+    "totalHours": 52,
+    "sections": [
+      {
+        "name": "Biology Core",
+        "hours": 18,
+        "courses": {
+          "Biology ": [
+            "101",
+            "102",
+            "180",
+            "182",
+            "233",
+            "234",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Groups",
+        "hours": 18,
+        "courses": {}
+      },
+      {
+        "name": "Biology Electives",
+        "hours": 4,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nBiology Core (18 hours):\nBiology 101, 102, 180 or 182, 233, 234, and 488.\nGroups (18 hours):\nChoose one course from each of the following groups, as well as additional courses\nfrom any group to reach a minimum of 18 hours. Your group course section must\ninclude a minimum of three 4-credit lab courses.\nGroup 1: Molecular Mechanisms and Physiology\nBiology 301, 302, 322, 325, 334, 346, and 407.\nGroup 2: Vertebrate Systems\nBiology 310, 313, 314, and 341.\nGroup 3: Natural History\nBiology 305, 323, 326, and 409.\nGroup 4: Environmental and Ecological Diversity\nBiology 320, 328, 331 and 332, 403, and 421.\nAdditional Group Course\nComplete one additional course from the groups outlined above.\nBiology Electives (4 hours):\nChoose four hours from any additional Biology offerings. See the College Bulletin\nfor Biology offerings not listed above. Note: Independent or honors research requires\na minimum two-semester commitment (one credit per semester).\nMajor-related requirements (12 hours):\nChemistry 111, 112, 113, 114; and Mathematics 161.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Biology and General Science\nSecondary Education Certification",
+    "totalHours": 100,
+    "sections": [
+      {
+        "name": "Biology Core",
+        "hours": 17,
+        "courses": {
+          "Biology ": [
+            "101",
+            "102",
+            "233",
+            "234",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Groups",
+        "hours": 18,
+        "courses": {}
+      },
+      {
+        "name": "Biology Electives",
+        "hours": 3,
+        "courses": {}
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nBiology Core (17 hours):\nBiology 101, 102, 233, 234, and 486.\nGroups (18 hours):\nChoose one course from each of the following groups, as well as additional courses\nfrom any group to reach a minimum of 18 hours. Your group course section must\ninclude a minimum of three 4-credit lab courses.\nGroup 1: Molecular Mechanisms and Physiology\nBiology 301, 302, 322, 325, 334, 346, and 407.\n\n\n\nGroup 2: Vertebrate Systems\nBiology 310, 313, 314, and 341.\nGroup 3: Natural History\nBiology 305, 323, 326, and 409.\nGroup 4: Environmental and Ecological Diversity\nBiology 320, 328, 331 and 332, 403, and 421.\nAdditional Group Course\nComplete one additional course from the groups outlined above.\nBiology Electives (3 hours):\nChoose three hours from any additional Biology offerings. See the College Bulletin\nfor Biology offerings not listed above. Note: Independent or honors research requires\na minimum two-semester commitment (one credit per semester).\nMajor-related requirements (22 hours):\nAstronomy 206 or 207; Chemistry 111, 112, 113, 114; Geology 201; Mathematics\n161; and Science 201 and/or Physics 121 (both are recommended, but Science 201\nmay not follow Physics 121).\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Biology/Health",
+    "totalHours": 75,
+    "sections": [
+      {
+        "name": "Biology Core",
+        "hours": 18,
+        "courses": {
+          "Biology ": [
+            "101",
+            "102",
+            "182",
+            "233",
+            "234",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nBiology Core (18 hours):\nBiology 101, 102, 182, 233, 234, and 488.\nGroups (21-22 hours):\nHealth Group 1: Biology 334, 341, 346, and 407.\nHealth Group 2: Complete two courses from Biology 301, 310, 313, 314, 322 or 325.\nBiology Electives (9-10 hours):\nChoose nine to ten hours from any additional Biology offerings. See the College\nBulletin for Biology offerings not listed above. Note: Independent or honors\nresearch requires a minimum two-semester commitment (one credit per semester).\nMajor-related requirements (26 hours):\nChemistry 111, 112, 113, 114, 241; Mathematics 161; Physics 121; Psychology 201;\nand one of Psychology 101 or Sociology 101.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Conservation Biology",
+    "totalHours": 72,
+    "sections": [
+      {
+        "name": "Biology Core",
+        "hours": 18,
+        "courses": {
+          "Biology ": [
+            "101",
+            "102",
+            "180",
+            "233",
+            "234",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nBiology Core (18 hours):\nBiology 101, 102, 180, 233, 234, and 488.\nGroups (28-29 hours):\nConservation Group 1: Biology 305, 320, 326, 328, and 331 and 332.\nConservation Group 2: Complete three courses from Biology 323, 403, 409, or 421.\nBiology Electives (13-14 hours):\nChoose thirteen to fourteen hours from any additional Biology offerings. See the\nCollege Bulletin for Biology offerings not listed above. Note: Independent or honors\nresearch requires a minimum two-semester commitment (one credit per semester).\nMajor-related requirements (12 hours):\nChemistry 111, 112, 113, 114; and Mathematics 161.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Molecular Biology",
+    "totalHours": 72,
+    "sections": [
+      {
+        "name": "Biology Core",
+        "hours": 18,
+        "courses": {
+          "Biology ": [
+            "101",
+            "102",
+            "180",
+            "182",
+            "233",
+            "234",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Groups",
+        "hours": 15,
+        "courses": {
+          "Biology ": [
+            "301",
+            "302",
+            "407"
+          ]
+        }
+      },
+      {
+        "name": "Biology Electives",
+        "hours": 11,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nBiology Core (18 hours):\nBiology 101, 102, 180 or 182, 233, 234, and 488.\nGroups (15 hours):\nMolecular Group 1: Biology 301, 302, and 407.\nMolecular Group 2: Biology 314, 322 or 325.\nBiology Electives (11 hours):\nChoose eleven hours from any additional Biology offerings. See the College Bulletin\nfor Biology offerings not listed above. Note: Independent or honors research\nrequires a minimum two-semester commitment (one credit per semester).\nMajor-related requirements (28 hours):\nChemistry 111, 112, 113, 114, 241, 242, 351, and 352; and Mathematics 161.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Chemistry",
+    "totalHours": 75,
+    "sections": [
+      {
+        "name": "Chemistry Core",
+        "hours": 42,
+        "courses": {
+          "Chemistry ": [
+            "111",
+            "112",
+            "113",
+            "114",
+            "227",
+            "231",
+            "235",
+            "241",
+            "242",
+            "245",
+            "345",
+            "346",
+            "406",
+            "422",
+            "431",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Chemistry Concentration",
+        "hours": 10,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nChemistry Core (42 hours):\nChemistry 111, 112, 113, 114, 227, 231, 235, 241, 242, 245, 345, 346, 406, 422, 431,\nand 488.\nChemistry Concentration (10 hours):\nChoose one of the following six options:\n• No concentration: choose any 10 hours of Chemistry electives from the choices\nbelow.\n• ACS Certified: Chemistry 351, 463; and four hours of Chemistry electives from\nthe choices below.\n• Biochemistry: Chemistry 351, 352 and two hours of Chemistry electives from the\nchoices below.\n• Computational Modeling: Computer Science 220, 222; Chemistry 445, 471 and\neight hours of Chemistry electives from the choices below. Note: This\nconcentration requires 18 hours of study.\n• Forensic Chemistry (18 hours): Statistics 131 or Psychology 201; Chemistry\n151, 408; Chemistry 351 or 4 hours of Chemistry electives from the choices below;\nand two courses from Psychology 315, Sociology 233, or Sociology 314.\n• Physical Chemistry: Chemistry 441, 445 and six hours of Chemistry electives\nfrom the choices below.\n• Synthetic Chemistry: Chemistry 453, 458 and six hours of Chemistry electives\nfrom the choices below.\nChemistry Electives: Chemistry 351, 352, 441, 445, 453, 458, 463, and 466.\nMajor-Related requirements (23 hours):\nComputer Science 141 or 155; Mathematics 161, 162, and 261; and Physics 101-102\nor 121-122.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Chemistry Secondary\nEducation Certification",
+    "totalHours": 102,
+    "sections": [
+      {
+        "name": "Chemistry Core",
+        "hours": 38,
+        "courses": {
+          "Chemistry ": [
+            "111",
+            "112",
+            "113",
+            "114",
+            "227",
+            "231",
+            "235",
+            "241",
+            "242",
+            "345",
+            "346",
+            "351",
+            "402",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nChemistry Core (38 hours):\nChemistry 111, 112, 113, 114, 227, 231, 235, 241, 242, 345, 346, 351, 402, and 488.\nMajor-Related requirements (24 hours):\nMathematics 161, 162, and 261; Physics 101-102 or 121-122; and Science 202.\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Chemistry and General\nScience Secondary Education Certification",
+    "totalHours": 108,
+    "sections": [
+      {
+        "name": "Chemistry Core",
+        "hours": 38,
+        "courses": {
+          "Chemistry ": [
+            "111",
+            "112",
+            "113",
+            "114",
+            "227",
+            "231",
+            "235",
+            "241",
+            "242",
+            "345",
+            "346",
+            "351",
+            "402",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": "-109 hours\nChemistry Core (38 hours):\nChemistry 111, 112, 113, 114, 227, 231, 235, 241, 242, 345, 346, 351, 402, and 488.\nMajor-Related requirements (30-31 hours):\nAstronomy 206 or 207; Geology 201 or Science 204; Mathematics 161, 162, and\n261; Physics 101-102 or 121-122; and Science 202.\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Biochemistry",
+    "totalHours": 74,
+    "sections": [
+      {
+        "name": "Biochemistry Core",
+        "hours": 55,
+        "courses": {
+          "Chemistry ": [
+            "111",
+            "112",
+            "113",
+            "114",
+            "227",
+            "231",
+            "235",
+            "241",
+            "242",
+            "342",
+            "351",
+            "352",
+            "451",
+            "487"
+          ],
+          "Biology ": [
+            "101",
+            "102",
+            "233",
+            "234"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nBiochemistry Core (55 hours):\nChemistry 111, 112, 113, 114, 227, 231, 235, 241, 242, 342, 351, 352, 451, 487;\nBiology 101, 102, 233, and 234.\n\n\n\nMajor-Related requirements (19 hours):\nMathematics 161, 162; Physics 121-122 or 101-102; and Psychology 201.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Communication Arts",
+    "totalHours": 36,
+    "sections": [
+      {
+        "name": "Communication Arts Core",
+        "hours": 15,
+        "courses": {}
+      },
+      {
+        "name": "Communication Arts Electives",
+        "hours": 21,
+        "courses": {
+          "Design ": [
+            "101",
+            "102",
+            "201",
+            "210"
+          ]
+        }
+      },
+      {
+        "name": "Capstone Elective",
+        "hours": 3,
+        "courses": {
+          "Communication Arts ": [
+            "470",
+            "480",
+            "488",
+            "499"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nCommunication Arts Core (15 hours):\nCommunication Arts 104 or 109 (total of three hours), 135, 212, 215, and 225.\n\n\n\nCommunication Arts Electives (21 hours):\nMedia \u0026 Design (6 hours):\nTwo courses from Communication Arts 245, 277, 359, 378, 388, Design 101, 102,\n201, or 210.\nCulture \u0026 Theory (6 hours):\nTwo courses from Communication Arts 222, 240, 250, 304, 352, 362, 444, 427.\nProfessional \u0026 Technical (6 hours):\nTwo courses from Communication Arts 235, 300, 303, 305, 405, 406, 459, or Art\n320.\nCapstone Elective (3 hours):\nChoose three hours from Communication Arts 470, 480, 488, or 499.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Design and Innovation",
+    "totalHours": 63,
+    "sections": [
+      {
+        "name": "Design and Innovation Core",
+        "hours": 36,
+        "courses": {
+          "Design ": [
+            "101",
+            "102",
+            "201",
+            "202",
+            "207",
+            "210",
+            "301"
+          ],
+          "Communication Arts ": [
+            "135"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Entrepreneurship ": [
+            "101",
+            "104",
+            "201"
+          ]
+        }
+      },
+      {
+        "name": "Design and Innovation Major Electives",
+        "hours": 27,
+        "courses": {}
+      },
+      {
+        "name": "Entrepreneurship Electives",
+        "hours": 9,
+        "courses": {}
+      },
+      {
+        "name": "Marketing Electives",
+        "hours": 6,
+        "courses": {
+          "Marketing ": [
+            "415",
+            "417",
+            "419",
+            "420"
+          ]
+        }
+      },
+      {
+        "name": "Capstone Elective",
+        "hours": 3,
+        "courses": {
+          "Design ": [
+            "401",
+            "480"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nDesign and Innovation Core (36 hours):\nDesign 101, 102, 201, 202, 207, 210, 301; Communication Arts 135;\nEntrepreneurship 101, 104, 201; and Marketing 104.\nDesign and Innovation Major Electives (27 hours):\nCommunication Arts Electives (9 hours):\nChoose three courses from Communication Arts 104, 303, 406, 470, 480, or any\n300- or 400-level Communication Arts courses.\nEntrepreneurship Electives (9 hours):\nChoose three courses from Entrepreneurship 309, 328, 330, 409, 470, 480, or any\n300- or 400-level Entrepreneurship courses.\nMarketing Electives (6 hours):\nChoose two courses from Marketing 415, 417, 419, or 420.\nCapstone Elective (3 hours):\nChoose one course from Design 401 or 480.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Computer Science",
+    "totalHours": 89,
+    "sections": [
+      {
+        "name": "Computer Science Core Requirements",
+        "hours": 27,
+        "courses": {
+          "Computer Science ": [
+            "141",
+            "155",
+            "220",
+            "222",
+            "233",
+            "244",
+            "314",
+            "325",
+            "342"
+          ]
+        }
+      },
+      {
+        "name": "Advanced Core Requirements",
+        "hours": 23,
+        "courses": {
+          "Computer Science ": [
+            "205",
+            "340",
+            "350",
+            "422",
+            "424",
+            "448",
+            "451",
+            "452"
+          ]
+        }
+      },
+      {
+        "name": "Computer Science Electives",
+        "hours": 15,
+        "courses": {
+          "Robotics ": [
+            "302"
+          ]
+        }
+      }
+    ],
+    "source": "-92\nhours\nComputer Science Core Requirements (27 hours):\nComputer Science 141, 155, 220, 222, 233, 244, 314, 325, and 342.\nAdvanced Core Requirements (23 hours):\nComputer Science 205, 340, 350, 422, 424, 448, 451, and 452.\nComputer Science Electives (15 hours):\nChoose fifteen hours from Computer Science 390, 401, 402, 435, 441, 442, 445, 446,\n447, 475, Data Science 431, 450, or Robotics 302.\nMath/Science Core Requirements: (24-27 hours):\nMathematics 161, 162, and 213.\nMathematics 214; or Mathematics 222and STAT 331.\nChoose eight credits from Physics 101; PHYS 102; Chemistry 105 or both Chemistry\n111 and 113; Chemistry 112 and 114; Biology 101; or Biology 102. Note:\nCompleting both Chemistry 105 and Chemistry 111/113 will not fulfill this this\nrequirement.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Computer Science",
+    "totalHours": 60,
+    "sections": [
+      {
+        "name": "Computer Science Core Requirements",
+        "hours": 35,
+        "courses": {
+          "Computer Science ": [
+            "141",
+            "155",
+            "205",
+            "220",
+            "222",
+            "233",
+            "244",
+            "325",
+            "340",
+            "342",
+            "350",
+            "451",
+            "452"
+          ]
+        }
+      },
+      {
+        "name": "Computer Science Electives",
+        "hours": 15,
+        "courses": {}
+      }
+    ],
+    "source": "-62 hours\nComputer Science Core Requirements (35 hours):\nComputer Science 141, 155, 205, 220, 222, 233, 244, 325, 340 or 342, 350, 451, and\n452.\nComputer Science Electives (15 hours):\nChoose fifteen hours from any 300-400 level Computer Science, any 300-400 level\nData Science courses, and ROBO 302.\nMath Requirements: (10-12 hours):\nMathematics 118 or 213.\nOne of Mathematics 201, 214, Statistics 331, Statistics 131, or Psychology 201.\nMathematics 141 or 161.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Data Science",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Math and Statistics Requirements",
+        "hours": 22,
+        "courses": {
+          "Psychology ": [
+            "201"
+          ],
+          "Statistics ": [
+            "132"
+          ]
+        }
+      },
+      {
+        "name": "Computer Science Requirements",
+        "hours": 118,
+        "courses": {
+          "Computer Science ": [
+            "141",
+            "155",
+            "220",
+            "222",
+            "244",
+            "435"
+          ]
+        }
+      },
+      {
+        "name": "Data Science Requirements",
+        "hours": 9,
+        "courses": {
+          "Data Science": [
+            "201",
+            "431",
+            "450"
+          ]
+        }
+      },
+      {
+        "name": "Technical Elective",
+        "hours": 3,
+        "courses": {
+          "Statistics ": [
+            "412"
+          ]
+        }
+      }
+    ],
+    "source": "-71 hours\nMath and Statistics Requirements (22 hours):\nMathematics 161, 162, 213, 214, Statistics 132, and one of Statistics 131, or\nPsychology 201. Note: Students may substitute Mathematics 222 and Statistics 331\nfor Mathematics 214.\n\n\n\nComputer Science Requirements (118 hours):\nComputer Science 141, 155, 220, 222, 244, and 435.\nData Science Requirements (9 hours):\nData Science201, 431, and 450.\nTechnical Elective (3 hours):\nChoose one course (3 credits) from Computer 233, 445, 310, 314, or Statistics 412.\nDomain Concentration (15-19 hours):\nComplete one of the following concentrations:\nBehavioral and Social Sciences (choose focus area from below):\n• Economics: Economics 101, 102, 120, and six hours from any 300-400\nlevel Economics courses.\n• Exercise Science: Exercise Science 101, six hours from any 300-400\nlevel Exercise Science courses (excluding EXER 305), and six hours\nfrom any additional Exercise Science courses.\n• Political Science: Political Science 104, 201, one of Political Science\n204 or 205, and six hours from any 300-400 level Political Science\ncourses.\n• Psychology: Psychology 101, six hours from any 300-400 level\nPsychology courses and six hours from any additional Psychology\ncourses (excluding Psychology 201).\n• Social Work: Social Work 101, 264, 342, 382, and three hours from any\n300-400 level Social Work courses.\n• Sociology: Sociology 101, 377, 473, and six hours from any 300-400\nlevel Sociology courses.\nBusiness (choose focus area from below):\n• Accounting: Accounting 201, 202, 301, 321, and 405.\n• Business: Accounting 201, 202, Finance 301, Management 103, and\nMarketing 104.\n• Entrepreneurship: Accounting 201, Entrepreneurship 101, 102, 201,\nFinance 301, and two hours from any 300-400 level Entrepreneurship\ncourses.\n• Finance: Accounting 201, 202, Finance 301, 332, 440, and three hours\nfrom any 300-400 level Finance courses.\n• Management: Management 103, 457, 475, and six hours from any 300400 level Management courses.\n• Marketing: Statistics 131, Marketing 104, 315, 411, 415, and 419.\nNatural Sciences (choose focus area from below):\n• Biology: Biology 101, 102, 233, 234, and three hours from any 300-400\nlevel Biology courses.\n• Chemistry: Chemistry 111 and 113, or 105; 112 and 114, 227, 241, and\nthree hours from any 300-400 level Chemistry courses.\n• Physics: Physics 101, 102, 135, 234, and three hours from any 300-400\nlevel Physics courses.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Economics",
+    "totalHours": 58,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 27,
+        "courses": {
+          "Economics ": [
+            "101",
+            "102",
+            "120",
+            "301",
+            "302",
+            "342",
+            "407",
+            "408",
+            "420"
+          ]
+        }
+      },
+      {
+        "name": "Economics Electives",
+        "hours": 15,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nCore Requirements (27 hours):\nEconomics 101, 102, 120, 301, 302, 342, 407, 408, and 420.\nEconomics Electives (15 hours):\nFifteen hours from the following:\nEconomics 202, 204, 206, 207, 213, 214, 215, 216, 260, 270, 290, 303, 306, 309,\n310, 360, 370, 390, 401, 402, 404, 456, 460, 470, 480 (3 credit max), and 499.\nMajor-Related Requirement (16 hours):\nPhilosophy 161, 211; Statistics 131; Mathematics 141 or 161*; and Sociology 101.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Business Economics",
+    "totalHours": 70,
+    "sections": [
+      {
+        "name": "Business Core Requirements",
+        "hours": 36,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "304",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Economics Core",
+        "hours": 30,
+        "courses": {
+          "Economics ": [
+            "101",
+            "102",
+            "120",
+            "216",
+            "301",
+            "302",
+            "310",
+            "401",
+            "402",
+            "456"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nBusiness Core Requirements (36 hours)\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 304, 486; Marketing 104; and Statistics 131.\nEconomics Core (30 hours):\nEconomics 101, 102, 120, 216, 301, 302, 310, 401, 402, and 456.\nMajor-Related Course (4 hours):\nMathematics 141 or 161*.\n*Mathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Elementary Education",
+    "totalHours": 73,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Music Education ": [
+            "315"
+          ],
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "Education ": [
+            "318",
+            "319"
+          ],
+          "Psychology ": [
+            "102",
+            "209"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 58,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "281",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "328",
+            "342",
+            "343",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nLiberal Arts Core (15 hours):\nEducation 318, 319;Mathematics 151, 152; Music Education 315; Psychology 102\nand 209.\nEducation Core Requirements (58 hours):\nEducation 202*, 203, 204, 281, 323, 324, 325, 326, 327, 328, 342, 343, 381, 382,\n383, 450, 488; and Special Education 101. *Note: Students who completed\nEducation 205 while dual enrolled must take Education 206 to complete the\nEducation 202 requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Special Education with\nElementary Education",
+    "totalHours": 92,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Music Education ": [
+            "315"
+          ],
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "Education ": [
+            "318",
+            "319"
+          ],
+          "Psychology ": [
+            "102",
+            "209"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "412"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "281",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "328",
+            "342",
+            "343",
+            "450",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Special Education Requirements",
+        "hours": 24,
+        "courses": {
+          "Special Education ": [
+            "101",
+            "103",
+            "202",
+            "203",
+            "204",
+            "205",
+            "306",
+            "307",
+            "308",
+            "309"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (15 hours):\nEducation 318, 319; Mathematics 151, 152; Music Education 315; Psychology 102\nand 209.\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 281, 323, 324, 325, 326, 327, 328, 342, 343, 450, 488;\nSpecial Education 412. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Special Education Requirements (24 hours):\nSpecial Education 101, 103, 202, 203, 204, 205, 306, 307, 308, and 309.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Special Education with a\nconcentration in Elementary Education",
+    "totalHours": 90,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 12,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "Psychology ": [
+            "102",
+            "209"
+          ]
+        }
+      },
+      {
+        "name": "Special Education Core Requirements",
+        "hours": 69,
+        "courses": {
+          "Education ": [
+            "103",
+            "202",
+            "203",
+            "204",
+            "205",
+            "306",
+            "307",
+            "308",
+            "309",
+            "412"
+          ]
+        }
+      },
+      {
+        "name": "Concentration in Elementary Education",
+        "hours": 9,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "315"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (12 hours):\nMathematics 151, 152; Psychology 102, and 209.\nSpecial Education Core Requirements (69 hours):\nEducation 202*, 203, 204, 281, 323, 325, 326, 327, 342, 343, 450, 488; Special\nEducation 103, 202, 203, 204, 205, 306, 307, 308, 309, and 412. *Note: Students\nwho completed Education 205 while dual enrolled must take Education 206 to\ncomplete the Education 202 requirement.\n\n\n\nConcentration in Elementary Education (9 hours):\nSpecial Education 101; Education 324, 328, and one of Education 318, 319 or Music\nEducation 315.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Special Education with a\nconcentration in Middle Level Education",
+    "totalHours": 91,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 12,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "Psychology ": [
+            "102",
+            "209"
+          ]
+        }
+      },
+      {
+        "name": "Special Education Core Requirements",
+        "hours": 69,
+        "courses": {
+          "Education ": [
+            "103",
+            "202",
+            "203",
+            "204",
+            "205",
+            "306",
+            "307",
+            "308",
+            "309",
+            "412"
+          ]
+        }
+      },
+      {
+        "name": "Concentration in Middle Level Education",
+        "hours": 10,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "324",
+            "329",
+            "381"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (12 hours):\nMathematics 151, 152; Psychology 102, and 209.\nSpecial Education Core Requirements (69 hours):\nEducation 202*, 203, 204, 281, 323, 325, 326, 327, 342, 343, 450 488; Special\nEducation 103, 202, 203, 204, 205, 306, 307, 308, 309, 412. *Note: Students who\ncompleted Education 205 while dual enrolled must take Education 206 to complete\nthe Education 202 requirement.\nConcentration in Middle Level Education (10 hours):\nSpecial Education 101; Education 324, 329, and 381.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Special Education with a\nconcentration in Secondary Education",
+    "totalHours": 85,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 6,
+        "courses": {
+          "Psychology ": [
+            "102",
+            "209"
+          ]
+        }
+      },
+      {
+        "name": "Special Education Core Requirements",
+        "hours": 69,
+        "courses": {
+          "Education ": [
+            "103",
+            "202",
+            "203",
+            "204",
+            "205",
+            "306",
+            "307",
+            "308",
+            "309",
+            "412"
+          ]
+        }
+      },
+      {
+        "name": "Concentration in Secondary Education",
+        "hours": 12,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "215",
+            "371"
+          ]
+        }
+      }
+    ],
+    "source": " - 87 hours\nLiberal Arts Core (6 hours):\nPsychology 102, and 209.\nSpecial Education Core Requirements (69 hours):\nEducation 202*, 203, 204, 281, 323, 325, 326, 327, 342, 343, 450 488; Special\nEducation 103, 202, 203, 204, 205, 306, 307, 308, 309, and 412. *Note: Students\nwho completed Education 205 while dual enrolled must take Education 206 to\ncomplete the Education 202 requirement.\nConcentration in Secondary Education (12 hours):\nSpecial Education 101; Education 215, 371, and two secondary content courses\n(minimum six hours) from the same department choosing from Biology, Chemistry,\nEnglish, History/Social Studies, Mathematics, and Physics. Note: any MATH\ncourses taken for the Quantitative/Logical Reasoning requirement may not be used\nfor this requirement.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Math/English\nEducation",
+    "totalHours": 99,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 27,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Three MATH prefix courses",
+        "hours": 9,
+        "courses": {
+          "Communication Arts ": [
+            "104",
+            "225",
+            "235",
+            "378"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (27 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; Psychology 102; Science 201 or Physics lab course; Science\n202 or Biology lab course; and Science 203 or Chemistry lab course.\nMath/English Content (18 hours):\nThree MATH prefix courses (9 hours); and three COMM/ENGL prefix courses (9\nhours) choosing from the following: English 203, 204, 222, 261, 302, 351, 352, 402,\nCommunication Arts 104, 225, 235, or 378.\nEducation Core Requirements (54 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 383, 450,\n488; Special Education 101. *Note: Students who completed Education 205 while\ndual enrolled must take Education 206 to complete the Education 202 requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Math/History\nEducation",
+    "totalHours": 90,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 27,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Math Content",
+        "hours": 9,
+        "courses": {}
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (27 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; Psychology 102; Science 201 or Physics lab course; Science\n202 or Biology lab course; and Science 203 or Chemistry lab course.\nMath Content (9 hours):\nThree MATH prefix courses.\nEducation Core Requirements (54 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 383, 450,\n488; and Special Education 101. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/English\nEducation",
+    "totalHours": 94,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (15 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; and Psychology 102.\nScience/English Content (25 hours):\nScience 201 or Physics lab course; Science 202 or Biology lab course; Science 203\nor Chemistry lab course; one additional four-credit science course; and three\nCOMM/ENGL prefix courses (9 hours) choosing from the following: English 203,\n204, 222, 261, 302, 351, 352, 402, Communication Arts 104, 225, 235, or 378.\nEducation Core Requirements (54 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 383, 450,\n488; Special Education 101. *Note: Students who completed Education 205 while\ndual enrolled must take Education 206 to complete the Education 202 requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/History\nEducation",
+    "totalHours": 85,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 9,
+        "courses": {
+          "Math ": [
+            "151",
+            "152"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (9 hours):\nMath 151, 152; and Psychology 102.\nScience/History Content (22 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357; Science\n201 or Physics lab course; Science 202 or Biology lab course; Science 203 or\nChemistry lab course; one additional four-credit science course.\nEducation Core Requirements (54 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 383, 450,488;\nSpecial Education 101. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/Math\nEducation",
+    "totalHours": 94,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Three MATH prefix courses",
+        "hours": 9,
+        "courses": {}
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 54,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "383",
+            "450",
+            "488"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (15 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; and Psychology 102.\n\n\n\nScience/Math Content (25 hours):\nThree MATH prefix courses (9 hours); Science 201 or Physics lab course; Science\n202 or Biology lab course; Science 203 or Chemistry lab course; and one additional\nfour-credit science course.\nEducation Core Requirements (54 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 383, 450,\n488; Special Education 101. *Note: Students who completed Education 205 while\ndual enrolled must take Education 206 to complete the Education 202 requirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Math/English\nand Elementary Education",
+    "totalHours": 113,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 27,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Three MATH prefix courses",
+        "hours": 9,
+        "courses": {
+          "Communication Arts ": [
+            "104",
+            "225",
+            "235",
+            "378"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "450",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Elementary Education Requirements",
+        "hours": 15,
+        "courses": {
+          "Education ": [
+            "281",
+            "318",
+            "319",
+            "328",
+            "342",
+            "343"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (27 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; Psychology 102; Science 201 or Physics lab course; Science\n202 or Biology lab course; and Science 203 or Chemistry lab course.\nMath/English Content (18 hours):\nThree MATH prefix courses (9 hours); and three COMM/ENGL prefix courses (9\nhours) choosing from the following: English 203, 204, 222, 261, 302, 351, 352, 402,\nCommunication Arts 104, 225, 235, or 378.\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 450, 488;\nSpecial Education 101. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Elementary Education Requirements (15 hours):\nEducation 281, 318, 319, 328, 342, 343.\nMusic Education 315; Psychology 209.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Math/History\nand Elementary Education",
+    "totalHours": 114,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 27,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Math Content",
+        "hours": 9,
+        "courses": {}
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "450",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Elementary Education Requirements",
+        "hours": 15,
+        "courses": {
+          "Education ": [
+            "281",
+            "318",
+            "319",
+            "328",
+            "342",
+            "343"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (27 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; Psychology 102; Science 201 or Physics lab course; Science\n202 or Biology lab course; and Science 203 or Chemistry lab course.\nMath Content (9 hours):\nThree MATH prefix courses.\n\n\n\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 450, 488;\nand Special Education 101. *Note: Students who completed Education 205 while\ndual enrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Elementary Education Requirements (15 hours):\nEducation 281, 318, 319 328, 342, 343.\nMusic Education 315; Psychology 209.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/English\nand Elementary Education",
+    "totalHours": 108,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "450",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Elementary Education Requirements",
+        "hours": 15,
+        "courses": {
+          "Education ": [
+            "281",
+            "318",
+            "319",
+            "328",
+            "342",
+            "343"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (15 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; and Psychology 102.\nScience/English Content (25 hours):\nScience 201 or Physics lab course; Science 202 or Biology lab course; Science 203\nor Chemistry lab course; one additional four-credit science course; and three\nCOMM/ENGL prefix courses (9 hours) choosing from the following: English 203,\n204, 222, 261, 302, 351, 352, 402, Communication Arts 104, 225, 235, or 378.\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 450, 488;\nSpecial Education 101. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Elementary Education Requirements (15 hours):\nEducation 281, 318, 319, 328, 342, 343.\nMusic Education 315; Psychology 209.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/History\nand Elementary Education",
+    "totalHours": 99,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 9,
+        "courses": {
+          "Math ": [
+            "151",
+            "152"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "445",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Elementary Education Requirements",
+        "hours": 15,
+        "courses": {
+          "Education ": [
+            "281",
+            "318",
+            "319",
+            "328",
+            "342",
+            "343"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (9 hours):\nMath 151, 152; and Psychology 102.\nScience/History Content (22 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357; Science\n201 or Physics lab course; Science 202 or Biology lab course; Science 203 or\nChemistry lab course; and one additional four-credit science course.\n\n\n\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 4450, 488;\nSpecial Education 101. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Elementary Education Requirements (15 hours):\nEducation 281, 318, 319, 328, 342, 343.\nMusic Education 315; Psychology 209.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Middle Level Science/Math\nand Elementary Education",
+    "totalHours": 108,
+    "sections": [
+      {
+        "name": "Liberal Arts Core",
+        "hours": 15,
+        "courses": {
+          "Mathematics ": [
+            "151",
+            "152"
+          ],
+          "History ": [
+            "204",
+            "283",
+            "285",
+            "317",
+            "318",
+            "334",
+            "336",
+            "349",
+            "357"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Three MATH prefix courses",
+        "hours": 9,
+        "courses": {}
+      },
+      {
+        "name": "Education Core Requirements",
+        "hours": 53,
+        "courses": {
+          "Special Education ": [
+            "101"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "228",
+            "323",
+            "324",
+            "325",
+            "326",
+            "327",
+            "329",
+            "381",
+            "382",
+            "450",
+            "488"
+          ]
+        }
+      },
+      {
+        "name": "Dual Certification in Elementary Education Requirements",
+        "hours": 15,
+        "courses": {
+          "Education ": [
+            "281",
+            "318",
+            "319",
+            "328",
+            "342",
+            "343"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nLiberal Arts Core (15 hours):\nHistory 253; one of History 204, 283, 285, 317, 318, 334, 336, 349 or 357;\nMathematics 151, 152; and Psychology 102.\nScience/Math Content (25 hours):\nThree MATH prefix courses (9 hours); Science 201 or Physics lab course; Science\n202 or Biology lab course; Science 203 or Chemistry lab course; and one additional\nfour-credit science course.\nEducation Core Requirements (53 hours):\nEducation 202*, 203, 204, 228, 323, 324, 325, 326, 327, 329, 381, 382, 450, 488;\nSpecial Education 101. *Note: Students who completed Education 205 while dual\nenrolled must take Education 206 to complete the Education 202 requirement.\nDual Certification in Elementary Education Requirements (15 hours):\nEducation 281, 318, 319, 328, 342, 343.\nMusic Education 315; Psychology 209.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Computer Engineering",
+    "totalHours": 98,
+    "sections": [
+      {
+        "name": "Computer Engineering Core",
+        "hours": 58,
+        "courses": {
+          "Computer Science ": [
+            "141",
+            "220",
+            "222",
+            "340",
+            "342",
+            "350",
+            "448"
+          ],
+          "Electrical Engineering ": [
+            "201",
+            "204",
+            "251",
+            "252",
+            "301",
+            "310",
+            "321",
+            "351",
+            "401",
+            "441",
+            "442"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nComputer Engineering Core (58 hours)\nElectrical Engineering 201, 204, 251, 252, 301, 310, 321, 351, 401, 441, 442;\nComputer Science 141, 220, 222, 340, 342, 350, 448; Engineering 130, 156, 301,\n402, 451, 452\n\n\n\nTechnical Elective Requirement (6 hours)\nChoose six hours from any 200-400 level ELEE, COMP, ENGR, or ROBO course\n(excluding ELEE 210 and COMP 205).\nMath/ Science Core (34 hours)\nMathematics 213, 214, 161, 162, 261, 262; Physics 101, 102; Engineering 120.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Electrical Engineering",
+    "totalHours": 99100,
+    "sections": [
+      {
+        "name": "Engineering Core",
+        "hours": 7,
+        "courses": {
+          "Biology ": [
+            "101"
+          ],
+          "Mathematics ": [
+            "214"
+          ],
+          "Physics ": [
+            "101",
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nElectrical Engineering/Computer Core (28 hours)\nComputer Science 141; Electrical Engineering 201, 204, 251, 252, 301, 304, 321,\n351, 401; Engineering or Robotics 451 and 452.\nEngineering Core (7 hours)\nEngineering 120, 156, 301, 402\nMath/Science Core (30-31 hours)\nChemistry 105 or Biology 101; Mathematics 161, 162, 261, 262; Engineering 274 or\nMathematics 214; and Physics 101 and 102.\nConcentration Area—choose one:\nElectrical Engineering Concentration (EEEE)— (34 hours):\n• Electrical Engineering 202, 302, 303, and 352 (10 hours).\n\n\n\n• Math/science elective (3-4 hours): Choose one course from the following:\nAstronomy 206, 207; Biology 101, 102; Chemistry 227, 241, 345; Mathematics\n210, 213, 222, 331; Physics 234, or 402.\n• Technical electives* (15 hours): Select 15 hours from any 200-400 level\nElectrical Engineering, Engineering, Robotics, Mechanical Engineering, or\nComputer Science course, excluding Electrical Engineering 210 and Computer\nScience 205.\n• Advanced electives* (6 hours): Select six hours from Electrical Engineering 404,\n432, 442, or Engineering 412.\nComputer Engineering Concentration (EECE)— (33 hours):\n• Electrical Engineering 310, 441, 442; Computer Science 220, 222, 340 (18 hours)\n• Math/science elective (3 hours): Choose one course from the following:\nAstronomy 206, 207; Biology 102; Chemistry 227, 241, 345; Mathematics 210,\n213, 222, Statistics 331; Physics 234, or 402.\n• Technical electives* (9 hours): Select 9 hours from any 200-400 level Electrical\nEngineering, Engineering, Robotics, Mechanical Engineering, or Computer\nScience course, excluding Electrical Engineering 210 and Computer Science\n205.\n• Advanced elective* (3 hours): Select one of Electrical Engineering 404, 432, or\nEngineering 412.\n*No course can be used to satisfy both the technical and advanced elective\nrequirements.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in English",
+    "totalHours": 39,
+    "sections": [
+      {
+        "name": "English Core Requirements",
+        "hours": 24,
+        "courses": {
+          "English ": [
+            "351",
+            "352"
+          ]
+        }
+      },
+      {
+        "name": "English Period Electives",
+        "hours": 6,
+        "courses": {
+          "English ": [
+            "304",
+            "306",
+            "308",
+            "312",
+            "314",
+            "318",
+            "320",
+            "325"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nEnglish Core Requirements (24 hours):\nEnglish 201, 202, 203, 204, 302, 485; English 205, 206, or 250; and English 351 or\n352.\nEnglish Period Electives (6 hours):\nChoose six hours from English 304, 306, 308, 312, 314, 318, 320, or 325. Note: only\none of ENGL 320 or 325 can be counted toward these six hours.\nEnglish Genre/Tradition Electives (9 hours):\nChoose nine hours from English 221, 222, 224, 226, 242, 243, 245, 246, 252, 254,\n261, 262, 324, 327, or 356.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in English and Secondary\nEducation Certification",
+    "totalHours": 85,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 30,
+        "courses": {
+          "English ": [
+            "351",
+            "352"
+          ],
+          "Writing ": [
+            "271",
+            "281"
+          ]
+        }
+      },
+      {
+        "name": "English Electives",
+        "hours": 6,
+        "courses": {}
+      },
+      {
+        "name": "Education Requirements",
+        "hours": 49,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Communication Arts ": [
+            "104"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "316",
+            "326",
+            "330",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nCore Requirements (30 hours):\nEnglish 201, 202, 203, 204, 302, 402, 485; English 205, 206, or 250; English 351 or\n352; and Writing 271 or 281.\nEnglish Electives (6 hours):\nChoose two additional ENGL prefix courses; at least one of which must be 300-level\nor higher.\nEducation Requirements (49 hours):\nEducation 202*, 203, 204, 215, 316, 326, 330, 371, 375, 450, 488; Psychology 102;\nSpecial Education 102, 103; and Communication Arts 104. *Note: Students who\ncompleted Education 205 while dual enrolled must take Education 206 to complete\nthe Education 202 requirement.\nStudents should reference the Department of Education section of the Bulletin for\nadditional details on teacher certification requirements.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in English and Communication\nSecondary Education Certification",
+    "totalHours": 91,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 30,
+        "courses": {
+          "English ": [
+            "351",
+            "352"
+          ],
+          "Writing ": [
+            "271",
+            "281"
+          ]
+        }
+      },
+      {
+        "name": "English Electives",
+        "hours": 6,
+        "courses": {}
+      },
+      {
+        "name": "Education Requirements",
+        "hours": 49,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Communication Arts ": [
+            "104"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "316",
+            "326",
+            "330",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Communication Core",
+        "hours": 6,
+        "courses": {
+          "Theatre ": [
+            "251",
+            "255"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nCore Requirements (30 hours):\nEnglish 201, 202, 203, 204, 302, 402, 485; English 205, 206, or 250; English 351 or\n352; and Writing 271 or 281.\nEnglish Electives (6 hours):\nChoose two additional ENGL prefix courses; at least one of which must be 300-level\nor higher.\nEducation Requirements (49 hours):\nEducation 202*, 203, 204, 215, 316, 326, 330, 371, 375, 450, 488; Psychology 102;\nSpecial Education 102, 103; and Communication Arts 104. *Note: Students who\ncompleted Education 205 while dual enrolled must take Education 206 to complete\nthe Education 202 requirement.\nCommunication Core (6 hours):\nChoose six (6) hours from any one of the following three areas:\nSpeech: Communication Arts 109 (one credit course must be taken three times),\n303; Theatre 251 or 255.\nMedia: Communication Arts 135, 215, 222, 235, or 378.\nTheatre*: Theatre 251, 259 (one credit course must be taken three times), 261,\n262, 320; or English 252.\n*Students who elect the “Theatre�? option must take English 250 as one of their\nEnglish elective courses.\nStudents should reference the Department of Education section of the Bulletin for\nadditional details on teacher certification requirements.\nNote: Advanced Placement credits in English do not count toward the requirements for\nmajors within the English Department. They will, however, count as general elective credits\ntoward graduation.\nSUPPORTING ACTIVITIES\nThe Department of English offers students significant co-curricular activities\nincluding:\n• A highly acclaimed theatre program, including two main stage productions and\nnumerous student productions during the academic year.\n• Lambda Iota Tau (LIT), the literary honor society on campus, sponsors special\nspeakers and poetry readings.\n• Tau Alpha Pi (TAP), the theatre honorary, sponsors a One-Act Play Festival each\nsemester.\n• Involvement with the campus newspaper (The Collegian), radio station (WSAJ),\nliterary magazines (The Echo and The Quad), yearbook (The Bridge), or the\nCollege’s public relations offices.\n• Internships, whereby students earn academic credit for work done in conjunction\nwith a professional organization related to English. See the course description for\nEnglish 480.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Entrepreneurship",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Entrepreneurial Core",
+        "hours": 34,
+        "courses": {
+          "Entrepreneurship ": [
+            "101",
+            "102",
+            "201",
+            "302",
+            "303",
+            "306",
+            "307",
+            "309",
+            "312",
+            "430",
+            "466",
+            "467"
+          ]
+        }
+      },
+      {
+        "name": "Business Core",
+        "hours": 15,
+        "courses": {
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ]
+        }
+      },
+      {
+        "name": "Entrepreneurial Electives",
+        "hours": 12,
+        "courses": {}
+      }
+    ],
+    "source": "\nhours\nEntrepreneurial Core (34 hours):\nEntrepreneurship 101,102, 201, 302, 303, 306, 307, 309, 312, 430, 466, and 467.\nBusiness Core (15 hours):\nAccounting 201 and 202; Finance 301; Marketing 104; and Statistics 131.\n\n\n\nEntrepreneurial Electives (12 hours):\nComplete 12 hours choosing from Entrepreneurship 104, 314, 317, 319, 324, 326,\n328, 330, 331, 390, 402, 408, 409, 423, 424, 426, 468, 480, 488, or any two courses\nfrom any 300- or 400-level Accounting, Entrepreneurship, Finance, International\nBusiness, Management, or Marketing offerings not listed. A maximum of three\ncredits of Entrepreneurship 480 Internship may also count as entrepreneurial\nelectives; any remaining internship credits will count as general electives.\nMajor-Related Courses (6-7 hours):\nEconomics 101; and one of Computer Science 141, Mathematics 141, or\nMathematics 161.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Exercise Science",
+    "totalHours": 92,
+    "sections": [
+      {
+        "name": "Exercise Science Core",
+        "hours": 59,
+        "courses": {
+          "Exercise Science ": [
+            "101",
+            "203",
+            "230",
+            "244",
+            "253",
+            "254",
+            "256",
+            "258",
+            "304",
+            "306",
+            "307",
+            "309",
+            "310",
+            "312",
+            "313",
+            "377",
+            "404",
+            "407",
+            "480"
+          ]
+        }
+      }
+    ],
+    "source": "-95\nhours\nExercise Science Core (59 hours):\nExercise Science 101, 203, 230, 244, 253, 254, 256, 258, 304, 306, 307, 309, 310,\n312, 313, 377, 404, 407, and 480.\nExercise Science Electives (15-17 hours):\nChoose fifteen hours from Exercise Science 134, 201, 202, 205, 215, 221, 235, 237,\n240, 250, 251, 261, 305, 308, 344, 402, 403; or choose to complete one of the\nfollowing concentrations:\nAthletic Training: Exercise Science 215, 237, 249, 251, 261, and three additional\nhours from the Exercise Science courses listed above.\nCoaching: Exercise Science 201, 205, 251, 305, Management 213, and three\nadditional hours from the Exercise Science courses listed above.\nPersonal Training: Exercise Science 202, 221, 240, 261, 402, and three additional\nhours from the Exercise Science courses listed above.\nPre-Occupational Therapy: Psychology 209, 211, Sociology 101, Exercise\nScience 215, 250, and one of Biology 102 or Psychology 312.\nPre-Physical Therapy: Biology 102, Chemistry 112 and 114, Physics 122,\nExercise Science 250, and one of Psychology 209 or 211.\n\n\n\nStrength \u0026 Conditioning: Exercise Science 221, 240, 261, 403, and three\nadditional hours from the Exercise Science courses listed above.\nMajor-Related Requirements (18-19 hours):\nBiology 101; Chemistry 111 and 113; Mathematics 111 or 161; Physics 121; and\nPsychology 201.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in History",
+    "totalHours": 42,
+    "sections": [
+      {
+        "name": "History Core Requirements",
+        "hours": 33,
+        "courses": {
+          "History ": [
+            "103",
+            "143",
+            "144",
+            "201",
+            "283",
+            "285",
+            "400"
+          ]
+        }
+      },
+      {
+        "name": "History Electives",
+        "hours": 9,
+        "courses": {
+          "Religion ": [
+            "341"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nHistory Core Requirements (33 hours):\nHistory 103, 143, 144, 201, 283, 285, and 400.\nOne course from: History 334, 336, 349, 350, 357, or 379.\nOne course from: History230, or 231.\nTwo courses from: History 206 or 207 (choose one), 208, 209, or 212.\nHistory Electives (9 hours):\nThree courses from: History 300- or 400-level courses, Political Science 317,\nPolitical Science 318, or Religion 341.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in History and Social Studies\nSecondary Education Certification",
+    "totalHours": 88,
+    "sections": [
+      {
+        "name": "History Core Requirements",
+        "hours": 30,
+        "courses": {
+          "History ": [
+            "103",
+            "141",
+            "143",
+            "144",
+            "201",
+            "209",
+            "212",
+            "283",
+            "285",
+            "357"
+          ]
+        }
+      },
+      {
+        "name": "Education Requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "316",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nHistory Core Requirements (30 hours):\nHistory 103, 141, 143, 144, 201, 209, 212, 283, 285, and 357.\nMajor-Related Requirements (18 hours):\nEconomics 101, 102; Political Science 201, 204; and Sociology 103 and 201.\nEducation Requirements (40 hours):\nEducation 202*, 203, 204, 215, 316, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\nHistory majors are strongly encouraged to take courses in languages, the humanities\nand the social sciences in their programs if they plan to attend graduate school in history.\nCourses at the 200 and 300 levels are open to all students.\nThe History Department seeks to equip their students with skills in professional\nwriting, speaking and information literacy. History 143 is designated as Information\nLiteracy (IL) course, and History 201 and 400 are designated as Writing Intensive (WI) and\nSpeaking Intensive (SI), and IL courses. Information literacy instruction includes defining\nand framing significant historical research questions; distinguishing different types of\nsources; using databases to find relevant sources; critically evaluating www sites; citing\nsources correctly, respecting intellectual property and avoiding plagiarism; and synthesizing\nmaterial from a range of electronic and traditional sources and presenting it in a cogent\nmanner.\nStudents should reference the Department of Education section of the Bulletin for additional\ndetails on teacher certification requirements.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Business Analysis",
+    "totalHours": 66,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Economics Core",
+        "hours": 6,
+        "courses": {
+          "Economics ": [
+            "101",
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Business Analysis Major Requirements",
+        "hours": 18,
+        "courses": {
+          "Computer Science ": [
+            "220",
+            "244"
+          ],
+          "Statistics ": [
+            "132"
+          ]
+        }
+      }
+    ],
+    "source": "-69\nhours\nBusiness Core (33 hours):\nAccounting 201, 202; Computer Science 141, Finance 301; International Business\n205; Management 103, 214, 303, 486; Marketing 104 and Statistics 131.\nEconomics Core (6 hours):\nEconomics 101, 102.\nBusiness Analysis Major Requirements (18 hours):\nManagement 204, 307, 310, Computer Science 220, 244 and Statistics 132.\nBusiness Analysis Concentration* (9-12 hours):\nComplete one of the following concentrations:\nAccounting: Accounting 301, 302, and three hours from Management 325 or any\n300-400 level Accounting course.\nAnalytics: Mathematics 161, 162, and one of Mathematics 214, 232, 261, 262, or\nStatistics 331.\nFinance: Finance 332, 341, and 440.\nMarketing: Marketing 411, 415, and three hours from International Business 416,\nManagement 325, Marketing 330, 370, 411, 417, 468, or 480.\nOperations/Supply Chains: Management 302, 424, and three hours from\nManagement 311, 325, 450, 457, 480, and International Business 417.\nSoftware: Nine hours from Computer Science 222 or higher Computer Science\ncourses and/or any DSCI courses.\nSports Management: Management 213, and six hours from Management 313,\n325, 480 (max three hours), Exercise Science 201, 220, 235, or 305.\n*Note: Students who successfully complete the requirements for a second major\nin Accounting, Business Economics, Computer Science, Economics,\nEntrepreneurship, Finance, International Business, Management, Marketing, or\nMathematics are exempt from the Business Analysis Concentration requirement.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Business Statistics",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Statistics Core",
+        "hours": 46,
+        "courses": {
+          "Computer Science ": [
+            "141",
+            "220",
+            "244"
+          ],
+          "Data Science ": [
+            "215"
+          ],
+          "Mathematics ": [
+            "161",
+            "162",
+            "214",
+            "261"
+          ],
+          "Statistics ": [
+            "131",
+            "132",
+            "331",
+            "332",
+            "412",
+            "414"
+          ]
+        }
+      },
+      {
+        "name": "Business Core",
+        "hours": 12,
+        "courses": {
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Management ": [
+            "103"
+          ]
+        }
+      }
+    ],
+    "source": "-70\nhours\nBusiness Statistics Core (46 hours):\nComputer Science 141, 220, 244; Data Science 215; Mathematics 161, 162, 214,\n261, and Statistics 131, 132, 331, 332, 412, and 414.\nBusiness Core (12 hours):\nAccounting 201; Finance 301; Management 103; and Marketing 104.\nBusiness Statistics Concentration* (9-12 hours):\nComplete one of the following concentrations:\nAccounting: Accounting 202, 301, 302, and three hours from Management 325\nor any 300-400 level Accounting course.\nBusiness Analysis: Management 204, 307, and 310.\nEconomics: Economics 101, 102, and three hours of Economics courses.\nFinance: Finance 341, Mathematics 232, and three hours from Finance 332, 435,\n436, 440, 480, or Management 325.\nMarketing: Marketing 411, 415, and three hours from Marketing 330, 370, 417,\n468, 480, International Business 416, or Management 325.\nOperations/Supply Chain: Management 204, 424, and three hours from\nManagement 302, 307, 310, 311, 325, 450, 457, 480, and International Business\n417.\nSoftware: Nine hours from Computer Science 222 or higher Computer Science\ncourses and/or any DSCI courses.\nSports Analytics: Management 213, and six hours from Management 313, 325,\n480 (max three hours), Exercise Science 201, 220, 235, or 305.\n*Note: Students who successfully complete the requirements for a second major\nin Accounting, Business Economics, Computer Science, Economics,\nEntrepreneurship, Finance, International Business, Management, Marketing, or\nMathematics are exempt from the Business Statistics Concentration requirement.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Human Resource\nManagement",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Human Resource Major Core",
+        "hours": 15,
+        "courses": {
+          "Management ": [
+            "433",
+            "457",
+            "458",
+            "462",
+            "465"
+          ]
+        }
+      },
+      {
+        "name": "Human Resource Major Electives",
+        "hours": 9,
+        "courses": {
+          "Psychology ": [
+            "310"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nBusiness Core (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; Mathematics 141 or 161.\nMathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nHuman Resource Major Core (15 hours):\nManagement 433, 457, 458, 462, and 465.\nHuman Resource Major Electives (9 hours):\nChoose three courses from Management 110, 304, 307, 311, 475, 480 (max 3 hours),\nAccounting 303, Communication Arts 225, Psychology 208, or Psychology 310.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in International Business",
+    "totalHours": 82,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "International Business Core",
+        "hours": 9,
+        "courses": {
+          "Entrepreneurship ": [
+            "307",
+            "312"
+          ],
+          "Economics ": [
+            "202",
+            "206",
+            "303"
+          ]
+        }
+      },
+      {
+        "name": "Business Concentration",
+        "hours": 12,
+        "courses": {
+          "Accounting ": [
+            "301",
+            "303",
+            "321"
+          ]
+        }
+      },
+      {
+        "name": "Global Emphasis",
+        "hours": 6,
+        "courses": {
+          "Communication Arts ": [
+            "225"
+          ]
+        }
+      },
+      {
+        "name": "Foreign Language Concentration",
+        "hours": 12,
+        "courses": {
+          "French ": [
+            "307"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nBusiness Core (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; and Mathematics 141 or 161.\nMathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nInternational Business Core (9 hours):\nChoose three courses from International Business 408, 416, 417, 445 (required for\nManagement and Marketing concentrations); Economics 202, 206, 303;\nEntrepreneurship 307, 312; or Finance 462 (required for Accounting and Finance\n\n\n\nconcentrations). With advance Department Chair approval, Accounting,\nEntrepreneurship, Finance, International Business, Marketing, or Management 390\nmay count toward this requirement. Note: Students completing the Entrepreneurship\nConcentration may not count ENTR 312 toward the International Business Core.\nBusiness Concentration (12 hours):\nComplete one of the following six concentrations:\nAccounting: Accounting 301, 303, 321, and any 300-400- level accounting\ncourse.\nEconomics: Economics 301, 302; and any two Economics courses. Note:\nEconomics 202, 206, and 303 cannot be used to fulfill both the concentration and\ninternational business core requirements.\nEntrepreneurship: Entrepreneurship 312, 430, and 466; and one course from\nEntrepreneurship 309, 318, or 423.\nFinance: Finance 332, 440; and two courses from Finance 334, 341, 435, or 436.\nManagement: Management 457; and three courses from Management 302, 304,\n307, 311, 433, 450, 458, or 475.\nMarketing: Marketing 411, 419; and two courses from International Business\n416, 417, Management 424; Marketing 315, 316, 412, 415, 417, or 420. Note:\nInternational Business 416 and 417 cannot be used to fulfill both the concentration\nand international business core requirements.\nGlobal Emphasis (6 hours):\nChoose two courses from Communication Arts 225; any Global Studies (GOBL)\ncourse; or any non-United States History or Political Science course.\nForeign Language Concentration (12 hours):\nChoose one of the following three options (for placement and course sequencing,\nconsult with the Department of Modern Languages):\nFrench: One course from French 301, 305, or 340; French 307; and two 200-300level French courses.\nSpanish: Spanish 303 and three 200-300-level Spanish courses.\nOther: Twelve credits in a single modern language with the approval of the Chair\nof the Department of Modern Language.\nForeign Study Requirement:\nAt least three hours must be earned outside the United States through an approved\nstudy abroad program (ABRD 300), Grove City College travel course, or Grove City\nCollege international internship.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Management",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Management Major Core",
+        "hours": 6,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nBusiness Core (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; and Mathematics 141 or 161.\nMathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nManagement Major Core (6 hours):\nManagement 457, 475\nMinor or Second Major (18 hours)\nA minimum of 18 credit hours in the minor or second major must not overlap with any of\nthe 49 credit hours required in the Business Core, the Math/Economics Courses, and the\nManagement Major Core.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Marketing",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Marketing Major Core",
+        "hours": 12,
+        "courses": {
+          "Marketing ": [
+            "315",
+            "411",
+            "415",
+            "419"
+          ]
+        }
+      },
+      {
+        "name": "Marketing Major Electives",
+        "hours": 12,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nBusiness Core (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; Mathematics 141 or 161.\nMathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nMarketing Major Core (12 hours):\nMarketing 315, 411, 415, and 419.\nMarketing Major Electives (12 hours):\nChoose four courses from International Business 416, 417, Marketing 316, 328, 330,\n412, 416, 417, 420, 426, 468, 480, or Marketing 390 with department chair approval.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Supply Chain\nManagement",
+    "totalHours": 67,
+    "sections": [
+      {
+        "name": "Business Core",
+        "hours": 33,
+        "courses": {
+          "International Business ": [
+            "205"
+          ],
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ],
+          "Management ": [
+            "103",
+            "110",
+            "111",
+            "214",
+            "303",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Supply Chain Major Core",
+        "hours": 15,
+        "courses": {
+          "International Business ": [
+            "417"
+          ],
+          "Management ": [
+            "204",
+            "210",
+            "311",
+            "424"
+          ]
+        }
+      },
+      {
+        "name": "Supply Chain Electives",
+        "hours": 9,
+        "courses": {
+          "Management ": [
+            "302",
+            "307",
+            "443",
+            "450"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nBusiness Core (33 hours):\nAccounting 201, 202; Finance 301; International Business 205; Management 103,\n110 or 111, 214, 303, 486; Marketing 104 and Statistics 131.\nMath/Economics Courses (10 hours):\nEconomics 101, 102; and Mathematics 141 or 161.\nMathematics 141 prepares students in the business applications of calculus, but\nMathematics 161 must be taken as a prerequisite for Mathematics 162 and 261.\nSupply Chain Major Core (15 hours):\nManagement 204, 210, 311, 424, and International Business 417.\nSupply Chain Electives (9 hours):\nChoose 9 hours from the following courses: Finance 440, INBS 445, Statistics\n132, Management 302, 307, 443, 450, and 480 (internship must have Supply Chain as\nprimary role).\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Mathematics",
+    "totalHours": 42,
+    "sections": [
+      {
+        "name": "Math Electives",
+        "hours": 12,
+        "courses": {
+          "Statistics ": [
+            "331",
+            "332"
+          ]
+        }
+      }
+    ],
+    "source": "-47 hours\nMath Core Requirements (23 or 24 hours):\nMathematics 125, 162, 210 or 213, 222, 261, 421, 465, and 488.\nMath Electives (12 hours):\nChoose three courses from Mathematics 303, 365, 422, 466, or 467, Statistics 331,\n332. At least one course must be Statistics 332, Mathematics 422, 466, or 467.\nChoose one additional course from Mathematics 232, 262, 303, 365, 422, 466, and\n467, Statistics 331, 332\nMajor-Related Requirements (7 or 11 hours):\nComputer Science 141; Physics 101, or Physics 121 and 122.\n\n\n\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Mathematics and Secondary\nEducation Certification",
+    "totalHours": 85,
+    "sections": [
+      {
+        "name": "Math Electives",
+        "hours": 3,
+        "courses": {
+          "Mathematics ": [
+            "422",
+            "466",
+            "467"
+          ],
+          "Statistics ": [
+            "332"
+          ]
+        }
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": "-90 hours\nThis program fulfills the requirements of the full mathematics major and the\nrequirements of the Commonwealth of Pennsylvania for secondary mathematics\ncertification.\nMath Core Requirements (32 or 33 hours):\nMathematics 125, 162, 210 or 213, 222, 240, 261, 303, , 421, 465, 488 and Statistics\n331.\nMath Electives (3 hours):\nChoose one courses from Statistics 332;Mathematics 422, 466, and 467.\nMajor-Related Requirements (7 or 11 hours):\nComputer Science 141; Physics 101, or Physics 121 and 122.\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Mechanical Engineering",
+    "totalHours": 97,
+    "sections": [
+      {
+        "name": "Mechanical Engineering Core",
+        "hours": 48,
+        "courses": {
+          "Mechanical Engineering ": [
+            "107",
+            "109",
+            "201",
+            "210",
+            "211",
+            "212",
+            "214",
+            "251",
+            "252",
+            "311",
+            "312",
+            "316",
+            "325",
+            "326",
+            "351",
+            "352",
+            "401"
+          ],
+          "Robotics ": [
+            "451",
+            "452"
+          ]
+        }
+      },
+      {
+        "name": "Engineering Core",
+        "hours": 6,
+        "courses": {
+          "Engineering ": [
+            "156",
+            "402"
+          ],
+          "Electrical Engineering ": [
+            "210"
+          ]
+        }
+      }
+    ],
+    "source": "\nhours\nMechanical Engineering Core (48 hours)\nEngineering 120, Mechanical Engineering 107, 109, 201, 210, 211, 212, 214, 251,\n252, 311, 312, 316, 325, 326, 351, 352, 401; Engineering or Robotics 451 and 452.\nEngineering Core (6 hours)\nEngineering 156, 402, and Electrical Engineering 210.\nMath/Science Core (33 hours)\nChemistry 105 or 111 and 113; Engineering 274; Mathematics 161, 162, 261, 262;\nPhysics 101, 102.\nMechanical Engineering Electives* (13 hours)\nA total of 13 credit hours must be fulfilled. Choose a minimum of three hours from\neach systems area. At least six hours must be 400-level courses and a maximum of\nfour credit hours may be earned through one and two credit courses.\nMechanical Systems electives\nMechanical Engineering 260, 270, 303, 360, 370, 390, 408, 410, 415, 418, 428,\n460, 470, 498, Engineering 411, Robotics 301, or 302.\nThermal Systems electives\nMechanical Engineering 260, 270, 321, 360, 370, 391, 414, 416, 421, 460, 470,\nor 499.\n\n\n\nTechnical Electives\nMechanical Engineering 260, 270, 360, 370, 460, 470, Engineering 301, 304,\n305, 331, 390, or 412.\n*A combined total of up to three credit hours for independent study, independent research,\nfaculty-mentored research, and honors courses can be applied towards the Engineering\nElectives requirements.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in French",
+    "totalHours": 30,
+    "sections": [
+      {
+        "name": "French Core Requirements",
+        "hours": 30,
+        "courses": {
+          "French ": [
+            "362"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nFrench Core Requirements (30 hours):\nFrench 201 and 202, or two 300-level French electives (excluding French 362);\nFrench 301; 305 or 340; French 307; 308; two French literature courses from French\n\n\n\n320, 321, 325, 326, 331, or 332; and two French electives (six hours) at the 300-level\n(excluding French 362).\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in French and K-12 Education\nCertification",
+    "totalHours": 75,
+    "sections": [
+      {
+        "name": "French Core Requirements",
+        "hours": 32,
+        "courses": {
+          "French ": [
+            "320",
+            "321",
+            "325",
+            "326",
+            "331",
+            "332"
+          ]
+        }
+      },
+      {
+        "name": "Education Requirements",
+        "hours": 43,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "307",
+            "316",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      },
+      {
+        "name": "Spanish Language Core Requirements",
+        "hours": 18,
+        "courses": {
+          "Spanish ": [
+            "301",
+            "303",
+            "305",
+            "306"
+          ]
+        }
+      },
+      {
+        "name": "Literature and Culture Core Requirements",
+        "hours": 9,
+        "courses": {
+          "Spanish ": [
+            "320",
+            "330",
+            "331"
+          ]
+        }
+      },
+      {
+        "name": "Spanish Electives",
+        "hours": 6,
+        "courses": {
+          "Spanish ": [
+            "362"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nFrench Core Requirements (32 hours):\nFrench 201 and 202, or two 300-level French electives; French 301; 305 or 340;\nFrench 307; 308; 362; two French literature courses from French 320, 321, 325, 326,\n331, or 332;; and two French electives (six hours) at the 300-level.\nEducation Requirements (43 hours):\nEducation 202*, 203, 204, 215, 307, 316, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\nStudents should reference the Department of Education section of the Bulletin for\nadditional details on teacher certification requirements.\nCourse Requirements for Bachelor of Arts Degree in Spanish—33 hours\nSpanish Language Core Requirements (18 hours):\nSpanish 201 and 202, or two 300-level Spanish electives (excluding Spanish 362);\nSpanish 301, 303, 305, and 306.\nLiterature and Culture Core Requirements (9 hours):\nSpanish 344; one course from Spanish 320, 330, or 331; and one course from Spanish\n321, 325, 328.\nSpanish Electives (6 hours):\nAny two 300- or 400-level Spanish courses (excluding Spanish 362).\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Spanish and K-12 Education\nCertification",
+    "totalHours": 78,
+    "sections": [
+      {
+        "name": "Spanish Language Core Requirements",
+        "hours": 20,
+        "courses": {
+          "Spanish ": [
+            "301",
+            "303",
+            "305",
+            "306",
+            "362"
+          ]
+        }
+      },
+      {
+        "name": "Literature and Culture Core Requirements",
+        "hours": 9,
+        "courses": {
+          "Spanish ": [
+            "320",
+            "330",
+            "331"
+          ]
+        }
+      },
+      {
+        "name": "Spanish Electives",
+        "hours": 6,
+        "courses": {}
+      },
+      {
+        "name": "Education Requirements",
+        "hours": 43,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "307",
+            "316",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nSpanish Language Core Requirements (20 hours):\nSpanish 201 and 202, or two 300-level Spanish electives; Spanish 301, 303, 305,\n306, and 362.\nLiterature and Culture Core Requirements (9 hours):\nSpanish 344; one course from Spanish 320, 330, or 331; and one course from Spanish\n321, 325, 328.\nSpanish Electives (6 hours):\nAny two 300- or 400-level Spanish courses.\n\n\n\nEducation Requirements (43 hours):\nEducation 202*, 203, 204, 215, 307, 316, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\nStudents should reference the Department of Education section of the Bulletin for\nadditional details on teacher certification requirements.\nInternational Business Major\nThis program leads to a Bachelor of Science degree, combining business and modern\nlanguage studies. Consult the Department of Management and Marketing for program\nrequirements.\nClassical Languages\nConsult the Department of Biblical and Religious Studies and Philosophy for Biblical\nHebrew, New Testament Greek, and Latin course descriptions as well as the requirements\nfor the Classical Studies minor.\nWriting Intensive/Speaking Intensive/Information Literacy Studies\nThe Department of Modern Languages stresses the acquisition of skills in speaking,\nwriting, and analysis/research. The following courses are designated as Writing Intensive\n(WI), Speaking Intensive (SI), and Information Literacy (IL): French 307 (WI); French 305,\n340 (SI); French 320, 32l, 325, 326, 331, 332 (IL) for the French major; and Spanish 303\n(SI); Spanish 320, 321, 325, 328, 330, 331 (WI) and (IL) for the Spanish major.\n"
+  },
+  {
+    "name": "Bachelor of Music Degree in Music",
+    "totalHours": 46,
+    "sections": [
+      {
+        "name": "Music Core",
+        "hours": 27,
+        "courses": {
+          "Music ": [
+            "103",
+            "104",
+            "105",
+            "106",
+            "203",
+            "204",
+            "205",
+            "206",
+            "219",
+            "331",
+            "332",
+            "335",
+            "476"
+          ]
+        }
+      },
+      {
+        "name": "Applied Music",
+        "hours": 8,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nMusic Core (27 hours):\nMusic 103, 104, 105, 106, 203, 204, 205, 206, 219, 331, 332, 335, 476; and Music\n317 or 318.\nApplied Music (8 hours):\nStudents must complete a minimum of eight (8) credits in their primary applied\ninstrument. Students must take an applied lesson in their primary area every semester\nthey are enrolled at the college.\nEnsemble (7 hours with a total of 10 occurrences):\nStudents must complete 7 credit hours in any combination of Music 100 Band,\nMusic 101 Concert Choir, or Music 102 Orchestra. An additional 3 ensembles\n(credit or non-credit) must be completed, choosing from Music 100, 101, 102, 114,\n115, 116, 117, 118, or 119. Students whose primary applied area is vocal, wind,\nstring, or percussion (not piano, organ, guitar, or harp) must participate in an\nensemble using their primary applied area every semester that they are enrolled in\nthe program. All other applied areas must enroll in at least one transcript-listed\nensemble each semester. Students must have a total of 10 occurrences of enrolled\nensembles (7 credited ensembles and 3 additional credit or non-credit ensembles)\nto fulfill the degree requirement.\nRecital Attendance Requirement:\nMusic majors must register each semester for Music 199, which requires attendance\nat a predetermined number of faculty, senior and student recitals.\nRecommended music electives include Music 223, 224, 230, 303, 304, 311, 325, 326, 330,\n360, 403, 426, 460, and 488.\n"
+  },
+  {
+    "name": "Bachelor of Music Degree in Music/Business",
+    "totalHours": 63,
+    "sections": [
+      {
+        "name": "Music Core",
+        "hours": 28,
+        "courses": {
+          "Music ": [
+            "107",
+            "108",
+            "207",
+            "209",
+            "307"
+          ]
+        }
+      },
+      {
+        "name": "Applied Music",
+        "hours": 8,
+        "courses": {}
+      },
+      {
+        "name": "Business Concentration",
+        "hours": 18,
+        "courses": {
+          "Finance ": [
+            "301"
+          ],
+          "Accounting ": [
+            "201",
+            "202"
+          ],
+          "Marketing ": [
+            "104"
+          ],
+          "Statistics ": [
+            "131"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nMusic Core (28 hours):\nMusic 103, 104, 105, 106, 203, 204, 205, 206, 219, 221, 331, 332, 335; Music 476\nor 480; and two courses from Music 107, 108, 207, 209, or 307.\n\n\n\nApplied Music (8 hours):\nStudents must complete a minimum of eight (8) credits in their primary applied\ninstrument. Students must take an applied lesson in their primary area every\nsemester they are enrolled at the college.\nEnsemble (7 hours with a total of 10 occurrences):\nStudents must complete 7 credit hours in any combination of Music 100 Band,\nMusic 101 Concert Choir, or Music 102 Orchestra. An additional 3 ensembles\n(credit or non-credit) must be completed, choosing from Music 100, 101, 102, 114,\n115, 116, 117, 118, or 119. Students whose primary applied area is vocal, wind,\nstring, or percussion (not piano, organ, guitar, or harp) must participate in an\nensemble using their primary applied area every semester that they are enrolled in\nthe program. All other applied areas must enroll in at least one transcript-listed\nensemble each semester. Students must have a total of 10 occurrences of enrolled\nensembles (7 credited ensembles and 3 additional credit or non-credit ensembles)\nto fulfill the degree requirement.\nRecital Attendance Requirement:\nMusic majors must register each semester for Music 199, which requires attendance\nat a predetermined number of faculty, senior and student recitals.\nBusiness Concentration (18 hours):\nComplete one concentration area choosing from:\nBusiness: Accounting 201, 202; Finance 301; Management 103 Marketing 104;\nand Statistics 131.\nManagement: Management 103, 457, 475, and three courses from Management\n302, 304, 307, 324, 424, 433, 450, 458, 464, and 465.\nMarketing: Marketing 104, 315, 411, 415, 419, and once course from Marketing\n316, 412, 417, and 420.\n"
+  },
+  {
+    "name": "Bachelor of Music Degree in Music and PreK-12 Education\nCertification",
+    "totalHours": 98,
+    "sections": [
+      {
+        "name": "Music Core",
+        "hours": 39,
+        "courses": {
+          "Music ": [
+            "103",
+            "104",
+            "105",
+            "106",
+            "107",
+            "108",
+            "203",
+            "204",
+            "205",
+            "206",
+            "207",
+            "209",
+            "219",
+            "221",
+            "304",
+            "403",
+            "307",
+            "317",
+            "318",
+            "331",
+            "332",
+            "335",
+            "476"
+          ]
+        }
+      },
+      {
+        "name": "Applied Music",
+        "hours": 10,
+        "courses": {
+          "Music ": [
+            "129"
+          ]
+        }
+      },
+      {
+        "name": "Professional Education Requirements",
+        "hours": 42,
+        "courses": {
+          "Music Education ": [
+            "202",
+            "213",
+            "214",
+            "313",
+            "314",
+            "372",
+            "373",
+            "435",
+            "437"
+          ],
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nThe Pennsylvania Department of Education recognizes this major as an approved\nprogram for meeting the requirements of the Instructional I (Provisional) teaching\ncertificate. For teacher certification requirements, see the Dept. of Education section.\nMusic Core (39 hours):\nMusic 103, 104, 105, 106, 107, 108, 203, 204, 205, 206, 207, 209, 219, 221, 304 or\n403, 307, 317, 318, 331, 332, 335, and 476.\nApplied Music (10 hours):\nStudents must complete a minimum of a one-credit lesson for each semester except\nthe student teaching semester in their primary applied instrument (seven credits); two\n(2) one-credit piano lessons or piano classes or Music 129; and one (1) one-credit\nguitar lesson or guitar class.\n\n\n\nEnsemble (7 hours with a total of 10 occurrences):\nStudents must complete a total of 7 credit hours in Music 100 Band, Music 101\nConcert Choir, and Music 102 Orchestra. Specifically, students must take a\nminimum of two hours of Music 100 (comprising of one semester of Marching\nBand and one semester of Concert Band); two hours of Music 101; two hours of\nMusic 102; and one additional hour using their primary applied area. An additional\n3 ensembles (credit or non-credit) must be completed, choosing from Music 100,\n101, 102, 114, 115, 116, 117, 118, or 119. Students whose primary applied area is\nvocal, wind, string, or percussion (not piano, organ, guitar, or harp) must\nparticipate in an ensemble using their primary applied area every semester that they\nare enrolled in the program. All other applied areas must enroll in at least one\ntranscript-listed ensemble each semester. Students must have a total of 10\noccurrences of enrolled ensembles (7 credited ensembles and 3 additional credit or\nnon-credit ensembles) to fulfill the degree requirement.\nRecital Attendance Requirement:\nMusic education majors must register each semester, except the student teaching\nsemester, for Music 199, which requires attendance at a predetermined number of\nfaculty, senior, and student recitals.\nProfessional Education Requirements (42 hours):\nEducation 202*, 203, 488; Music Education 202, 213, 214, 313, 314, 372, 373, 435,\n437; Psychology 102; Special Education 102, and 103. *Note: Students who\ncompleted Education 205 while dual enrolled must take Education 206 to complete\nthe Education 202 requirement.\nStudents should reference the Department of Education section of the Bulletin for\nadditional details on teacher certification requirements.\n"
+  },
+  {
+    "name": "Bachelor of Music Degree in Music Performance",
+    "totalHours": 70,
+    "sections": [
+      {
+        "name": "Music Core",
+        "hours": 29,
+        "courses": {
+          "Music ": [
+            "317",
+            "318"
+          ]
+        }
+      },
+      {
+        "name": "Music Electives",
+        "hours": 10,
+        "courses": {}
+      },
+      {
+        "name": "Performance Concentration",
+        "hours": 31,
+        "courses": {
+          "Music ": [
+            "107",
+            "108",
+            "207",
+            "307"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nMusic Core (29 hours):\nMusic 103, 104, 105, 106, 203, 204, 205, 206, 219, 331, 332, 335, 376, 475; and\nMusic 317 or 318.\nMusic Electives (10 hours):\nStudents must complete a minimum of ten (10) credits of Music elective courses.\nRecommended music electives include Music 223, 224, 230, 303, 304, 311, 325,\n326, 330, 360, 403, 426, 460, and 488.\nRecital Attendance Requirement:\nStudents must register each semester for Music 199, which requires attendance at a\npredetermined number of faculty, senior and student recitals.\nPerformance Concentration (31 hours):\nChoose one of the following options:\n\n\n\nInstrumental Music Concentration\nConcentration Core:\nMusic 304, 328, 334, and one of Music 107, 108, 207, or 307.\nEnsemble (8 hours with a total of 16 occurrences):\nStudents must complete 8 credit hours through participation in Music 100\nBand\nor Music 102 Orchestra every semester (8 semesters). An additional\n8 ensembles (credit or non-credit) must be completed, choosing from Music\n100, 102, 114, 115, 117, or 118. Students must have a total of 16 occurrences\nof enrolled ensembles (8 credited ensembles and 8 additional credit or noncredit ensembles) to fulfill the degree requirement.\nApplied Music:\nStudents must complete a one-hour lesson in their primary applied\ninstrument each semester (8 semesters).\nPiano Concentration\nConcentration Core:\nMusic 129, 224, and 327.\nEnsemble (8 hours with a total of 12 occurrences):\nStudents must complete 8 credit hours through participation in Music 100\nBand, Music 101 Concert Choir, or Music 102 Orchestra every semester (8\nsemesters). An additional 4 ensembles (non-credit) must be completed,\nchoosing from Music 114, 115, 116, 117, 118, or 119. Students must have a\ntotal of 12 occurrences of enrolled ensembles (8 credited ensembles and 4\nadditional non-credit ensembles) to fulfill the degree requirement.\nApplied Music:\nStudents must complete a one-hour piano lesson (Music 152) each semester\n(8 semesters). Students must also complete two (2) one-half hour organ\nlessons (Music 155).\nVocal Concentration\nConcentration Core:\nMusic 209, 211, 223 (taken two times), and 333.\nEnsemble (8 hours with a total of 16 occurrences):\nStudents must complete 8 credit hours through participation in Music 101\nConcert Choir every semester (8 semesters). An additional 8 ensembles\n(non-credit) must be completed, choosing from Music 116 or 119. Students\nmust have a total of 16 occurrences of enrolled ensembles (8 credited\nensembles and 8 additional non-credit ensembles) to fulfill the degree\nrequirement.\nApplied Music:\nStudents must complete a one-hour voice lesson (Music 162) each semester\n(8 semesters).\n"
+  },
+  {
+    "name": "Bachelor of Music Degree in Music/Religion",
+    "totalHours": 72,
+    "sections": [
+      {
+        "name": "Music Core",
+        "hours": 32,
+        "courses": {
+          "Music ": [
+            "107",
+            "108",
+            "207",
+            "209",
+            "307"
+          ]
+        }
+      },
+      {
+        "name": "Religion Requirements",
+        "hours": 23,
+        "courses": {
+          "Music ": [
+            "325"
+          ],
+          "Religion ": [
+            "247",
+            "251",
+            "320",
+            "330"
+          ],
+          "Christian Ministries ": [
+            "122"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nMusic Core (32 hours):\nMusic 103, 104, 105, 106, 203, 204, 205, 206, 219, 221, 331, 332, 335, and 476;\nMusic 317 or 318; and choose 2 courses from Music 107, 108, 207, 209, or 307.\nApplied Music (8hours):\nStudents must complete a minimum of eight (8) credits in their primary applied\ninstrument. Students must take an applied lesson in their primary area every semester\nthey are enrolled at the college.\nEnsemble (7 hours with a total of 10 occurrences):\nStudents must complete 7 credit hours in any combination of Music 100 Band,\nMusic 101 Concert Choir, or Music 102 Orchestra. An additional 3 ensembles\n(credit or non-credit) must be completed, choosing from Music 100, 101, 102, 114,\n115, 116, 117, 118, or 119. Students whose primary applied area is vocal, wind,\nstring, or percussion (not piano, organ, guitar, or harp) must participate in an\nensemble using their primary applied area every semester that they are enrolled in\nthe program. All other applied areas must enroll in at least one transcript-listed\nensemble each semester. Students must have a total of 10 occurrences of enrolled\nensembles (7 credited ensembles and 3 additional credit or non-credit ensembles)\nto fulfill the degree requirement.\nRecital Attendance Requirement:\nMusic majors must register each semester for Music 199, which requires attendance\nat a predetermined number of faculty, senior and student recitals.\nReligion Requirements (23 hours):\nMusic 325; Religion 211, 212, 246; Christian Ministries 122; one of Religion 221,\n232, 237, 238, or 351; one of Religion 261, 341, or 362; and one of Religion 247,\n251, 320, or 330.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Nursing",
+    "totalHours": 105,
+    "sections": [
+      {
+        "name": "Nursing Core",
+        "hours": 43,
+        "courses": {
+          "Nursing ": [
+            "100",
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "141",
+            "142",
+            "143",
+            "144"
+          ]
+        }
+      },
+      {
+        "name": "Nursing BSN Requirements",
+        "hours": 21,
+        "courses": {
+          "Nursing ": [
+            "431",
+            "432",
+            "433",
+            "434",
+            "445",
+            "446",
+            "447"
+          ]
+        }
+      },
+      {
+        "name": "Major Related Requirements",
+        "hours": 41,
+        "courses": {
+          "Philosophy ": [
+            "211"
+          ],
+          "Sociology ": [
+            "241"
+          ],
+          "Science ": [
+            "203"
+          ],
+          "Communication Arts ": [
+            "104"
+          ],
+          "Exercise Science ": [
+            "215",
+            "253",
+            "258",
+            "344"
+          ],
+          "Biology ": [
+            "207"
+          ],
+          "Psychology ": [
+            "101",
+            "103",
+            "201"
+          ]
+        }
+      }
+    ],
+    "source": " hours\nNursing Core (43 hours):\nNursing 100, 101, 102, 103, 104, 105, 141, 142, 143, and 144.\nNursing BSN Requirements (21 hours):\nNursing 431, 432, 433, 434, 445, 446, 447.\nMajor Related Requirements (41 hours):\nBiology 207; Communication Arts 104; Exercise Science 215, 253, 258, 344;\nPhilosophy 211; Psychology 101, 103, 201; Science 203; Sociology 241; and a onecredit physical fitness (PHYE) elective course.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Physics",
+    "totalHours": 81,
+    "sections": [
+      {
+        "name": "Physics Core",
+        "hours": 32,
+        "courses": {
+          "Astronomy ": [
+            "207"
+          ],
+          "Physics ": [
+            "101",
+            "102",
+            "135",
+            "210",
+            "234",
+            "288",
+            "303",
+            "305",
+            "321",
+            "431"
+          ]
+        }
+      },
+      {
+        "name": "Technical Core requirements",
+        "hours": 26,
+        "courses": {
+          "Chemistry ": [
+            "105"
+          ],
+          "Mathematics ": [
+            "161",
+            "162",
+            "261",
+            "262",
+            "263"
+          ],
+          "Computer ": [
+            "141"
+          ]
+        }
+      },
+      {
+        "name": "Technical Electives",
+        "hours": 11,
+        "courses": {
+          "Chemistry ": [
+            "112",
+            "114"
+          ],
+          "Physics ": [
+            "260",
+            "270",
+            "360",
+            "370",
+            "470"
+          ]
+        }
+      }
+    ],
+    "source": " hours\n\n\n\nPhysics Core (32 hours):\nPhysics 101, 102, 135, 210, 234, 288, 303, 305, 321, 431, and Astronomy 207.\nPhysics Electives—choose 12 hours from:\nPhysics 304, 310, 340, 401 or 402, 421, or 442.\nTechnical Core requirements (26 hours):\nChemistry 105; Computer 141; Mathematics 161, 162, 261, 262, 263; and Physics\n242.\nTechnical Electives (11 hours):\nChoose eleven hours from any 300-level Astronomy courses; any Biology courses;\nChemistry 112 and 114; any 200- or 300-level Chemistry, Computer Science,\nElectrical Engineering, Engineering, or Mechanical Engineering courses; any 300level Mathematics courses; Physics 260, 270, 360, 370, 470; or any additional\ncourses approved by the Department Chair.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Physics and Secondary\nEducation Certification",
+    "totalHours": 116,
+    "sections": [
+      {
+        "name": "Physics Core",
+        "hours": 32,
+        "courses": {
+          "Astronomy ": [
+            "207"
+          ],
+          "Physics ": [
+            "101",
+            "102",
+            "135",
+            "210",
+            "234",
+            "288",
+            "303",
+            "305",
+            "321",
+            "431"
+          ]
+        }
+      },
+      {
+        "name": "Technical Core requirements",
+        "hours": 26,
+        "courses": {
+          "Chemistry ": [
+            "105"
+          ],
+          "Mathematics ": [
+            "161",
+            "162",
+            "261",
+            "262",
+            "263"
+          ],
+          "Computer ": [
+            "141"
+          ]
+        }
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": "-118 hours\nPhysics Core (32 hours):\nPhysics 101, 102, 135, 210, 234, 288, 303, 305, 321, 431, and Astronomy 207.\nPhysics Electives—choose 12 hours from:\nPhysics 304, 310, 340, 401 or 402, 421, or 442.\nTechnical Core requirements (26 hours):\nChemistry 105; Computer 141; Mathematics 161, 162, 261, 262, 263; and Physics\n242.\nTechnical Electives (6-8 hours):\nChoose six to eight hours from Astronomy 310; any Biology courses; Chemistry 112\nand 114; Chemistry 345; Computer Science 220, 222, 244, 246, 252, 340, 342, 350;\nany engineering courses (except Engineering 156, 210, 402 or Electrical Engineering\n201, 251); any 300- or 400-level Mathematics courses; Physics 270, 370, 470, 486;\nor any additional courses approved by the Department Chair. A maximum of three\nhours from independent research may count toward this requirement.\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Physics and General Science\nSecondary Education Certification",
+    "totalHours": 97,
+    "sections": [
+      {
+        "name": "Physics Core",
+        "hours": 26,
+        "courses": {
+          "Astronomy ": [
+            "207"
+          ],
+          "Physics ": [
+            "101",
+            "102",
+            "135",
+            "210",
+            "234",
+            "288",
+            "321",
+            "486"
+          ]
+        }
+      },
+      {
+        "name": "Technical Electives",
+        "hours": 6,
+        "courses": {
+          "Computer Science ": [
+            "260",
+            "270",
+            "290",
+            "360",
+            "370",
+            "390",
+            "460",
+            "470",
+            "480",
+            "488"
+          ],
+          "Mechanical Engineering ": [
+            "211",
+            "212",
+            "214"
+          ],
+          "Biology ": [
+            "102"
+          ],
+          "Mathematics ": [
+            "262"
+          ],
+          "Physics ": [
+            "242",
+            "270",
+            "303",
+            "305",
+            "310",
+            "340",
+            "370",
+            "421",
+            "431",
+            "470"
+          ]
+        }
+      },
+      {
+        "name": "Education requirements",
+        "hours": 40,
+        "courses": {
+          "Special Education ": [
+            "102",
+            "103"
+          ],
+          "Education ": [
+            "202",
+            "203",
+            "204",
+            "215",
+            "317",
+            "371",
+            "375",
+            "450",
+            "488"
+          ],
+          "Psychology ": [
+            "102"
+          ]
+        }
+      }
+    ],
+    "source": "-98 hours\nPhysics Core (26 hours):\nPhysics 101, 102, 135, 210, 234, 288, 321, 486, and Astronomy 207.\nTechnical Core requirements (26-27 hours):\nChemistry 105; Computer 141; Geology 201 or Science 204; Mathematics 161, 162,\n261; and Biology 101 or Science 202 .\nTechnical Electives (6 hours):\nChoose six hours from any 300-level Astronomy course; Biology 102; Chemistry\n112 and 114; any Computer Science course numbered 215 or higher (excluding\nComputer Science 260, 270, 290, 360, 370, 390, 460, 470, 480, and 488);\nMathematics 262; Mechanical Engineering 211, 212, 214; Physics 242, 270, 303,\n305, 310, 340, 370, 421, 431, 470; or any additional courses approved by the\nDepartment Chair. A maximum of three hours from independent research may count\ntoward this requirement.\nEducation requirements (40 hours):\nEducation 202*, 203, 204, 215, 317, 371, 375, 450, 488; Psychology 102; and\nSpecial Education 102 and 103. *Note: Students who completed Education 205\nwhile dual enrolled must take Education 206 to complete the Education 202\nrequirement.\n"
+  },
+  {
+    "name": "Bachelor of Science Degree in Physics/Computer",
+    "totalHours": 87,
+    "sections": [
+      {
+        "name": "Technical Core requirements",
+        "hours": 20,
+        "courses": {
+          "Chemistry ": [
+            "105"
+          ],
+          "Mathematics ": [
+            "161",
+            "162",
+            "261",
+            "262",
+            "263"
+          ]
+        }
+      },
+      {
+        "name": "Computer Hardware Requirements",
+        "hours": 20,
+        "courses": {
+          "Computer Science ": [
+            "220"
+          ],
+          "Electrical Engineering ": [
+            "201",
+            "202",
+            "204",
+            "251",
+            "252",
+            "306",
+            "310"
+          ]
+        }
+      },
+      {
+        "name": "Technical Electives",
+        "hours": 3,
+        "courses": {
+          "Astronomy ": [
+            "310"
+          ]
+        }
+      }
+    ],
+    "source": "-88\nhours\nPhysics/Computer Core requirements (40 hours):\nPhysics 101, 102, 135, 234, 242, 288, 303, 321, 442; Astronomy 207; Computer\nScience 141, 244, and 342.\nElectrical Engineering 441 (required for Physics/Computer Hardware Option)\n/Computer Science 424 (required for Physics/Computer Software Option).\nTechnical Core requirements (20 hours):\nChemistry 105; Mathematics 161, 162, 261, 262, and 263.\nHardware or Software Option\nChoose one of the following options:\n\n\n\nComputer Hardware option (26-27 hours):\nComputer Hardware Requirements (20 hours): Electrical Engineering 201, 202,\n204, 251, 252, 306, 310, and Computer Science 220.\nTechnical Electives (6-7 hours): Choose two of the following: Physics 304, 305,\n340, 401 or 402, 421, 431; Astronomy 310; or Mathematics 213.\nComputer Software option (28-30 hours):\nComputer Software Requirements (25-27 hours): Computer Science 220, 222,\n325, 340, 350; Physics 210; and two of Electrical Engineering 204; Computer\nScience 480 or Physics 270, 370, 470 (limit 3 hours); Computer Science 314 or\nany 400-level computer course; or Mathematics 213 or 222*.\nTechnical Electives (3 hours): Choose one of the following: Physics 304, 305,\n340, 421, 431, or Astronomy 310.\n* Students who elect Mathematics 213 and 222 will also receive a minor in\nMathematics.\n"
+  },
+  {
+    "name": "Bachelor of Arts Degree in Political Science",
+    "totalHours": 43,
+    "sections": [
+      {
+        "name": "Core Requirements",
+        "hours": 19,
+        "courses": {
+          "Political Science ": [
+            "101",
+            "104",
+            "201",
+            "204",
+            "205",
+            "277"
+          ]
+        }
+      },
+      {
+        "name": "Political Science Clusters",
+        "hours": 12,
+        "courses": {
+          "Political Science ": [
+            "304",
+            "305",
+            "306",
+            "308",
+            "309",
+            "317",
+            "318",
+            "319"
+          ]
+        }
+      },
+      {
+        "name": "Political Science Electives",
+        "hours": 12,
+        "courses": {}
+      }
+    ],
+    "source": " hours\nCore Requirements (19 hours):\nPolitical Science 101, 104, 201, 204, 205, and 277.\nPolitical Science Clusters (12 hours):\nChoose two courses from two of the following clusters for a total of 12 hours:\nAmerican Politics:\nPolitical Science 304, 305, 306, 308, 309, 317, 318, or 319.\nComparative/International Relations:\nPolitical Science 302, 303, 310, 311, 333, 335, 341, 342, or 344.\nPolitical Theory:\nPolitical Science 350, 351, 354, 355, 356, or 357.\nPolitical Science Electives (12 hours):\nChoose twelve additional hours of 300-400 level Political Science electives. Note:\nCompletion of Political Science 481 (12 credits) will not fulfill the Political Science\nElectives in full as only six credits of internship may apply toward the major\nrequirements. The remaining six credits will count as general elective hours.\n"
+  }
+]
