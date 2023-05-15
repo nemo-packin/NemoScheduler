@@ -11,4 +11,13 @@ public class CourseOptions extends CourseLike {
         this.creditHours = creditHours;
         this.options = new ArrayList<>();
     }
+
+    public String toString(){
+        String s = title + "\n" + creditHours + "\n";
+        for (int i = 0; i < options.size(); i++){
+            s = s + options.get(i);
+        }
+        s = s + "\n";
+        return s;
+    }
 }

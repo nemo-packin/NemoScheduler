@@ -1,10 +1,7 @@
 package edu.gcc.nemo.scheduler;
 
 import com.google.gson.Gson;
-import edu.gcc.nemo.scheduler.DB.Majors;
-import edu.gcc.nemo.scheduler.DB.Students;
-import edu.gcc.nemo.scheduler.DB.Admins;
-import edu.gcc.nemo.scheduler.DB.Courses;
+import edu.gcc.nemo.scheduler.DB.*;
 import edu.gcc.nemo.scheduler.CourseFieldNames;
 import org.eclipse.jetty.util.StringUtil;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +15,6 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
     private Student pseudoStu;
     private Student stu;
@@ -42,7 +36,6 @@ public class Session {
         typeOfUser = "";
     }
 
-    @GetMapping("/approveStudent")
     public boolean approveStu() {
 
         if (admin != null && typeOfUser.equals("admin") && pseudoStu != null) {
@@ -53,7 +46,6 @@ public class Session {
         return false;
     }
 
-    @PostMapping("/createPseudoStudent")
     public String createPseudoStudent(@RequestBody Map<String, String> data) {
         if (admin != null && typeOfUser.equals("admin")) {
             String stuUsername = data.get("username");
@@ -64,7 +56,6 @@ public class Session {
         return "failure";
     }
 
-    @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
         if (!authenticated) {
             String username = data.get("username").toString();
@@ -82,17 +73,14 @@ public class Session {
 
     }
 
-    @GetMapping("/auth")
     public boolean getAuth() {
         return authenticated;
     }
 
-    @GetMapping("/userType")
     public String userType() {
         return typeOfUser;
     }
 
-    @PostMapping("/logout")
     public void logout() {
         authenticated = false;
         typeOfUser = "";
@@ -100,12 +88,10 @@ public class Session {
         admin = null;
     }
 
-    @GetMapping("/accountInfoStu")
     public List<String> getStuAccInfo() {
         return getAccountInfo(stu);
     }
 
-    @GetMapping("/accountInfoPseudoStu")
     public List<String> getPseudoStuAccInfo() {
         return getAccountInfo(pseudoStu);
     }
@@ -121,7 +107,6 @@ public class Session {
         }
     }
 
-    @PostMapping("/changeName")
     public void changeName(@RequestBody Map<String, String> data) {
         String newName = data.get("name");
         String use = data.get("type");
@@ -133,7 +118,6 @@ public class Session {
 
     }
 
-    @PostMapping("/changeMajor")
     public void changeMajor(@RequestBody Map<String, String> data) {
         String newMajor = data.get("major");
         String use = data.get("type");
@@ -149,11 +133,12 @@ public class Session {
 
     }
 
-    @PostMapping("/changeMinor")
     public void changeMinor(@RequestBody Map<String, String> data) {
         String newMinor = data.get("minor");
         String use = data.get("type");
         if (use.equals("Stu")) {
+            stu.statusSheet.removeMinor(stu.getMinor());
+            stu.statusSheet.addMinor(newMinor);
             stu.setMinor(newMinor);
             saveMinor(newMinor, stu);
         } else {
@@ -163,7 +148,6 @@ public class Session {
 
     }
 
-    @PostMapping("/newCalendarStu")
     public boolean newCalendarStu(@RequestBody Map<String, String> data) {
         String name4Schedule = data.get("nameForSchedule");
         String semester = data.get("semester");
@@ -172,7 +156,6 @@ public class Session {
         return true;
     }
 
-    @PostMapping("/newCalendarPseudoStu")
     public boolean newCalendarPseudo(@RequestBody Map<String, String> data) {
         String name4Schedule = data.get("nameForSchedule");
         String semester = data.get("semester");
@@ -186,13 +169,14 @@ public class Session {
 
     }
 
-    @GetMapping("/majorOptions")
     public List<String> majorOptionsGet() {
         return Majors.getInstance().getMajorTitles();
     }
 
-    @GetMapping("/statusSheet")
-    @ResponseBody
+    public List<String> minorOptionsGet() {
+        return Minors.getInstance().getMinorTitles();
+    }
+
     public HashMap<String, Object> statusSheetGet() {
         HashMap<String, Object> m = new HashMap<>();
         if (stu != null)
@@ -204,7 +188,14 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/statusSheet")
+    public List<String> recommendationsGet() {
+        if (stu != null)
+            if (typeOfUser.equals("student") && stu.statusSheet != null) {
+                return stu.statusSheet.getRecommendations();
+            }
+        return null;
+    }
+
     public boolean statusSheetPost(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
         if (stu != null) {
@@ -222,13 +213,11 @@ public class Session {
         return false;
     }
 
-    @GetMapping("/pseudoStatus")
     public boolean getPseudoStatus() {
         if (pseudoStu == null) return false;
         return true;
     }
 
-    @GetMapping("/calendarPseudoStu")
     public List<List<String>> getCalendarTwo() {
         List<Course> c;
         if (pseudoStu != null)
@@ -259,7 +248,6 @@ public class Session {
         return codeAndTime;
     }
 
-    @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
         if (stu != null)
@@ -431,7 +419,6 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/SearchStudents")
     public List<Student> studentSearch(@RequestBody Map<String, String> data) {
         String input = data.get("usernameSearch").strip();
         Student[] students = searchStudents(input);
@@ -440,7 +427,6 @@ public class Session {
     }
 
 
-    @PostMapping("/SearchResults")
     public Course[] searchResults(@RequestBody Map<String, String> data) {
         String input = data.get("content").strip();
         String count = data.get("numFilters");
@@ -455,7 +441,6 @@ public class Session {
      * @return if course successfully added (or type of user isn't a student) return empty array
      * else return an array of other courses that the user could take
      */
-    @PostMapping("/addCourseStu")
     public Course[] addToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("courseCode");
         if (typeOfUser.equals("student")) {
@@ -484,7 +469,6 @@ public class Session {
         return new Course[0];
     }
 
-    @PostMapping("/addCoursePseudoStu")
     public Course[] addToSchedulePseudoStu(@RequestBody Map<String, String> data) {
         String courseCode = data.get("courseCode");
         if (typeOfUser.equals("admin") && pseudoStu != null) {
@@ -513,7 +497,6 @@ public class Session {
         return new Course[0];
     }
 
-    @PostMapping("/removeCourse")
     public boolean removeToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
         if (typeOfUser.equals("student")) {

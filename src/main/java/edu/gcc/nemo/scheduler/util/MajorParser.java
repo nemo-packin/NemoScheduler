@@ -195,11 +195,11 @@ public class MajorParser {
 
     public static String getCourseCode(Map<String, String> courseCodes, String department) {
         String finalDepartment = department.strip();
-        System.out.println("Getting course code for department: " + finalDepartment);
-        System.out.println(courseCodes.getOrDefault(finalDepartment,
-                courseCodes.getOrDefault(finalDepartment.split(" ")[0],
-                        courseCodes.getOrDefault(courseCodes.keySet().stream().filter(key -> key.split(" ")[0].equals(finalDepartment.split(" ")[0])).findFirst().orElse(""),
-                                courseCodes.getOrDefault(courseCodes.keySet().stream().filter(key -> key.substring(0, key.length() < 4 ? key.length() : 4).equals(finalDepartment.substring(0, finalDepartment.length() < 4 ? finalDepartment.length() : 4))).findFirst().orElse(""), null)))));
+//        System.out.println("Getting course code for department: " + finalDepartment);
+//        System.out.println(courseCodes.getOrDefault(finalDepartment,
+//                courseCodes.getOrDefault(finalDepartment.split(" ")[0],
+//                        courseCodes.getOrDefault(courseCodes.keySet().stream().filter(key -> key.split(" ")[0].equals(finalDepartment.split(" ")[0])).findFirst().orElse(""),
+//                                courseCodes.getOrDefault(courseCodes.keySet().stream().filter(key -> key.substring(0, key.length() < 4 ? key.length() : 4).equals(finalDepartment.substring(0, finalDepartment.length() < 4 ? finalDepartment.length() : 4))).findFirst().orElse(""), null)))));
         return courseCodes.getOrDefault(finalDepartment,
                 courseCodes.getOrDefault(finalDepartment.split(" ")[0],
                         courseCodes.getOrDefault(courseCodes.keySet().stream().filter(key -> key.split(" ")[0].equals(finalDepartment.split(" ")[0])).findFirst().orElse(""),
@@ -207,7 +207,7 @@ public class MajorParser {
     }
 
     public static List<CourseCode> getMatchingCourses(List<Course> courses, String code) {
-        System.out.println("CODEEEEEE: " + code);
+//        System.out.println("CODEEEEEE: " + code);
         return new ArrayList<>(courses.stream().filter(course -> course.getCourseCode().startsWith(code)).map(course -> new CourseCode(course.getCourseCode().substring(0, course.getCourseCode().length() - 1), course.getCreditHours())).collect(Collectors.toSet()));
     }
 
