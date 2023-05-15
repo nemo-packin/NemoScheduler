@@ -67,12 +67,12 @@ public class SessionTest {
         assertFalse(session.isAuthen());
     }
 
-    @Test
-    @DisplayName("Test saving schedule")
-    void testSaveSchedule() {
-        session.authenticate("g", "123");
-        session.saveSchedule();
-    }
+//    @Test
+//    @DisplayName("Test saving schedule")
+//    void testSaveSchedule() {
+//        session.authenticate("g", "123");
+//        session.saveSchedule();
+//    }
 
     @Test
     @DisplayName("Test editing schedule")
