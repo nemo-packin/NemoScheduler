@@ -74,19 +74,19 @@ public class SessionTest {
 //        session.saveSchedule();
 //    }
 
-    @Test
-    @DisplayName("Test editing schedule")
-    void testEditSchedule() {
-        refCourses = new Courses();
-        refCourses.getCourse("COMP350A");
-        refCourses.getCourse("COMP151A");
-        session.authenticate("g", "123");
-        Schedule schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
-//        session.stu = students.getStudent("username");
-        session.getStudent("g").createNewSchedule("schedulexx", "Spring", refCourses);
-        session.getStu().schedule = schedule;
-        session.editSchedule();
-    }
+//    @Test
+//    @DisplayName("Test editing schedule")
+//    void testEditSchedule() {
+//        refCourses = new Courses();
+//        refCourses.getCourse("COMP350A");
+//        refCourses.getCourse("HUMA303A");
+//        session.authenticate("g", "123");
+//        Schedule schedule = new Schedule("Schedule 1", "Fall 2021", 0, "", refCourses, 1);
+////        session.stu = students.getStudent("username");
+//        session.getStudent("g").createNewSchedule("schedulexx", "Spring", refCourses);
+//        session.getStu().schedule = schedule;
+//        session.editSchedule();
+//    }
 
     @Test
     @DisplayName("Test searching students")

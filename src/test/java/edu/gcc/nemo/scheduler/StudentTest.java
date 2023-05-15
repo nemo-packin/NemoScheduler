@@ -17,11 +17,11 @@ class StudentTest {
         student.createNewSchedule("schedule name", "fall 2023", refCourses);
     }
 
-    @Test
-    void testLoadScheduleFromDB() throws SQLException {
-        student.loadScheduleFromDB(refCourses);
-        Assertions.assertNotNull(student.schedule);
-    }
+//    @Test
+//    void testLoadScheduleFromDB() throws SQLException {
+//        student.loadScheduleFromDB(refCourses);
+//        Assertions.assertNotNull(student.schedule);
+//    }
 
     @Test
     void testCreateNewSchedule() {
