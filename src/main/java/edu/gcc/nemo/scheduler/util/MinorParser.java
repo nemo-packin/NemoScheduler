@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import edu.gcc.nemo.scheduler.Course;
 import edu.gcc.nemo.scheduler.CourseLike;
 import edu.gcc.nemo.scheduler.CourseOptions;
 import edu.gcc.nemo.scheduler.DB.Courses;
@@ -91,5 +92,41 @@ public class MinorParser {
         }
         String minorInfo = minorTitle + minorHrs + minorReq;
         return minorInfo;
+    }
+
+    public static List<CourseOptions> parseMinorsAsCourseOptions() {
+        ClassLoader c = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = c.getResourceAsStream("Minors 2022-23.txt");
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        String f = br.lines().collect(Collectors.joining("\n"));
+        String pattern = "(^[ +A-Z& and-]+)\\. ([0-9-]+) required [a-z ,:]+(.+?\\.+[^A-Z a-z ,.;:/]\\n)";
+        Pattern r = Pattern.compile(pattern, Pattern.MULTILINE | Pattern.DOTALL);
+        Matcher m = r.matcher(f);
+
+        while (m.find()) {
+            List<CourseLike> courseCodes = new ArrayList<>();
+            String title = m.group(1);
+            String hours = m.group(2);
+            String courses = m.group(3).trim();
+            Pattern coursesPattern = Pattern.compile("(?<dept>(?:[A-Z][a-z]+ ?)+)(?<codes>(?:\\d{3}(?:[^A-Za-z]+|and|or)*))(?!;|\\.|and|[A-Z])", Pattern.DOTALL);
+            Pattern codePattern = Pattern.compile("\\d{3}");
+            Matcher courseMatch = coursesPattern.matcher(courses);
+            List<String> CCodesperMinor = new ArrayList<>();
+            while (courseMatch.find()){
+                String codes = courseMatch.group("codes");
+                Matcher codeMatch = codePattern.matcher(codes);
+                String s = getCourseCode(dptNamesToCodes, courseMatch.group("dept"));
+                while (codeMatch.find()) {
+                    CCodesperMinor.add(s + codeMatch.group());
+                    courseCodes.addAll(getMatchingCourses(Courses.getInstance().getAllCourses(), s + codeMatch.group()));
+                }
+            }
+            hours = hours.substring(0, 2);
+            int hrs = Integer.parseInt(hours);
+            CourseOptions courseOptions = new CourseOptions(title, hrs);
+            courseOptions.options = courseCodes;
+            minorOptions.add(courseOptions);
+        }
+        return minorOptions;
     }
 }

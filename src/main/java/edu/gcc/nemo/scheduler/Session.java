@@ -1,9 +1,13 @@
 package edu.gcc.nemo.scheduler;
 
-import edu.gcc.nemo.scheduler.DB.Students;
-import edu.gcc.nemo.scheduler.DB.Admins;
-import edu.gcc.nemo.scheduler.DB.Courses;
+import com.google.gson.Gson;
+import edu.gcc.nemo.scheduler.DB.*;
+import edu.gcc.nemo.scheduler.CourseFieldNames;
+import org.eclipse.jetty.util.StringUtil;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,11 +15,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
 public class Session {
-    private Student psudoStu;
+    private Student pseudoStu;
     private Student stu;
     private Admin admin;
     private String typeOfUser;
@@ -29,51 +30,57 @@ public class Session {
         refAdmins = admins;
         refStudents = students;
         refCourses = courses;
-        psudoStu = null;
+        pseudoStu = null;
         stu = null;
         admin = null;
         typeOfUser = "";
     }
 
-    @PostMapping("/createPseudoStudent")
-    public String createPseudoStudent(@RequestBody Map<String, String> data){
-        if(admin != null && typeOfUser.equals("admin")){
+    public boolean approveStu() {
+
+        if (admin != null && typeOfUser.equals("admin") && pseudoStu != null) {
+            pseudoStu.schedule.approve();
+            saveSchedule("PseudoStudent");
+            return true;
+        }
+        return false;
+    }
+
+    public String createPseudoStudent(@RequestBody Map<String, String> data) {
+        if (admin != null && typeOfUser.equals("admin")) {
             String stuUsername = data.get("username");
-            psudoStu = refStudents.getStudent(stuUsername);
-            psudoStu.loadScheduleFromDB(Courses.getInstance());
+            pseudoStu = refStudents.getStudent(stuUsername);
+            pseudoStu.loadScheduleFromDB(Courses.getInstance());
             return "success";
         }
         return "failure";
     }
 
-    @PostMapping("/login")
     public String postData(@RequestBody Map<String, String> data) {
-        if(!authenticated){
+        if (!authenticated) {
             String username = data.get("username").toString();
             String password = data.get("password").toString();
 
             authenticate(username, password);
             // Process the data here
-            if(authenticated && typeOfUser.equals("student"))
+            if (authenticated && typeOfUser.equals("student"))
                 return "student";
-            else if(authenticated && typeOfUser.equals("admin"))
+            else if (authenticated && typeOfUser.equals("admin"))
                 return "admin";
             else
                 return "invalid login!";
-        }else return "already logged in!";
+        } else return "already logged in!";
 
     }
-    @GetMapping("/auth")
+
     public boolean getAuth() {
         return authenticated;
     }
 
-    @GetMapping("/userType")
-    public String userType(){
+    public String userType() {
         return typeOfUser;
     }
 
-    @PostMapping("/logout")
     public void logout() {
         authenticated = false;
         typeOfUser = "";
@@ -81,69 +88,117 @@ public class Session {
         admin = null;
     }
 
-    @GetMapping("/accountInfo")
-    public List<String> getAccountInfo() {
-        if(this.typeOfUser.equals("student")) {
-            if(stu.schedule.getApproved()) {
-                return List.of(stu.name, stu.username, "Approved", stu.getMajor(), stu.getMinor());
+    public List<String> getStuAccInfo() {
+        return getAccountInfo(stu);
+    }
+
+    public List<String> getPseudoStuAccInfo() {
+        return getAccountInfo(pseudoStu);
+    }
+
+    public List<String> getAccountInfo(Student s) {
+        if(s != null && s.schedule != null) {
+            if(s.schedule.getApproved()) {
+                return List.of(s.name, s.username, "Approved", s.getMajor(), s.getMinor());
             }
-            return List.of(stu.name, stu.username, "Not Approved", stu.getMajor(), stu.getMinor());
-        } else if (this.typeOfUser.equals("admin")) {
-            return List.of(admin.name, admin.username, "none", "none", "none");
-        }else{
+            return List.of(s.name, s.username, "Not Approved", s.getMajor(), s.getMinor());
+        } else{
             return List.of("","","", "", "");
         }
     }
 
-    @PostMapping("/changeName")
     public void changeName(@RequestBody Map<String, String> data) {
         String newName = data.get("name");
-        stu.setName(newName);
+        String use = data.get("type");
+        if (use.equals("Stu")) {
+            stu.setName(newName);
+        } else {
+            pseudoStu.setName(newName);
+        }
+
     }
 
-    @PostMapping("/changeMajor")
     public void changeMajor(@RequestBody Map<String, String> data) {
         String newMajor = data.get("major");
-        System.out.println(newMajor);
-        stu.setMajor(newMajor);
-        saveMajor(newMajor);
+        String use = data.get("type");
+        if (use.equals("Stu")) {
+            stu.statusSheet.removeMajor(stu.getMajor());
+            stu.setMajor(newMajor);
+            stu.statusSheet.addMajor(newMajor);
+            saveMajor(newMajor, stu);
+        } else {
+            pseudoStu.setMajor(newMajor);
+            saveMajor(newMajor, pseudoStu);
+        }
+
     }
 
-    @PostMapping("/changeMinor")
     public void changeMinor(@RequestBody Map<String, String> data) {
         String newMinor = data.get("minor");
-        System.out.println(newMinor);
-        stu.setMinor(newMinor);
-        saveMinor(newMinor);
+        String use = data.get("type");
+        if (use.equals("Stu")) {
+            stu.statusSheet.removeMinor(stu.getMinor());
+            stu.statusSheet.addMinor(newMinor);
+            stu.setMinor(newMinor);
+            saveMinor(newMinor, stu);
+        } else {
+            pseudoStu.setMinor(newMinor);
+            saveMinor(newMinor, pseudoStu);
+        }
+
     }
 
-    @PostMapping("/newCalendar")
-    public void newCalendar(@RequestBody Map<String, String> data) {
+    public boolean newCalendarStu(@RequestBody Map<String, String> data) {
         String name4Schedule = data.get("nameForSchedule");
         String semester = data.get("semester");
         stu.createNewSchedule(name4Schedule, semester, refCourses);
-        saveSchedule();
+        saveSchedule("student");
+        return true;
     }
 
-    @GetMapping("/statusSheet")
-    public List<String> statusSheetGet() {
-        List<String> c = new ArrayList<String>();
-        if(stu != null)
-        if(typeOfUser.equals("student") && stu.statusSheet != null)
-            for(Course x : stu.statusSheet.getCourses().courses) {
-                c.add(x.getCourseCode());
-            }
-        else{
-            List<String> useless = new ArrayList<>();
-            return useless;
+    public boolean newCalendarPseudo(@RequestBody Map<String, String> data) {
+        String name4Schedule = data.get("nameForSchedule");
+        String semester = data.get("semester");
+        if (admin != null && typeOfUser.equals("admin") && pseudoStu != null) {
+            pseudoStu.createNewSchedule(name4Schedule, semester, refCourses);
+            System.out.println("4");
+            saveSchedule("pseudoStudent");
+            return true;
         }
-        return c;
+        return false;
+
     }
 
-    @PostMapping("/statusSheet")
+    public List<String> majorOptionsGet() {
+        return Majors.getInstance().getMajorTitles();
+    }
+
+    public List<String> minorOptionsGet() {
+        return Minors.getInstance().getMinorTitles();
+    }
+
+    public HashMap<String, Object> statusSheetGet() {
+        HashMap<String, Object> m = new HashMap<>();
+        if (stu != null)
+            if (typeOfUser.equals("student") && stu.statusSheet != null) {
+                m.put("courses", stu.statusSheet.getCourses().courses.stream().map(course -> course.getCourseCode()));
+                m.put("reqs", stu.statusSheet.getRequirements());
+                return m;
+            }
+        return null;
+    }
+
+    public List<String> recommendationsGet() {
+        if (stu != null)
+            if (typeOfUser.equals("student") && stu.statusSheet != null) {
+                return stu.statusSheet.getRecommendations();
+            }
+        return null;
+    }
+
     public boolean statusSheetPost(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
-        if(stu != null) {
+        if (stu != null) {
             if (stu.statusSheet != null) {
                 return stu.statusSheet.addCourse(courseCode);
             } else {
@@ -158,32 +213,30 @@ public class Session {
         return false;
     }
 
-    @GetMapping("/pseudoStatus")
-    public boolean getPseudoStatus(){
-        if(psudoStu == null) return false;
+    public boolean getPseudoStatus() {
+        if (pseudoStu == null) return false;
         return true;
     }
 
-    @GetMapping("/calendarPseudoStu")
     public List<List<String>> getCalendarTwo() {
         List<Course> c;
-        if(psudoStu != null)
-            System.out.println(psudoStu.schedule);
-        if(typeOfUser.equals("admin") && psudoStu.schedule != null)
-            c = psudoStu.schedule.getCourseList().courses;
-        else{
+        if (pseudoStu != null)
+            System.out.println(pseudoStu.schedule);
+        if (typeOfUser.equals("admin") && pseudoStu.schedule != null)
+            c = pseudoStu.schedule.getCourseList().courses;
+        else {
             List<List<String>> useless = new ArrayList<>();
             return useless;
         }
-        if(psudoStu.schedule.getCourseList().courses != null) {
-            c = psudoStu.schedule.getCourseList().courses;
+        if (pseudoStu.schedule.getCourseList().courses != null) {
+            c = pseudoStu.schedule.getCourseList().courses;
         } else {
             c = Collections.<Course>emptyList();
         }
         List<String> courses = new ArrayList<>();
         List<String> days = new ArrayList<>();
         List<String> times = new ArrayList<>();
-        for(Course x : c) {
+        for (Course x : c) {
             courses.add(x.getCourseCode());
             days.add(x.getDay());
             times.add(x.getTime());
@@ -195,18 +248,17 @@ public class Session {
         return codeAndTime;
     }
 
-    @GetMapping("/calendarStu")
     public List<List<String>> getCalendar() {
         List<Course> c;
-        if(stu != null)
+        if (stu != null)
             System.out.println(stu.schedule);
-        if(typeOfUser.equals("student") && stu.schedule != null)
+        if (typeOfUser.equals("student") && stu.schedule != null)
             c = stu.schedule.getCourseList().courses;
-        else{
+        else {
             List<List<String>> useless = new ArrayList<>();
             return useless;
         }
-        if(stu.schedule.getCourseList().courses != null) {
+        if (stu.schedule.getCourseList().courses != null) {
             c = stu.schedule.getCourseList().courses;
         } else {
             c = Collections.<Course>emptyList();
@@ -214,7 +266,7 @@ public class Session {
         List<String> courses = new ArrayList<>();
         List<String> days = new ArrayList<>();
         List<String> times = new ArrayList<>();
-        for(Course x : c) {
+        for (Course x : c) {
             courses.add(x.getCourseCode());
             days.add(x.getDay());
             times.add(x.getTime());
@@ -250,8 +302,12 @@ public class Session {
         return authenticated;
     }
 
-    void saveSchedule() {
-        Schedule schedule = this.stu.schedule;
+    private void saveSchedule(String user) {
+        Schedule schedule;
+        if (user.equals("student"))
+            schedule = stu.schedule;
+        else
+            schedule = pseudoStu.schedule;
         String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
@@ -283,14 +339,17 @@ public class Session {
         }
     }
 
-    void saveMajor(String major) {
+    /**
+     * @param major
+     * @param s     major is the reference (student or pseudoStudent, depending on the frontend)
+     */
+    void saveMajor(String major, Student s) {
         String sql = "update Students set majors = ? where id = ?";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, major);
-            pstmt.setInt(2, stu.getId());
-            System.out.println(pstmt);
+            pstmt.setInt(2, s.getId());
             pstmt.executeUpdate();
             conn.close();
             System.out.println("Updated Major");
@@ -299,14 +358,17 @@ public class Session {
         }
     }
 
-    void saveMinor(String minor) {
+    /**
+     * @param minor
+     * @param s     major is the reference (student or pseudoStudent, depending on the frontend)
+     */
+    void saveMinor(String minor, Student s) {
         String sql = "update Students set minors = ? where id = ?";
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, minor);
-            pstmt.setInt(2, stu.getId());
-            System.out.println(pstmt);
+            pstmt.setInt(2, s.getId());
             pstmt.executeUpdate();
             conn.close();
             System.out.println("Updated Minor");
@@ -357,8 +419,7 @@ public class Session {
         return null;
     }
 
-    @PostMapping("/SearchStudents")
-    public List<Student> studentSearch(@RequestBody Map<String, String> data){
+    public List<Student> studentSearch(@RequestBody Map<String, String> data) {
         String input = data.get("usernameSearch").strip();
         Student[] students = searchStudents(input);
         List<Student> searchResults = Arrays.asList(students);
@@ -366,48 +427,41 @@ public class Session {
     }
 
 
-    @PostMapping("/SearchResults")
-    public Course[] searchResults(@RequestBody Map<String, String> data){
+    public Course[] searchResults(@RequestBody Map<String, String> data) {
         String input = data.get("content").strip();
         String count = data.get("numFilters");
-        if(count.equals("0")){
+        if (count.equals("0")) {
             return new Course[0];
         }
         return searchCourses(input);
     }
 
     /**
-     *
      * @param data -> Map of input from the user (Str, Str)
      * @return if course successfully added (or type of user isn't a student) return empty array
-     *          else return an array of other courses that the user could take
+     * else return an array of other courses that the user could take
      */
-    @PostMapping("/addCourse")
-    public Course[] addToSchedule(@RequestBody Map<String, String> data){
+    public Course[] addToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("courseCode");
-        if(typeOfUser.equals("student")) {
+        if (typeOfUser.equals("student")) {
             boolean validResult = stu.schedule.addCourse(courseCode);
-            if(validResult)
-                saveSchedule();
-            else{
-                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0,courseCode.length() - 1));
+            if (validResult)
+                saveSchedule("student");
+            else {
+                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0, courseCode.length() - 1));
                 int numSameCourseCodes = 0;
-                for(Course c: suggested1){
-                    if(c.getCourseCode().equals(courseCode))
+                for (Course c : suggested1) {
+                    if (c.getCourseCode().equals(courseCode))
                         numSameCourseCodes++;
                 }
                 Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
                 int j = 0;
-                for(int i = 0; i < suggested1.length; i++){
-                    if(!courseCode.equals(suggested1[i].getCourseCode())){
+                for (int i = 0; i < suggested1.length; i++) {
+                    if (!courseCode.equals(suggested1[i].getCourseCode())) {
                         suggested2[j] = suggested1[i];
                         j++;
                     }
                 }
-//                System.out.println("ORIGINAL LIST");
-//                System.out.println(Arrays.deepToString(suggested1));
-//                System.out.println("SUGGESTED");
-//                System.out.println(Arrays.deepToString(suggested2));
                 return suggested2;
             }
             return null;
@@ -415,12 +469,43 @@ public class Session {
         return new Course[0];
     }
 
-    @PostMapping("/removeCourse")
-    public boolean removeToSchedule(@RequestBody Map<String, String> data){
+    public Course[] addToSchedulePseudoStu(@RequestBody Map<String, String> data) {
+        String courseCode = data.get("courseCode");
+        if (typeOfUser.equals("admin") && pseudoStu != null) {
+            boolean validResult = pseudoStu.schedule.addCourse(courseCode);
+            if (validResult)
+                saveSchedule("pseudoStudent");
+            else {
+                Course[] suggested1 = searchCourses("course code_" + courseCode.substring(0, courseCode.length() - 1));
+                int numSameCourseCodes = 0;
+                for (Course c : suggested1) {
+                    if (c.getCourseCode().equals(courseCode))
+                        numSameCourseCodes++;
+                }
+                Course[] suggested2 = new Course[suggested1.length - numSameCourseCodes];
+                int j = 0;
+                for (int i = 0; i < suggested1.length; i++) {
+                    if (!courseCode.equals(suggested1[i].getCourseCode())) {
+                        suggested2[j] = suggested1[i];
+                        j++;
+                    }
+                }
+                return suggested2;
+            }
+            return null;
+        }
+        return new Course[0];
+    }
+
+    public boolean removeToSchedule(@RequestBody Map<String, String> data) {
         String courseCode = data.get("code");
-        if(typeOfUser.equals("student")) {
+        if (typeOfUser.equals("student")) {
             stu.schedule.removeCourse(courseCode);
-            saveSchedule();
+            saveSchedule("student");
+            return true;
+        } else if (typeOfUser.equals("admin") && pseudoStu != null) {
+            pseudoStu.schedule.removeCourse(courseCode);
+            saveSchedule("pseudoStudent");
             return true;
         }
         return false;
