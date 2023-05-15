@@ -1,10 +1,7 @@
 package edu.gcc.nemo.scheduler;
 
 import com.google.gson.Gson;
-import edu.gcc.nemo.scheduler.DB.Majors;
-import edu.gcc.nemo.scheduler.DB.Students;
-import edu.gcc.nemo.scheduler.DB.Admins;
-import edu.gcc.nemo.scheduler.DB.Courses;
+import edu.gcc.nemo.scheduler.DB.*;
 import edu.gcc.nemo.scheduler.CourseFieldNames;
 import org.eclipse.jetty.util.StringUtil;
 import org.springframework.http.ResponseEntity;
@@ -154,6 +151,8 @@ public class Session {
         String newMinor = data.get("minor");
         String use = data.get("type");
         if (use.equals("Stu")) {
+            stu.statusSheet.removeMinor(stu.getMinor());
+            stu.statusSheet.addMinor(newMinor);
             stu.setMinor(newMinor);
             saveMinor(newMinor, stu);
         } else {
@@ -191,6 +190,11 @@ public class Session {
         return Majors.getInstance().getMajorTitles();
     }
 
+    @GetMapping("/minorOptions")
+    public List<String> minorOptionsGet() {
+        return Minors.getInstance().getMinorTitles();
+    }
+
     @GetMapping("/statusSheet")
     @ResponseBody
     public HashMap<String, Object> statusSheetGet() {
@@ -200,6 +204,16 @@ public class Session {
                 m.put("courses", stu.statusSheet.getCourses().courses.stream().map(course -> course.getCourseCode()));
                 m.put("reqs", stu.statusSheet.getRequirements());
                 return m;
+            }
+        return null;
+    }
+
+    @GetMapping("/recommendations")
+    @ResponseBody
+    public List<String> recommendationsGet() {
+        if (stu != null)
+            if (typeOfUser.equals("student") && stu.statusSheet != null) {
+                return stu.statusSheet.getRecommendations();
             }
         return null;
     }
