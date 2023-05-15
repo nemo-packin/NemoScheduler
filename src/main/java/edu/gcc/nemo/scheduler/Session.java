@@ -25,7 +25,6 @@ public class Session {
     private Admin admin;
     private String typeOfUser;
     private boolean authenticated = false;
-
     private final Admins refAdmins;
     private final Students refStudents;
     private final Courses refCourses;
