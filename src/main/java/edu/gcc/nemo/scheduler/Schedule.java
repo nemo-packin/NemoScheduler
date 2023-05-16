@@ -42,7 +42,6 @@ public class Schedule{
                 courseList.addCourse(courseCode);
             }
         }
-
     }
 
     /**

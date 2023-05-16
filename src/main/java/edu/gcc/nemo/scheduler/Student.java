@@ -1,9 +1,7 @@
 package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
-
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User{
@@ -115,5 +113,4 @@ public class Student extends User{
     public String toString(){
         return name;
     }
-
 }

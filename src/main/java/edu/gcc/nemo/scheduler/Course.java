@@ -80,5 +80,4 @@ public class Course {
     public String toString(){
         return courseCode + " | " + day + " | " + time + " | " + prof;
     }
-
 }

@@ -1,11 +1,9 @@
 package edu.gcc.nemo.scheduler.DB;
 
 import edu.gcc.nemo.scheduler.Course;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Courses {
     /***
