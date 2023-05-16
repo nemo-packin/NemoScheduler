@@ -42,7 +42,28 @@ public class Schedule{
                 courseList.addCourse(courseCode);
             }
         }
+
     }
+
+    //Methods
+//    public void saveSchedule(){
+//        String sql = "INSERT INTO Schedules (id, name, semester, courses, isApproved) VALUES(?,?,?,?,?)";
+//        try{
+//            Connection conn = DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
+//            PreparedStatement pstmt = conn.prepareStatement(sql);
+//            pstmt.setInt(1, id);
+//            pstmt.setString(2, name + "_" + id);
+//            pstmt.setString(3, semester);
+//            pstmt.setString(4,courseList.coursesAsString());
+//            if(isApproved)
+//                pstmt.setInt(5,1);
+//            else
+//                pstmt.setInt(5,0);
+//
+//        }catch (SQLException e){
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     /**
      *

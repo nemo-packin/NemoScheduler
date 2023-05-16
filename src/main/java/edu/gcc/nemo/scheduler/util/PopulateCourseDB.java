@@ -1,8 +1,12 @@
 package edu.gcc.nemo.scheduler.util;
 
 import edu.gcc.nemo.scheduler.Course;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.*;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +26,8 @@ public class PopulateCourseDB {
     private static PreparedStatement addCourseStatement;
 
 
-    /**
-    main: Read arguments from command line to populate course database.
-    */
+    /*
+    main: Read arguments from command line to populate course database.    */
     public static void main(String[] args) {
         if(args.length < 2) {
             System.out.println("Usage: PopulateCourseDB [course_csv]  [semester]");
@@ -77,9 +80,10 @@ public class PopulateCourseDB {
                 }
             }
         }
+
     }
 
-    /**
+    /*
     parseFile: Use CSVReader to process inputstream into a list of courses
      */
     public static List<Course> parseFile(InputStream inputStream) {
@@ -91,7 +95,7 @@ public class PopulateCourseDB {
         }
     }
 
-    /**
+    /*
     getCourse: Helper method to build a course from the map of keys and values generated for a row in CSVReader
      */
     private static Course getCourse(Map<String, String> m) {
@@ -106,7 +110,7 @@ public class PopulateCourseDB {
                 parseInt(m.get("crs_capacity")));
     }
 
-    /**
+    /*
     parseInt: Helper method to parse int or return a reasonable value if it can't be parsed.
      */
     private static Integer parseInt(String toParse) {

@@ -2,47 +2,53 @@ package edu.gcc.nemo.scheduler;
 
 import edu.gcc.nemo.scheduler.DB.Courses;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CourseListTest {
-    private CourseList courseList;
+class CourseListTest {
+    //Holder schedule for testing
+    Schedule s = new Schedule("Spring 2024",
+            "Spring",
+            0,
+            "",
+            Courses.getInstance(),
+            0);
 
     @Test
-    public void testAddCourse() {
-        Courses courses = Courses.getInstance();
-        courseList = new CourseList();
-        // Test adding a course that does not overlap with any existing courses
-        assertTrue(courseList.addCourse("MATH161B"));
-        assertEquals(1, courseList.courses.size());
+    void addCourse() {
+        String test = "Courses in you're schedule include: \n";
 
-        // Test adding a course that overlaps with an existing course
-        assertFalse(courseList.addCourse("MATH161B"));
-        assertEquals(1, courseList.courses.size());
+        //Adding a course successfully
+        s.addCourse("COMP 444 A");
+        assertEquals(test + "COMP 444 A", s.toString());
+
+        //Adding a course a second time
+        s.addCourse("COMP 444 A");
+        assertEquals(test + "COMP 444 A", s.toString());
+
+        //Adding a course successfully with another course in the schedule
+        s.addCourse("PSYC A");
+        assertEquals(test + "COMP 444 APSYC A", s.toString());
+
     }
 
     @Test
-    public void testRemoveCourse() {
-        Courses courses = Courses.getInstance();
-        courseList = new CourseList();
-        // Test removing a course that exists in the schedule
-        courseList.addCourse("HUMA303A");
-        assertTrue(courseList.removeCourse("HUMA303A"));
-        assertEquals(0, courseList.courses.size());
+    void removeCourse() {
+        String test = "Courses in you're schedule include: \n";
 
-        // Test removing a course that does not exist in the schedule
-        assertFalse(courseList.removeCourse("MATH101"));
-        assertEquals(0, courseList.courses.size());
-    }
+        //Adding a course successfully
+        s.addCourse("COMP 444 A");
 
-    @Test
-    public void testCoursesAsString() {
-        Courses courses = Courses.getInstance();
-        courseList = new CourseList();
-        // Test converting an empty course list to a string
-        assertEquals("", courseList.coursesAsString());
+        //Removing a course successfully
+        s.removeCourse("COMP 444 A");
+        assertEquals(test + "", s.toString());
 
-        // Test converting a non-empty course list to a string
-        courseList.addCourse("COMP435A");
-        assertEquals("COMP435A | TR | 10:05:00 AM-11:20:00 AM | Jonathan Hutchins,", courseList.coursesAsString());
+        //Removing a course a second time
+        s.removeCourse("COMP 444 A");
+        assertEquals(test + "", s.toString());
+
+        //Removing a course that has not been in the schedule
+        s.removeCourse("COMPS 999");
+        assertEquals(test + "", s.toString());
     }
 }

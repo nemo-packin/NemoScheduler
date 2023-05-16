@@ -81,8 +81,4 @@ public class CourseSearch {
         }
         return this.courses;
     }
-
-    public List<CourseFilter> getFilter() {
-        return filters;
-    }
 }

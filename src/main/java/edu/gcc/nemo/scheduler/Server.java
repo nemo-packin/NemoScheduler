@@ -18,7 +18,7 @@ public class Server {
     private static Students students;
     private static Admins admins;
     private static Courses courses;
-    private static SessionApi sessionApi;
+    private static Session session;
 
     public static void main(String[] args){
         // created singleton objects
@@ -27,7 +27,7 @@ public class Server {
         courses = Courses.getInstance();
         SpringApplication.run(Server.class, args);
 
-        sessionApi = new SessionApi();
+        session = new Session(admins, students, courses);
         State state = new State();
         boolean cont = true;
         while (cont) {
