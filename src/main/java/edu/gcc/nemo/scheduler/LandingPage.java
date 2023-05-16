@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:3000") // Update with the URL of the frontend application
+@CrossOrigin(origins = {"http://localhost:3000", "http://172.29.48.1:3000"}, allowCredentials = "true", allowedHeaders = "*", maxAge = 3600) // Update with the URL of the frontend application
 public class LandingPage {
 
     @GetMapping

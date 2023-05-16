@@ -9,7 +9,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true") // Update with the URL of the frontend application
+@CrossOrigin(origins = {"http://localhost:3000", "http://172.29.48.1:3000"}, allowCredentials = "true", allowedHeaders = "*", maxAge = 3600) // Update with the URL of the frontend application
 public class SessionApi {
 
     public SessionApi() {
@@ -188,6 +188,7 @@ public class SessionApi {
         HttpSession s = r.getSession();
         Session session = (Session) s.getAttribute("session");
         if(session == null) {
+            System.out.println("MAKING NEW SESSION!");
             session = new Session(Admins.getAdminsInstance(), Students.getInstance(), Courses.getInstance());
             s.setAttribute("session", session);
         }
