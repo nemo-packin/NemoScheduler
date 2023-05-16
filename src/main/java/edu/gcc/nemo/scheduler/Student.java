@@ -37,12 +37,9 @@ public class Student extends User{
         try{
             conn =  DriverManager.getConnection("jdbc:sqlite:NemoDB.db");
             PreparedStatement loadS = conn.prepareStatement("select * from Schedules where id = ?");
-            System.out.println(id);
             loadS.setInt(1, id);
             ResultSet rs = loadS.executeQuery();
             while(rs.next()){
-                System.out.println("YUPPPERS: ");
-                System.out.println(rs.getInt("isApproved"));
                 schedule = new Schedule(rs.getString("name").replace(id + "", ""),
                                             rs.getString("semester"),
                                             rs.getInt("isApproved"),
@@ -50,8 +47,6 @@ public class Student extends User{
                                             refCourses,
                                             id);
             }
-            System.out.println("RIGHT HERE RIGHT NOW!");
-            System.out.println(schedule.getApproved());
             loadS.close();
             conn.close();
         }catch (SQLException e){
